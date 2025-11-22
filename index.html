@@ -786,20 +786,25 @@
 
             <div class="modal-body" id="downloadOptions" style="display: none;">
                 <div class="download-options">
-                    <button class="download-option" onclick="downloadPDF()">
+                    <button class="download-option" onclick="closeDownloadModal(); showQualitySelector('pdf')">
                         <i class="fas fa-file-pdf"></i>
                         <span>Download as PDF</span>
-                        <small>Recommended for job applications</small>
+                        <small>Recommended for job applications · Choose quality</small>
                     </button>
-                    <button class="download-option" onclick="downloadPNG()">
+                    <button class="download-option" onclick="closeDownloadModal(); showQualitySelector('png')">
                         <i class="fas fa-file-image"></i>
                         <span>Download as PNG</span>
-                        <small>Image format for quick sharing</small>
+                        <small>Image format for quick sharing · Choose quality</small>
                     </button>
                     <button class="download-option" onclick="downloadJSON()">
                         <i class="fas fa-file-code"></i>
                         <span>Save as JSON</span>
                         <small>For editing later</small>
+                    </button>
+                    <button class="download-option" onclick="closeDownloadModal(); downloadAll()">
+                        <i class="fas fa-box-open"></i>
+                        <span>Download All Formats</span>
+                        <small>Get PDF, PNG, and JSON together</small>
                     </button>
                 </div>
             </div>
