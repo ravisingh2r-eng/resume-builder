@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://resumebuilder.in/</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Main Index Page -->
+  <url>
+    <loc>https://resumebuilder.in/index.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Categories Index -->
+  <url>
+    <loc>https://resumebuilder.in/categories/</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://resumebuilder.in/categories/index.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Admin Dashboard -->
+  <url>
+    <loc>https://resumebuilder.in/admin.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Software Engineer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/software-engineer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Web Developer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/web-developer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Mobile Developer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/mobile-developer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Data Scientist Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/data-scientist.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Devops Engineer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/devops-engineer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Qa Engineer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/qa-engineer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Uiux Designer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/uiux-designer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Cybersecurity Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/cybersecurity.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Cloud Architect Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/cloud-architect.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Database Admin Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/database-admin.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Doctor Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/doctor.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Nurse Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/nurse.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Pharmacist Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/pharmacist.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Lab Technician Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/lab-technician.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Physiotherapist Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/physiotherapist.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Digital Marketer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/digital-marketer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Sales Manager Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/sales-manager.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Business Analyst Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/business-analyst.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hr Manager Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/hr-manager.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Project Manager Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/project-manager.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Product Manager Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/product-manager.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Operations Manager Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/operations-manager.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Customer Success Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/customer-success.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Graphic Designer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/graphic-designer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Content Writer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/content-writer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Video Editor Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/video-editor.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Photographer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/photographer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 3d Animator Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/3d-animator.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Teacher Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/teacher.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Professor Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/professor.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Counselor Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/counselor.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Corporate Trainer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/corporate-trainer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Mechanical Engineer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/mechanical-engineer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Civil Engineer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/civil-engineer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Electrical Engineer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/electrical-engineer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Chemical Engineer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/chemical-engineer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Biomedical Engineer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/biomedical-engineer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Accountant Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/accountant.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Financial Analyst Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/financial-analyst.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Chartered Accountant Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/chartered-accountant.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Investment Banker Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/investment-banker.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hotel Manager Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/hotel-manager.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Chef Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/chef.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Event Manager Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/event-manager.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Travel Consultant Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/travel-consultant.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Lawyer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/lawyer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Legal Advisor Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/legal-advisor.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Government Officer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/government-officer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Fresher Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/fresher.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Intern Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/intern.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- College Student Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/college-student.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Architect Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/architect.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Real Estate Agent Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/real-estate-agent.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Fashion Designer Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/fashion-designer.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Journalist Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/journalist.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Social Worker Category -->
+  <url>
+    <loc>https://resumebuilder.in/categories/social-worker.html</loc>
+    <lastmod>2025-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
