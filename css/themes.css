@@ -1,0 +1,357 @@
+/* ============================================
+   THEMES STYLESHEET
+   Dark/Light Mode Support
+   ============================================ */
+
+/* ============================================
+   THEME TOGGLE ANIMATION
+   ============================================ */
+.theme-toggle {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle i {
+    transition: transform 0.5s ease;
+}
+
+.theme-toggle:hover i {
+    transform: rotate(20deg);
+}
+
+[data-theme="dark"] .theme-toggle i.fa-moon {
+    display: none;
+}
+
+[data-theme="dark"] .theme-toggle i.fa-sun {
+    display: inline-block;
+}
+
+[data-theme="light"] .theme-toggle i.fa-sun {
+    display: none;
+}
+
+[data-theme="light"] .theme-toggle i.fa-moon {
+    display: inline-block;
+}
+
+/* ============================================
+   DARK THEME OVERRIDES
+   ============================================ */
+[data-theme="dark"] {
+    /* Backgrounds */
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #3d3d3d;
+
+    /* Text */
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-light: #808080;
+
+    /* Borders & Shadows */
+    --border-color: #404040;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.4);
+    --shadow-lg: 0 10px 20px rgba(0,0,0,0.5);
+    --shadow-xl: 0 20px 40px rgba(0,0,0,0.6);
+
+    /* Neutrals */
+    --dark: #e0e0e0;
+    --gray-lighter: #3d3d3d;
+}
+
+/* Dark Theme Specific Adjustments */
+[data-theme="dark"] .header {
+    background: var(--bg-secondary);
+    border-bottom-color: #404040;
+}
+
+[data-theme="dark"] .hero {
+    background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+}
+
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .template-card,
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .tip-card {
+    background: var(--bg-secondary);
+    border-color: #404040;
+}
+
+[data-theme="dark"] .feature-card:hover,
+[data-theme="dark"] .template-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 16px rgba(52, 152, 219, 0.2);
+}
+
+[data-theme="dark"] .step,
+[data-theme="dark"] .editor-section {
+    background: var(--bg-secondary);
+    border-color: #404040;
+}
+
+[data-theme="dark"] .section-header {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .section-header:hover {
+    background: #4d4d4d;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+    background: var(--bg-tertiary);
+    border-color: #404040;
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus {
+    border-color: var(--primary-color);
+    background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .tips-box {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .editor-preview {
+    background: #1a1a1a;
+}
+
+[data-theme="dark"] .preview-header,
+[data-theme="dark"] .score-panel {
+    background: var(--bg-secondary);
+    border-color: #404040;
+}
+
+[data-theme="dark"] .modal-content {
+    background: var(--bg-secondary);
+    border: 1px solid #404040;
+}
+
+[data-theme="dark"] .download-option {
+    background: var(--bg-tertiary);
+    border-color: #404040;
+}
+
+[data-theme="dark"] .download-option:hover {
+    background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .ad-container {
+    background: var(--bg-tertiary);
+    border-color: #404040;
+}
+
+[data-theme="dark"] .achievement-toast {
+    background: var(--bg-secondary);
+    border-left-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Resume Preview (Always Light in Dark Mode) */
+[data-theme="dark"] .resume-preview {
+    /* Resume preview always stays white for accurate representation */
+    background: white;
+    color: #2c3e50;
+}
+
+/* Dark Mode - Template Specific */
+[data-theme="dark"] .template-card .template-preview {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .filter-btn {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .filter-btn:hover,
+[data-theme="dark"] .filter-btn.active {
+    background: var(--primary-color);
+}
+
+[data-theme="dark"] .btn-add {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .btn-add:hover {
+    background: var(--primary-color);
+}
+
+[data-theme="dark"] .btn-icon:hover {
+    background: var(--bg-tertiary);
+}
+
+/* ============================================
+   LIGHT THEME (DEFAULT)
+   ============================================ */
+[data-theme="light"] {
+    /* Already defined in :root, but explicit for clarity */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #ecf0f1;
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --text-light: #95a5a6;
+}
+
+/* ============================================
+   AUTO THEME (System Preference)
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+    [data-theme="auto"] {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2d2d2d;
+        --bg-tertiary: #3d3d3d;
+        --text-primary: #e0e0e0;
+        --text-secondary: #b0b0b0;
+        --text-light: #808080;
+        --border-color: #404040;
+        --dark: #e0e0e0;
+        --gray-lighter: #3d3d3d;
+    }
+}
+
+/* ============================================
+   COLOR SCHEME VARIATIONS
+   ============================================ */
+
+/* Blue Scheme (Default) */
+.color-scheme-blue {
+    --accent-color: #3498db;
+    --accent-color-dark: #2980b9;
+    --accent-color-light: #5dade2;
+}
+
+/* Green Scheme */
+.color-scheme-green {
+    --accent-color: #2ecc71;
+    --accent-color-dark: #27ae60;
+    --accent-color-light: #58d68d;
+}
+
+/* Red Scheme */
+.color-scheme-red {
+    --accent-color: #e74c3c;
+    --accent-color-dark: #c0392b;
+    --accent-color-light: #ec7063;
+}
+
+/* Purple Scheme */
+.color-scheme-purple {
+    --accent-color: #9b59b6;
+    --accent-color-dark: #8e44ad;
+    --accent-color-light: #af7ac5;
+}
+
+/* Orange Scheme */
+.color-scheme-orange {
+    --accent-color: #f39c12;
+    --accent-color-dark: #e67e22;
+    --accent-color-light: #f5b041;
+}
+
+/* Teal Scheme */
+.color-scheme-teal {
+    --accent-color: #1abc9c;
+    --accent-color-dark: #16a085;
+    --accent-color-light: #48c9b0;
+}
+
+/* Pink Scheme */
+.color-scheme-pink {
+    --accent-color: #e91e63;
+    --accent-color-dark: #c2185b;
+    --accent-color-light: #f06292;
+}
+
+/* Indigo Scheme */
+.color-scheme-indigo {
+    --accent-color: #3f51b5;
+    --accent-color-dark: #303f9f;
+    --accent-color-light: #7986cb;
+}
+
+/* ============================================
+   ACCESSIBILITY - HIGH CONTRAST MODE
+   ============================================ */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000000;
+        --text-primary: #000000;
+        --text-secondary: #333333;
+    }
+
+    [data-theme="dark"] {
+        --border-color: #ffffff;
+        --text-primary: #ffffff;
+        --text-secondary: #cccccc;
+    }
+
+    .feature-card,
+    .template-card,
+    .editor-section,
+    .modal-content {
+        border-width: 2px;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ============================================
+   THEME TRANSITION
+   ============================================ */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header,
+.feature-card,
+.template-card,
+.editor-section,
+.modal-content,
+input,
+textarea,
+select {
+    transition: background-color 0.3s ease,
+                border-color 0.3s ease,
+                color 0.3s ease;
+}
+
+/* Disable transitions during theme toggle to prevent flash */
+body.theme-transitioning,
+body.theme-transitioning * {
+    transition: none !important;
+}
+
+/* ============================================
+   PRINT MEDIA - FORCE LIGHT THEME
+   ============================================ */
+@media print {
+    :root,
+    [data-theme="dark"],
+    [data-theme="auto"] {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8f9fa;
+        --text-primary: #2c3e50;
+        --text-secondary: #7f8c8d;
+        background: white !important;
+        color: black !important;
+    }
+}

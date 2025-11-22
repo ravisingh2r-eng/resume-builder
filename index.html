@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Free Resume Builder - Create Professional Resume in Minutes | ATS-Friendly CV Maker</title>
+    <meta name="description" content="Create professional resumes online for free. Choose from 6+ templates, customize, and download as PDF. ATS-friendly resume builder with smart suggestions and real-time preview.">
+    <meta name="keywords" content="resume builder, cv maker, free resume, professional resume, ATS resume, online cv builder, resume templates, cv templates, job resume">
+    <meta name="author" content="Resume Builder">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Free Professional Resume Builder - Create ATS-Friendly Resumes">
+    <meta property="og:description" content="Build your perfect resume in minutes with our free online resume builder. Choose from professional templates and download as PDF.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./assets/images/og-preview.jpg">
+    <meta property="og:url" content="https://yourdomain.com/resume-builder">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Resume Builder - Create Professional Resumes">
+    <meta name="twitter:description" content="Build your perfect resume in minutes">
+    <meta name="twitter:image" content="./assets/images/twitter-preview.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourdomain.com/resume-builder">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&family=Lato:wght@300;400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/templates.css">
+    <link rel="stylesheet" href="./css/themes.css">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Resume Builder",
+        "description": "Free online resume builder with professional templates",
+        "url": "https://yourdomain.com/resume-builder",
+        "applicationCategory": "BusinessApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Skip to Content (Accessibility) -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Ad Blocker Detection -->
+    <div id="ad-blocker-notice" class="ad-blocker-notice" style="display: none;">
+        <div class="ad-blocker-content">
+            <i class="fas fa-ad"></i>
+            <p>We noticed you're using an ad blocker. This free tool is supported by ads. Please consider disabling your ad blocker to support us!</p>
+            <button onclick="document.getElementById('ad-blocker-notice').style.display='none'">Continue Anyway</button>
+        </div>
+    </div>
+
+    <!-- Header Banner Ad (728x90 Leaderboard) -->
+    <div class="ad-container ad-header">
+        <div class="ad-label">Advertisement</div>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="1111111111"
+             data-ad-format="horizontal"
+             data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Resume Builder</span>
+                </div>
+                <nav class="nav">
+                    <a href="#" class="nav-link active" data-page="home">Home</a>
+                    <a href="#" class="nav-link" data-page="templates">Templates</a>
+                    <a href="#" class="nav-link" data-page="editor">Editor</a>
+                    <a href="#" class="nav-link" data-page="tips">Tips</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn-icon theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="btn-primary" id="createResumeBtn">
+                        <i class="fas fa-plus"></i> Create Resume
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Home/Landing Page -->
+        <section id="homePage" class="page active">
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1 class="hero-title">Build Your Professional Resume in Minutes</h1>
+                            <p class="hero-subtitle">Create ATS-friendly resumes with our free online builder. Choose from 6+ professional templates, customize, and download as PDF.</p>
+                            <div class="hero-cta">
+                                <button class="btn-large btn-primary" id="heroCreateBtn">
+                                    <i class="fas fa-rocket"></i> Create My Resume
+                                </button>
+                                <button class="btn-large btn-secondary" id="heroTemplatesBtn">
+                                    <i class="fas fa-images"></i> View Templates
+                                </button>
+                            </div>
+                            <div class="hero-stats">
+                                <div class="stat">
+                                    <strong>50,000+</strong>
+                                    <span>Resumes Created</span>
+                                </div>
+                                <div class="stat">
+                                    <strong>6+</strong>
+                                    <span>Professional Templates</span>
+                                </div>
+                                <div class="stat">
+                                    <strong>100%</strong>
+                                    <span>Free Forever</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-image">
+                            <div class="resume-preview-mockup">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="features-section">
+                <div class="container">
+                    <h2 class="section-title">Powerful Features</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3>Real-Time Preview</h3>
+                            <p>See your resume update instantly as you type. No waiting, no guessing.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <h3>6+ Templates</h3>
+                            <p>Choose from modern, creative, ATS-friendly, and professional designs.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <h3>Export to PDF</h3>
+                            <p>Download print-ready PDFs with one click. Perfect quality guaranteed.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>Mobile Friendly</h3>
+                            <p>Create and edit resumes on any device - desktop, tablet, or phone.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-save"></i>
+                            </div>
+                            <h3>Auto Save</h3>
+                            <p>Never lose your work. We automatically save your progress locally.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>ATS Optimized</h3>
+                            <p>Get past applicant tracking systems with our ATS-friendly templates.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Multiplex Ad in Features Section -->
+            <div class="ad-container ad-multiplex">
+                <div class="ad-label">Advertisement</div>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-format="autorelaxed"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                     data-ad-slot="2222222222"></ins>
+            </div>
+
+            <!-- How It Works -->
+            <div class="how-it-works">
+                <div class="container">
+                    <h2 class="section-title">How It Works</h2>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-icon"><i class="fas fa-file-alt"></i></div>
+                            <h3>Choose Template</h3>
+                            <p>Select from our professional resume templates</p>
+                        </div>
+                        <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-icon"><i class="fas fa-edit"></i></div>
+                            <h3>Fill Details</h3>
+                            <p>Add your information with real-time preview</p>
+                        </div>
+                        <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-icon"><i class="fas fa-paint-brush"></i></div>
+                            <h3>Customize</h3>
+                            <p>Adjust colors, fonts, and layout to match your style</p>
+                        </div>
+                        <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-icon"><i class="fas fa-download"></i></div>
+                            <h3>Download</h3>
+                            <p>Export as PDF and start applying for jobs!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section (SEO) -->
+            <div class="faq-section">
+                <div class="container">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <h3><i class="fas fa-question-circle"></i> Is this resume builder really free?</h3>
+                            <p>Yes! Our resume builder is 100% free to use. You can create, customize, and download unlimited resumes without any charges.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3><i class="fas fa-question-circle"></i> Are the templates ATS-friendly?</h3>
+                            <p>Absolutely! All our templates are designed to pass Applicant Tracking Systems (ATS) while maintaining a professional appearance.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3><i class="fas fa-question-circle"></i> Can I edit my resume later?</h3>
+                            <p>Yes! Your resume is automatically saved in your browser. You can come back anytime to edit and download updated versions.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3><i class="fas fa-question-circle"></i> What file formats can I download?</h3>
+                            <p>You can download your resume as PDF (recommended), PNG image, or JSON file for later editing.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3><i class="fas fa-question-circle"></i> Do I need to create an account?</h3>
+                            <p>No account needed! Start building your resume immediately. Your data is saved locally in your browser.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3><i class="fas fa-question-circle"></i> Can I use this on my phone?</h3>
+                            <p>Yes! Our resume builder is fully responsive and works perfectly on mobile devices, tablets, and desktops.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Templates Page -->
+        <section id="templatesPage" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Choose Your Template</h1>
+                    <p>Select from our professionally designed resume templates</p>
+                </div>
+
+                <!-- Template Filters -->
+                <div class="template-filters">
+                    <button class="filter-btn active" data-filter="all">All Templates</button>
+                    <button class="filter-btn" data-filter="modern">Modern</button>
+                    <button class="filter-btn" data-filter="professional">Professional</button>
+                    <button class="filter-btn" data-filter="creative">Creative</button>
+                    <button class="filter-btn" data-filter="ats">ATS-Friendly</button>
+                </div>
+
+                <!-- Templates Grid -->
+                <div class="templates-grid" id="templatesGrid">
+                    <!-- Templates will be dynamically inserted here -->
+                </div>
+
+                <!-- Multiplex Ad Between Templates -->
+                <div class="ad-container ad-multiplex">
+                    <div class="ad-label">Advertisement</div>
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-format="autorelaxed"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="3333333333"></ins>
+                </div>
+            </div>
+        </section>
+
+        <!-- Editor Page -->
+        <section id="editorPage" class="page">
+            <div class="editor-container">
+                <!-- Left Sidebar - Form Editor -->
+                <aside class="editor-sidebar">
+                    <div class="sidebar-header">
+                        <h2>Edit Resume</h2>
+                        <div class="progress-indicator">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <span class="progress-text" id="progressText">0% Complete</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-content" id="editorSections">
+                        <!-- Personal Information Section -->
+                        <div class="editor-section active" data-section="personal">
+                            <div class="section-header" onclick="toggleSection(this)">
+                                <div class="section-title">
+                                    <i class="fas fa-user"></i>
+                                    <span>Personal Information</span>
+                                </div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="section-content">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name *</label>
+                                    <input type="text" id="fullName" placeholder="John Doe" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="jobTitle">Job Title *</label>
+                                    <input type="text" id="jobTitle" placeholder="Software Engineer">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="email">Email *</label>
+                                        <input type="email" id="email" placeholder="john@example.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone *</label>
+                                        <input type="tel" id="phone" placeholder="+1 234 567 8900">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="location">Location</label>
+                                        <input type="text" id="location" placeholder="New York, USA">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="website">Website/Portfolio</label>
+                                        <input type="url" id="website" placeholder="https://yourwebsite.com">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkedin">LinkedIn</label>
+                                    <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                                </div>
+                                <div class="form-group">
+                                    <label for="github">GitHub (for developers)</label>
+                                    <input type="url" id="github" placeholder="https://github.com/yourusername">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profilePhoto">Profile Photo (optional)</label>
+                                    <input type="file" id="profilePhoto" accept="image/*">
+                                    <small>Recommended for creative resumes. Not recommended for ATS.</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- In-Feed Native Ad -->
+                        <div class="ad-container ad-native">
+                            <div class="ad-label">Advertisement</div>
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-format="fluid"
+                                 data-ad-layout-key="-fb+5w+4e-db+86"
+                                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                                 data-ad-slot="4444444444"></ins>
+                        </div>
+
+                        <!-- Professional Summary Section -->
+                        <div class="editor-section" data-section="summary">
+                            <div class="section-header" onclick="toggleSection(this)">
+                                <div class="section-title">
+                                    <i class="fas fa-align-left"></i>
+                                    <span>Professional Summary</span>
+                                </div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="section-content">
+                                <div class="form-group">
+                                    <label for="summary">Summary *</label>
+                                    <textarea id="summary" rows="6" placeholder="Write a brief professional summary highlighting your key achievements and skills..."></textarea>
+                                    <div class="char-counter">
+                                        <span id="summaryCounter">0</span> / 500 characters
+                                    </div>
+                                    <div class="tips-box">
+                                        <i class="fas fa-lightbulb"></i>
+                                        <span>Tip: Start with your job title and years of experience. Highlight 2-3 key achievements.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Work Experience Section -->
+                        <div class="editor-section" data-section="experience">
+                            <div class="section-header" onclick="toggleSection(this)">
+                                <div class="section-title">
+                                    <i class="fas fa-briefcase"></i>
+                                    <span>Work Experience</span>
+                                </div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="section-content">
+                                <div id="experienceList"></div>
+                                <button class="btn-add" onclick="addExperience()">
+                                    <i class="fas fa-plus"></i> Add Experience
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- In-Feed Native Ad -->
+                        <div class="ad-container ad-native">
+                            <div class="ad-label">Advertisement</div>
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-format="fluid"
+                                 data-ad-layout-key="-fb+5w+4e-db+86"
+                                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                                 data-ad-slot="5555555555"></ins>
+                        </div>
+
+                        <!-- Education Section -->
+                        <div class="editor-section" data-section="education">
+                            <div class="section-header" onclick="toggleSection(this)">
+                                <div class="section-title">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Education</span>
+                                </div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="section-content">
+                                <div id="educationList"></div>
+                                <button class="btn-add" onclick="addEducation()">
+                                    <i class="fas fa-plus"></i> Add Education
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Skills Section -->
+                        <div class="editor-section" data-section="skills">
+                            <div class="section-header" onclick="toggleSection(this)">
+                                <div class="section-title">
+                                    <i class="fas fa-code"></i>
+                                    <span>Skills</span>
+                                </div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="section-content">
+                                <div id="skillsList"></div>
+                                <button class="btn-add" onclick="addSkill()">
+                                    <i class="fas fa-plus"></i> Add Skill
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Projects Section -->
+                        <div class="editor-section" data-section="projects">
+                            <div class="section-header" onclick="toggleSection(this)">
+                                <div class="section-title">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span>Projects</span>
+                                </div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="section-content">
+                                <div id="projectsList"></div>
+                                <button class="btn-add" onclick="addProject()">
+                                    <i class="fas fa-plus"></i> Add Project
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- In-Feed Native Ad -->
+                        <div class="ad-container ad-native">
+                            <div class="ad-label">Advertisement</div>
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-format="fluid"
+                                 data-ad-layout-key="-fb+5w+4e-db+86"
+                                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                                 data-ad-slot="6666666666"></ins>
+                        </div>
+
+                        <!-- Certifications Section -->
+                        <div class="editor-section" data-section="certifications">
+                            <div class="section-header" onclick="toggleSection(this)">
+                                <div class="section-title">
+                                    <i class="fas fa-certificate"></i>
+                                    <span>Certifications</span>
+                                </div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="section-content">
+                                <div id="certificationsList"></div>
+                                <button class="btn-add" onclick="addCertification()">
+                                    <i class="fas fa-plus"></i> Add Certification
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Languages Section -->
+                        <div class="editor-section" data-section="languages">
+                            <div class="section-header" onclick="toggleSection(this)">
+                                <div class="section-title">
+                                    <i class="fas fa-language"></i>
+                                    <span>Languages</span>
+                                </div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="section-content">
+                                <div id="languagesList"></div>
+                                <button class="btn-add" onclick="addLanguage()">
+                                    <i class="fas fa-plus"></i> Add Language
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Interests Section -->
+                        <div class="editor-section" data-section="interests">
+                            <div class="section-header" onclick="toggleSection(this)">
+                                <div class="section-title">
+                                    <i class="fas fa-heart"></i>
+                                    <span>Interests & Hobbies</span>
+                                </div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="section-content">
+                                <div class="form-group">
+                                    <label for="interests">Interests (comma-separated)</label>
+                                    <input type="text" id="interests" placeholder="Photography, Hiking, Reading, Coding">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Sidebar Right Ad (Desktop Only) - 300x600 Half Page -->
+                <aside class="ad-sidebar desktop-only">
+                    <div class="ad-container ad-sidebar-sticky">
+                        <div class="ad-label">Advertisement</div>
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:300px;height:600px"
+                             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                             data-ad-slot="7777777777"></ins>
+                    </div>
+                </aside>
+
+                <!-- Center - Resume Preview -->
+                <div class="editor-preview">
+                    <div class="preview-header">
+                        <h3><i class="fas fa-eye"></i> Live Preview</h3>
+                        <div class="preview-actions">
+                            <button class="btn-icon" id="zoomOut" title="Zoom Out">
+                                <i class="fas fa-search-minus"></i>
+                            </button>
+                            <span id="zoomLevel">100%</span>
+                            <button class="btn-icon" id="zoomIn" title="Zoom In">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                            <button class="btn-icon" id="settingsBtn" title="Customize">
+                                <i class="fas fa-cog"></i>
+                            </button>
+                            <button class="btn-primary" id="downloadBtn">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                    <div class="preview-content" id="previewContent">
+                        <div id="resumePreview" class="resume-preview">
+                            <!-- Resume preview will be rendered here -->
+                        </div>
+                    </div>
+
+                    <!-- Resume Score Panel -->
+                    <div class="score-panel">
+                        <div class="score-header">
+                            <h4>Resume Score</h4>
+                            <div class="score-circle" id="scoreCircle">
+                                <span class="score-value" id="scoreValue">0</span>
+                            </div>
+                        </div>
+                        <div class="score-details" id="scoreDetails">
+                            <!-- Score breakdown will be shown here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Panel - Customization -->
+                <aside class="customization-panel" id="customizationPanel">
+                    <div class="panel-header">
+                        <h3>Customize</h3>
+                        <button class="btn-icon" onclick="closeCustomization()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="panel-content">
+                        <!-- Template Selector -->
+                        <div class="custom-section">
+                            <h4><i class="fas fa-file-alt"></i> Template</h4>
+                            <div class="template-thumbnails" id="templateSelector">
+                                <!-- Template options will be inserted here -->
+                            </div>
+                        </div>
+
+                        <!-- Color Scheme -->
+                        <div class="custom-section">
+                            <h4><i class="fas fa-palette"></i> Color Scheme</h4>
+                            <div class="color-picker-group">
+                                <label>Accent Color</label>
+                                <input type="color" id="accentColor" value="#3498db">
+                            </div>
+                            <div class="color-presets">
+                                <button class="color-preset" data-color="#3498db" style="background: #3498db;"></button>
+                                <button class="color-preset" data-color="#2ecc71" style="background: #2ecc71;"></button>
+                                <button class="color-preset" data-color="#e74c3c" style="background: #e74c3c;"></button>
+                                <button class="color-preset" data-color="#9b59b6" style="background: #9b59b6;"></button>
+                                <button class="color-preset" data-color="#f39c12" style="background: #f39c12;"></button>
+                                <button class="color-preset" data-color="#1abc9c" style="background: #1abc9c;"></button>
+                            </div>
+                        </div>
+
+                        <!-- Font Selection -->
+                        <div class="custom-section">
+                            <h4><i class="fas fa-font"></i> Font Family</h4>
+                            <select id="fontFamily" class="custom-select">
+                                <option value="Inter">Inter (Modern)</option>
+                                <option value="Roboto">Roboto (Clean)</option>
+                                <option value="Poppins">Poppins (Friendly)</option>
+                                <option value="Lato">Lato (Professional)</option>
+                                <option value="Merriweather">Merriweather (Classic)</option>
+                                <option value="Playfair Display">Playfair Display (Elegant)</option>
+                            </select>
+                        </div>
+
+                        <!-- Font Size -->
+                        <div class="custom-section">
+                            <h4><i class="fas fa-text-height"></i> Font Size</h4>
+                            <input type="range" id="fontSize" min="12" max="18" value="14" step="1">
+                            <span id="fontSizeValue">14px</span>
+                        </div>
+
+                        <!-- Spacing -->
+                        <div class="custom-section">
+                            <h4><i class="fas fa-arrows-alt-v"></i> Spacing</h4>
+                            <input type="range" id="spacing" min="0.8" max="1.5" value="1" step="0.1">
+                            <span id="spacingValue">Normal</span>
+                        </div>
+
+                        <!-- Section Visibility -->
+                        <div class="custom-section">
+                            <h4><i class="fas fa-eye"></i> Section Visibility</h4>
+                            <div class="visibility-toggles">
+                                <label class="toggle-item">
+                                    <input type="checkbox" checked data-section="summary"> Professional Summary
+                                </label>
+                                <label class="toggle-item">
+                                    <input type="checkbox" checked data-section="experience"> Work Experience
+                                </label>
+                                <label class="toggle-item">
+                                    <input type="checkbox" checked data-section="education"> Education
+                                </label>
+                                <label class="toggle-item">
+                                    <input type="checkbox" checked data-section="skills"> Skills
+                                </label>
+                                <label class="toggle-item">
+                                    <input type="checkbox" checked data-section="projects"> Projects
+                                </label>
+                                <label class="toggle-item">
+                                    <input type="checkbox" checked data-section="certifications"> Certifications
+                                </label>
+                                <label class="toggle-item">
+                                    <input type="checkbox" checked data-section="languages"> Languages
+                                </label>
+                                <label class="toggle-item">
+                                    <input type="checkbox" checked data-section="interests"> Interests
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Tips Page -->
+        <section id="tipsPage" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Resume Writing Tips</h1>
+                    <p>Expert advice to create a winning resume</p>
+                </div>
+
+                <div class="tips-grid">
+                    <article class="tip-card">
+                        <h3><i class="fas fa-check-circle"></i> Keep It Concise</h3>
+                        <p>Limit your resume to 1-2 pages. Recruiters spend only 6-7 seconds on initial screening. Make every word count.</p>
+                    </article>
+                    <article class="tip-card">
+                        <h3><i class="fas fa-bullseye"></i> Use Action Verbs</h3>
+                        <p>Start bullet points with strong action verbs: Achieved, Developed, Managed, Created, Improved, Led, etc.</p>
+                    </article>
+                    <article class="tip-card">
+                        <h3><i class="fas fa-chart-line"></i> Quantify Achievements</h3>
+                        <p>Include numbers and metrics: "Increased sales by 35%" is better than "Improved sales performance".</p>
+                    </article>
+                    <article class="tip-card">
+                        <h3><i class="fas fa-crosshairs"></i> Tailor for Each Job</h3>
+                        <p>Customize your resume for each application. Match keywords from the job description to pass ATS systems.</p>
+                    </article>
+                    <article class="tip-card">
+                        <h3><i class="fas fa-spell-check"></i> Proofread Carefully</h3>
+                        <p>Spelling and grammar errors are deal-breakers. Use spell-check and have someone review your resume.</p>
+                    </article>
+                    <article class="tip-card">
+                        <h3><i class="fas fa-award"></i> Highlight Skills</h3>
+                        <p>Include both hard skills (technical) and soft skills (communication, leadership) relevant to the position.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Download Modal with Interstitial Ad -->
+    <div class="modal" id="downloadModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Download Resume</h3>
+                <button class="btn-icon" onclick="closeDownloadModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Interstitial Ad Container -->
+            <div class="ad-container ad-interstitial" id="downloadAdContainer">
+                <div class="ad-label">Please wait... Ad will close in <span id="adTimer">5</span> seconds</div>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                     data-ad-slot="8888888888"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
+
+            <div class="modal-body" id="downloadOptions" style="display: none;">
+                <div class="download-options">
+                    <button class="download-option" onclick="downloadPDF()">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Download as PDF</span>
+                        <small>Recommended for job applications</small>
+                    </button>
+                    <button class="download-option" onclick="downloadPNG()">
+                        <i class="fas fa-file-image"></i>
+                        <span>Download as PNG</span>
+                        <small>Image format for quick sharing</small>
+                    </button>
+                    <button class="download-option" onclick="downloadJSON()">
+                        <i class="fas fa-file-code"></i>
+                        <span>Save as JSON</span>
+                        <small>For editing later</small>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Bottom Anchor Ad -->
+    <div class="ad-container ad-mobile-anchor mobile-only">
+        <button class="ad-close" onclick="this.parentElement.style.display='none'">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="ad-label">Advertisement</div>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="9999999999"
+             data-ad-format="auto"></ins>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Resume Builder</h4>
+                    <p>Create professional resumes in minutes. Free, fast, and ATS-friendly.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Templates</a></li>
+                        <li><a href="#">Tips & Guides</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="./admin.html">Admin Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Share</h4>
+                    <div class="social-share">
+                        <button class="social-btn" onclick="shareOnWhatsApp()">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                        <button class="social-btn" onclick="shareOnTwitter()">
+                            <i class="fab fa-twitter"></i>
+                        </button>
+                        <button class="social-btn" onclick="shareOnFacebook()">
+                            <i class="fab fa-facebook"></i>
+                        </button>
+                        <button class="social-btn" onclick="shareOnLinkedIn()">
+                            <i class="fab fa-linkedin"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Resume Builder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Achievement Toast Notifications -->
+    <div id="achievementToast" class="achievement-toast">
+        <i class="fas fa-trophy"></i>
+        <div class="toast-content">
+            <strong id="achievementTitle"></strong>
+            <p id="achievementMessage"></p>
+        </div>
+    </div>
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="./js/storage.js"></script>
+    <script src="./js/templates.js"></script>
+    <script src="./js/pdf-generator.js"></script>
+    <script src="./js/ads.js"></script>
+    <script src="./js/app.js"></script>
+
+    <!-- Initialize AdSense ads -->
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>

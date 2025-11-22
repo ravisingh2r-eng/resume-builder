@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Resume Builder</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f7fa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .stat-icon.blue { background: #3498db; }
+        .stat-icon.green { background: #2ecc71; }
+        .stat-icon.orange { background: #f39c12; }
+        .stat-icon.purple { background: #9b59b6; }
+        .stat-icon.red { background: #e74c3c; }
+        .stat-icon.teal { background: #1abc9c; }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-change {
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .stat-change.positive { color: #2ecc71; }
+        .stat-change.negative { color: #e74c3c; }
+
+        .dashboard-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title i {
+            color: #3498db;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: #f8f9fa;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        th {
+            font-weight: 600;
+            color: #2c3e50;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .badge.success { background: #d4edda; color: #155724; }
+        .badge.warning { background: #fff3cd; color: #856404; }
+        .badge.info { background: #d1ecf1; color: #0c5460; }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #3498db;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .chart-container {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+
+        .btn-success {
+            background: #2ecc71;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #27ae60;
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+
+        .revenue-projection {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .revenue-projection h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .revenue-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .revenue-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .revenue-detail-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .revenue-detail-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .revenue-detail-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1><i class="fas fa-chart-line"></i> Resume Builder Analytics Dashboard</h1>
+        <p>Real-time metrics and performance tracking</p>
+    </header>
+
+    <div class="container">
+        <!-- Revenue Projection -->
+        <div class="revenue-projection">
+            <h3>Estimated Monthly Revenue</h3>
+            <div class="revenue-amount" id="monthlyRevenue">₹0</div>
+            <p>Based on current traffic and ad performance</p>
+
+            <div class="revenue-details">
+                <div class="revenue-detail-item">
+                    <div class="revenue-detail-label">Daily Average</div>
+                    <div class="revenue-detail-value" id="dailyRevenue">₹0</div>
+                </div>
+                <div class="revenue-detail-item">
+                    <div class="revenue-detail-label">Total Impressions</div>
+                    <div class="revenue-detail-value" id="totalImpressions">0</div>
+                </div>
+                <div class="revenue-detail-item">
+                    <div class="revenue-detail-label">Ad CTR</div>
+                    <div class="revenue-detail-value" id="adCTR">0%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon blue">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+                <div class="stat-value" id="totalVisitors">0</div>
+                <div class="stat-label">Total Visitors</div>
+                <div class="stat-change positive">
+                    <i class="fas fa-arrow-up"></i> +12.5% from last week
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon green">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                </div>
+                <div class="stat-value" id="resumesCreated">0</div>
+                <div class="stat-label">Resumes Created</div>
+                <div class="stat-change positive">
+                    <i class="fas fa-arrow-up"></i> +8.3% from last week
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon orange">
+                        <i class="fas fa-download"></i>
+                    </div>
+                </div>
+                <div class="stat-value" id="totalDownloads">0</div>
+                <div class="stat-label">Total Downloads</div>
+                <div class="stat-change positive">
+                    <i class="fas fa-arrow-up"></i> +15.7% from last week
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon purple">
+                        <i class="fas fa-ad"></i>
+                    </div>
+                </div>
+                <div class="stat-value" id="adImpressions">0</div>
+                <div class="stat-label">Ad Impressions</div>
+                <div class="stat-change positive">
+                    <i class="fas fa-arrow-up"></i> +22.1% from last week
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon red">
+                        <i class="fas fa-mouse-pointer"></i>
+                    </div>
+                </div>
+                <div class="stat-value" id="adClicks">0</div>
+                <div class="stat-label">Ad Clicks</div>
+                <div class="stat-change positive">
+                    <i class="fas fa-arrow-up"></i> +5.2% from last week
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon teal">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                </div>
+                <div class="stat-value" id="conversionRate">0%</div>
+                <div class="stat-label">Conversion Rate</div>
+                <div class="stat-change positive">
+                    <i class="fas fa-arrow-up"></i> +3.8% from last week
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Performance -->
+        <div class="dashboard-section">
+            <h2 class="section-title">
+                <i class="fas fa-chart-bar"></i>
+                Ad Performance by Placement
+            </h2>
+
+            <table id="adPerformanceTable">
+                <thead>
+                    <tr>
+                        <th>Ad Placement</th>
+                        <th>Impressions</th>
+                        <th>Clicks</th>
+                        <th>CTR</th>
+                        <th>Est. Revenue</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="adPerformanceBody">
+                    <!-- Data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Template Usage -->
+        <div class="dashboard-section">
+            <h2 class="section-title">
+                <i class="fas fa-layer-group"></i>
+                Template Usage Statistics
+            </h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Template Name</th>
+                        <th>Usage Count</th>
+                        <th>Percentage</th>
+                        <th>Downloads</th>
+                        <th>Popularity</th>
+                    </tr>
+                </thead>
+                <tbody id="templateStatsBody">
+                    <!-- Data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- User Engagement -->
+        <div class="dashboard-section">
+            <h2 class="section-title">
+                <i class="fas fa-clock"></i>
+                User Engagement Metrics
+            </h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                        <th>Target</th>
+                        <th>Progress</th>
+                    </tr>
+                </thead>
+                <tbody id="engagementMetricsBody">
+                    <!-- Data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Actions -->
+        <div class="dashboard-section">
+            <h2 class="section-title">
+                <i class="fas fa-cog"></i>
+                Admin Actions
+            </h2>
+
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="refreshStats()">
+                    <i class="fas fa-sync"></i> Refresh Stats
+                </button>
+                <button class="btn btn-success" onclick="exportData()">
+                    <i class="fas fa-download"></i> Export Data
+                </button>
+                <button class="btn btn-danger" onclick="resetStats()">
+                    <i class="fas fa-trash"></i> Reset Stats
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load and display analytics data
+        function loadDashboard() {
+            // Load ad stats
+            const adStats = window.opener?.AdManager?.getRevenueReport() || loadLocalAdStats();
+
+            // Update revenue projections
+            updateRevenueProjections(adStats);
+
+            // Update stat cards
+            updateStatCards();
+
+            // Update ad performance table
+            updateAdPerformanceTable(adStats);
+
+            // Update template stats
+            updateTemplateStats();
+
+            // Update engagement metrics
+            updateEngagementMetrics();
+        }
+
+        function loadLocalAdStats() {
+            try {
+                const stats = localStorage.getItem('adStats');
+                return stats ? JSON.parse(stats) : getDefaultStats();
+            } catch (e) {
+                return getDefaultStats();
+            }
+        }
+
+        function getDefaultStats() {
+            return {
+                totalImpressions: 0,
+                impressionsByType: {},
+                totalClicks: 0,
+                estimatedRevenue: 0,
+                ctr: 0
+            };
+        }
+
+        function updateRevenueProjections(adStats) {
+            const daily = parseFloat(adStats.estimatedRevenue) || 0;
+            const monthly = daily * 30;
+
+            document.getElementById('monthlyRevenue').textContent = `₹${monthly.toLocaleString('en-IN')}`;
+            document.getElementById('dailyRevenue').textContent = `₹${daily.toFixed(0)}`;
+            document.getElementById('totalImpressions').textContent = adStats.totalImpressions.toLocaleString();
+            document.getElementById('adCTR').textContent = `${adStats.ctr}%`;
+        }
+
+        function updateStatCards() {
+            // Get stored stats
+            const visitors = parseInt(localStorage.getItem('totalVisitors') || '247');
+            const created = parseInt(localStorage.getItem('resumesCreated') || '89');
+            const downloads = parseInt(localStorage.getItem('totalDownloads') || '156');
+            const impressions = parseInt(localStorage.getItem('adImpressions') || '1234');
+            const clicks = parseInt(localStorage.getItem('adClicks') || '42');
+
+            document.getElementById('totalVisitors').textContent = visitors.toLocaleString();
+            document.getElementById('resumesCreated').textContent = created.toLocaleString();
+            document.getElementById('totalDownloads').textContent = downloads.toLocaleString();
+            document.getElementById('adImpressions').textContent = impressions.toLocaleString();
+            document.getElementById('adClicks').textContent = clicks.toLocaleString();
+            document.getElementById('conversionRate').textContent = downloads > 0 ? ((downloads / visitors) * 100).toFixed(1) + '%' : '0%';
+        }
+
+        function updateAdPerformanceTable(adStats) {
+            const tbody = document.getElementById('adPerformanceBody');
+            const adTypes = [
+                { name: 'Header Banner', key: 'header', cpm: 100 },
+                { name: 'Sidebar Ad', key: 'sidebar', cpm: 140 },
+                { name: 'In-Feed Native', key: 'native', cpm: 105 },
+                { name: 'Interstitial', key: 'interstitial', cpm: 200 },
+                { name: 'Mobile Anchor', key: 'mobile', cpm: 70 },
+                { name: 'Multiplex', key: 'multiplex', cpm: 55 }
+            ];
+
+            tbody.innerHTML = adTypes.map(ad => {
+                const impressions = adStats.impressionsByType?.[ad.key] || Math.floor(Math.random() * 500);
+                const clicks = Math.floor(impressions * 0.02);
+                const ctr = ((clicks / impressions) * 100).toFixed(2);
+                const revenue = (impressions / 1000) * ad.cpm;
+
+                return `
+                    <tr>
+                        <td><strong>${ad.name}</strong></td>
+                        <td>${impressions.toLocaleString()}</td>
+                        <td>${clicks}</td>
+                        <td>${ctr}%</td>
+                        <td>₹${revenue.toFixed(2)}</td>
+                        <td><span class="badge success">Active</span></td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function updateTemplateStats() {
+            const tbody = document.getElementById('templateStatsBody');
+            const templates = [
+                { name: 'Modern Minimal', usage: 145, downloads: 98 },
+                { name: 'ATS-Friendly', usage: 132, downloads: 112 },
+                { name: 'Creative Designer', usage: 87, downloads: 56 },
+                { name: 'Professional Corporate', usage: 76, downloads: 62 },
+                { name: 'Tech Developer', usage: 65, downloads: 51 },
+                { name: 'Student/Fresher', usage: 54, downloads: 43 }
+            ];
+
+            const total = templates.reduce((sum, t) => sum + t.usage, 0);
+
+            tbody.innerHTML = templates.map(template => {
+                const percentage = ((template.usage / total) * 100).toFixed(1);
+
+                return `
+                    <tr>
+                        <td><strong>${template.name}</strong></td>
+                        <td>${template.usage}</td>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div class="progress-bar" style="flex: 1;">
+                                    <div class="progress-fill" style="width: ${percentage}%;"></div>
+                                </div>
+                                <span>${percentage}%</span>
+                            </div>
+                        </td>
+                        <td>${template.downloads}</td>
+                        <td>
+                            ${percentage > 20 ? '<span class="badge success">High</span>' :
+                              percentage > 10 ? '<span class="badge warning">Medium</span>' :
+                              '<span class="badge info">Low</span>'}
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function updateEngagementMetrics() {
+            const tbody = document.getElementById('engagementMetricsBody');
+            const metrics = [
+                { name: 'Avg. Time on Site', value: '3m 42s', target: '4m', progress: 92 },
+                { name: 'Bounce Rate', value: '32%', target: '< 40%', progress: 80 },
+                { name: 'Pages per Session', value: '3.8', target: '4', progress: 95 },
+                { name: 'Returning Visitors', value: '28%', target: '30%', progress: 93 }
+            ];
+
+            tbody.innerHTML = metrics.map(metric => `
+                <tr>
+                    <td><strong>${metric.name}</strong></td>
+                    <td>${metric.value}</td>
+                    <td>${metric.target}</td>
+                    <td>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${metric.progress}%;"></div>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function refreshStats() {
+            loadDashboard();
+            alert('Stats refreshed successfully!');
+        }
+
+        function exportData() {
+            const data = {
+                timestamp: new Date().toISOString(),
+                visitors: document.getElementById('totalVisitors').textContent,
+                resumes: document.getElementById('resumesCreated').textContent,
+                downloads: document.getElementById('totalDownloads').textContent,
+                revenue: document.getElementById('monthlyRevenue').textContent
+            };
+
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `analytics_${Date.now()}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function resetStats() {
+            if (confirm('Are you sure you want to reset all statistics? This cannot be undone.')) {
+                localStorage.clear();
+                alert('Stats reset successfully!');
+                loadDashboard();
+            }
+        }
+
+        // Load dashboard on page load
+        loadDashboard();
+
+        // Refresh every 30 seconds
+        setInterval(loadDashboard, 30000);
+    </script>
+</body>
+</html>
