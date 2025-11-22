@@ -80,6 +80,26 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="../assets/images/favicon.png">
 </head>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XXXXXXXXXX', {
+            'page_title': document.title,
+            'page_path': window.location.pathname,
+            'send_page_view': true,
+            'anonymize_ip': true,
+            'cookie_flags': 'SameSite=None;Secure'
+        });
+
+        gtag('set', 'user_properties', {
+            'visitor_type': 'organic'
+        });
+    </script>
 <body>
     <!-- Header -->
     <header class="header">
@@ -584,4 +604,20 @@
         }
     </script>
 </body>
+
+    <!-- Analytics Tracking -->
+    <script src="../js/analytics.js"></script>
+
+    <!-- Page tracking -->
+    <script>
+        // Track category page view on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const categoryName = document.title.split(' - ')[0];
+            const categoryId = window.location.pathname.split('/').pop().replace('.html', '');
+            if (typeof trackCategoryView === 'function') {
+                trackCategoryView(categoryName, categoryId);
+            }
+        });
+    </script>
+
 </html>
