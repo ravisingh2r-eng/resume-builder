@@ -1,0 +1,441 @@
+/* ============================================
+   GLOBAL HEADER & FOOTER STYLES
+   Unified styling for all pages
+   ============================================ */
+
+/* ============================================
+   HEADER STYLES
+   ============================================ */
+
+/* Sticky Header */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--bg-primary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Logo Styling */
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.logo-badge {
+    font-size: 0.6rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: -2px;
+}
+
+.logo strong {
+    font-size: 1.1rem;
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+    display: flex !important;
+}
+
+.nav-link i {
+    margin-right: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.btn-outline-primary {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: 2px solid var(--border-color);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    transition: all var(--transition-fast);
+}
+
+.mobile-menu-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.mobile-nav {
+    display: none !important;
+}
+
+/* Mobile Navigation Menu */
+.mobile-nav-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    max-width: 85vw;
+    height: 100vh;
+    background: var(--bg-primary);
+    box-shadow: -4px 0 12px rgba(0,0,0,0.2);
+    z-index: 1100;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-nav-menu.active {
+    display: flex;
+    transform: translateX(0);
+}
+
+.mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+    background: var(--bg-secondary);
+}
+
+.mobile-nav-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-primary);
+    padding: 0.5rem;
+    transition: color var(--transition-fast);
+}
+
+.mobile-nav-close:hover {
+    color: var(--accent-color);
+}
+
+.mobile-nav-links {
+    flex: 1;
+    padding: 1rem 0;
+    overflow-y: auto;
+}
+
+.mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: background var(--transition-fast);
+    border-left: 3px solid transparent;
+}
+
+.mobile-nav-link:hover {
+    background: var(--bg-secondary);
+    border-left-color: var(--primary-color);
+}
+
+.mobile-nav-link i {
+    color: var(--primary-color);
+    width: 20px;
+    text-align: center;
+}
+
+.mobile-nav-footer {
+    padding: 1rem 1.5rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.btn-block {
+    width: 100%;
+    justify-content: center;
+}
+
+/* ============================================
+   FOOTER STYLES
+   ============================================ */
+
+.global-footer {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #ecf0f1;
+    padding: 3rem 0 0;
+    margin-top: 4rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-heading {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-heading i {
+    color: var(--primary-color);
+}
+
+.footer-description {
+    color: #bdc3c7;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.footer-social a {
+    width: 38px;
+    height: 38px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-links a i {
+    font-size: 0.85rem;
+    width: 18px;
+}
+
+.view-all-link {
+    margin-top: 0.75rem;
+    color: var(--primary-color) !important;
+    font-weight: 600 !important;
+}
+
+.view-all-link:hover {
+    color: var(--primary-light) !important;
+}
+
+/* Trust Badges */
+.footer-badges {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.badge-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ecf0f1;
+    font-size: 0.95rem;
+}
+
+.badge-item i {
+    color: var(--secondary-color);
+    font-size: 1.25rem;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    padding: 1.5rem 0;
+}
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.copyright {
+    color: #95a5a6;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-legal a {
+    color: #bdc3c7;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.footer-legal a:hover {
+    color: var(--primary-color);
+}
+
+.separator {
+    color: #7f8c8d;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Header */
+    .desktop-nav {
+        display: none !important;
+    }
+
+    .mobile-nav {
+        display: flex !important;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .logo strong {
+        font-size: 1rem;
+    }
+
+    .logo-badge {
+        font-size: 0.55rem;
+    }
+
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-badges {
+        gap: 1rem;
+    }
+
+    .badge-item {
+        font-size: 0.85rem;
+    }
+
+    .footer-legal {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-nav-menu {
+        width: 100%;
+        max-width: 100vw;
+    }
+
+    .logo strong {
+        font-size: 0.95rem;
+    }
+
+    .badge-item {
+        font-size: 0.8rem;
+        gap: 0.35rem;
+    }
+
+    .badge-item i {
+        font-size: 1.1rem;
+    }
+
+    .footer-social a {
+        width: 34px;
+        height: 34px;
+        font-size: 1rem;
+    }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .sticky-header {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .mobile-nav-menu {
+    box-shadow: -4px 0 12px rgba(0,0,0,0.4);
+}
+
+[data-theme="dark"] .global-footer {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+}

@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/templates.css">
     <link rel="stylesheet" href="./css/themes.css">
+    <link rel="stylesheet" href="./css/global-components.css">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
@@ -96,28 +97,84 @@
              data-full-width-responsive="true"></ins>
     </div>
 
-    <!-- Header -->
-    <header class="header">
+    <!-- Global Header -->
+    <header class="header sticky-header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">
+                <!-- Logo with Branding -->
+                <a href="./index.html" class="logo">
                     <i class="fas fa-file-alt"></i>
-                    <span>Resume Builder</span>
-                </div>
-                <nav class="nav">
-                    <a href="#" class="nav-link active" data-page="home">Home</a>
-                    <a href="#" class="nav-link" data-page="templates">Templates</a>
-                    <a href="#" class="nav-link" data-page="editor">Editor</a>
-                    <a href="#" class="nav-link" data-page="tips">Tips</a>
+                    <span class="logo-text">
+                        <strong>Resume Builder</strong>
+                        <small class="logo-badge">Pro</small>
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="nav desktop-nav">
+                    <a href="#" class="nav-link active" data-page="home">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                    <a href="./categories/index.html" class="nav-link">
+                        <i class="fas fa-th"></i> Categories
+                    </a>
+                    <a href="#" class="nav-link" data-page="templates">
+                        <i class="fas fa-file-alt"></i> Templates
+                    </a>
+                    <a href="#" class="nav-link" data-page="tips">
+                        <i class="fas fa-lightbulb"></i> Tips
+                    </a>
                 </nav>
-                <div class="header-actions">
+
+                <!-- Header Actions -->
+                <div class="header-actions desktop-nav">
                     <button class="btn-icon theme-toggle" id="themeToggle" aria-label="Toggle theme">
                         <i class="fas fa-moon"></i>
                     </button>
+                    <a href="./categories/index.html" class="btn btn-outline-primary">
+                        <i class="fas fa-th"></i> Browse
+                    </a>
                     <button class="btn-primary" id="createResumeBtn">
-                        <i class="fas fa-plus"></i> Create Resume
+                        <i class="fas fa-plus-circle"></i> Create Resume
                     </button>
                 </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-btn mobile-nav" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav-menu" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span class="mobile-nav-title">Menu</span>
+                <button class="mobile-nav-close" onclick="toggleMobileMenu()" aria-label="Close menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="mobile-nav-links">
+                <a href="#" class="mobile-nav-link" data-page="home" onclick="toggleMobileMenu()">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="./categories/index.html" class="mobile-nav-link" onclick="toggleMobileMenu()">
+                    <i class="fas fa-th"></i> Browse All Categories
+                </a>
+                <a href="#" class="mobile-nav-link" data-page="templates" onclick="toggleMobileMenu()">
+                    <i class="fas fa-file-alt"></i> Templates
+                </a>
+                <a href="#" class="mobile-nav-link" data-page="tips" onclick="toggleMobileMenu()">
+                    <i class="fas fa-lightbulb"></i> Resume Tips
+                </a>
+                <a href="#" class="mobile-nav-link" onclick="toggleMobileMenu(); document.getElementById('themeToggle').click();">
+                    <i class="fas fa-moon"></i> Toggle Theme
+                </a>
+            </div>
+            <div class="mobile-nav-footer">
+                <button class="btn btn-primary btn-block" id="mobileCreateBtn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-plus-circle"></i> Create Resume Now
+                </button>
             </div>
         </div>
     </header>
@@ -856,51 +913,122 @@
              data-ad-format="auto"></ins>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Global Footer -->
+    <footer class="global-footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Resume Builder</h4>
-                    <p>Create professional resumes in minutes. Free, fast, and ATS-friendly.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#">Templates</a></li>
-                        <li><a href="#">Tips & Guides</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="./admin.html">Admin Dashboard</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Share</h4>
-                    <div class="social-share">
-                        <button class="social-btn" onclick="shareOnWhatsApp()">
-                            <i class="fab fa-whatsapp"></i>
-                        </button>
-                        <button class="social-btn" onclick="shareOnTwitter()">
-                            <i class="fab fa-twitter"></i>
-                        </button>
-                        <button class="social-btn" onclick="shareOnFacebook()">
+            <!-- Main Footer Content -->
+            <div class="footer-grid">
+                <!-- Column 1: About -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">
+                        <i class="fas fa-file-alt"></i>
+                        Resume Builder Pro
+                    </h4>
+                    <p class="footer-description">
+                        Create professional, ATS-friendly resumes in 2 minutes.
+                        Choose from 56+ categories and 10 templates each.
+                        100% free, no hidden charges.
+                    </p>
+
+                    <!-- Social Links -->
+                    <div class="footer-social">
+                        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
                             <i class="fab fa-facebook"></i>
-                        </button>
-                        <button class="social-btn" onclick="shareOnLinkedIn()">
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
                             <i class="fab fa-linkedin"></i>
-                        </button>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
                     </div>
                 </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="./categories/index.html"><i class="fas fa-th"></i> Browse All Categories</a></li>
+                        <li><a href="#" data-page="templates"><i class="fas fa-file-alt"></i> Templates</a></li>
+                        <li><a href="#" data-page="tips"><i class="fas fa-lightbulb"></i> Resume Tips</a></li>
+                        <li><a href="./admin.html"><i class="fas fa-chart-bar"></i> Admin Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Popular Categories -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Popular Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="./categories/software-engineer.html">Software Engineer Resume</a></li>
+                        <li><a href="./categories/web-developer.html">Web Developer Resume</a></li>
+                        <li><a href="./categories/data-scientist.html">Data Scientist Resume</a></li>
+                        <li><a href="./categories/digital-marketer.html">Digital Marketer Resume</a></li>
+                        <li><a href="./categories/doctor.html">Doctor Resume</a></li>
+                        <li><a href="./categories/graphic-designer.html">Graphic Designer Resume</a></li>
+                        <li><a href="./categories/fresher.html">Fresher Resume</a></li>
+                        <li><a href="./categories/index.html" class="view-all-link">
+                            <strong>View All 56 Categories →</strong>
+                        </a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Resources -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Resources & Help</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-page="tips">Resume Writing Tips</a></li>
+                        <li><a href="#">Cover Letter Guide</a></li>
+                        <li><a href="#">Interview Preparation</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Career Blog</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
             </div>
+
+            <!-- Trust Badges -->
+            <div class="footer-badges">
+                <div class="badge-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>100% Free</span>
+                </div>
+                <div class="badge-item">
+                    <i class="fas fa-lock"></i>
+                    <span>Secure & Private</span>
+                </div>
+                <div class="badge-item">
+                    <i class="fas fa-robot"></i>
+                    <span>ATS-Friendly</span>
+                </div>
+                <div class="badge-item">
+                    <i class="fas fa-users"></i>
+                    <span>50,000+ Users</span>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
             <div class="footer-bottom">
-                <p>&copy; 2025 Resume Builder. All rights reserved.</p>
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        &copy; 2025 Resume Builder Pro. All rights reserved.
+                    </p>
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <span class="separator">•</span>
+                        <a href="#">Terms of Service</a>
+                        <span class="separator">•</span>
+                        <a href="./sitemap.xml">Sitemap</a>
+                        <span class="separator">•</span>
+                        <a href="#">Disclaimer</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
@@ -931,6 +1059,45 @@
     <!-- Initialize AdSense ads -->
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+    function toggleMobileMenu() {
+        const mobileNav = document.getElementById('mobileNav');
+        mobileNav.classList.toggle('active');
+
+        // Prevent body scroll when menu is open
+        if (mobileNav.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const mobileNav = document.getElementById('mobileNav');
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+
+        if (mobileNav && mobileNav.classList.contains('active') &&
+            !mobileNav.contains(event.target) &&
+            menuBtn && !menuBtn.contains(event.target)) {
+            toggleMobileMenu();
+        }
+    });
+
+    // Handle mobile create button
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileCreateBtn = document.getElementById('mobileCreateBtn');
+        const createResumeBtn = document.getElementById('createResumeBtn');
+
+        if (mobileCreateBtn && createResumeBtn) {
+            mobileCreateBtn.addEventListener('click', function() {
+                createResumeBtn.click();
+            });
+        }
+    });
     </script>
 </body>
 </html>
