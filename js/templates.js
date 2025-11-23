@@ -1271,6 +1271,24 @@ function renderTemplate_timeline() {
 // ============================================
 // UTILITY FUNCTIONS
 // ============================================
+function formatDate(dateString) {
+    if (!dateString) return '';
+    const [year, month] = dateString.split('-');
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return `${months[parseInt(month) - 1]} ${year}`;
+}
+
+function escapeHtml(text) {
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, m => map[m]);
+}
+
 function formatDescription(text) {
     if (!text) return '';
 
