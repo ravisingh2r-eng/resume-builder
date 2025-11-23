@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>FAQ - Resume Builder | Frequently Asked Questions About Free Resume Maker</title>
+    <meta name="description" content="Get answers to common questions about Resume Builder. Learn how to create, customize, and download professional resumes. Free, no sign-up required.">
+    <meta name="keywords" content="resume builder faq, how to create resume, resume maker questions, free cv builder help">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yoursite.com/faq.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/global-components.css">
+
+    <style>
+        .faq-page {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .faq-hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 50px;
+        }
+
+        .faq-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .faq-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq-search {
+            max-width: 600px;
+            margin: -30px auto 50px;
+            position: relative;
+        }
+
+        .faq-search input {
+            width: 100%;
+            padding: 18px 50px 18px 20px;
+            font-size: 1.1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .faq-search input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .faq-search i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 1.2rem;
+        }
+
+        .faq-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .faq-category-btn {
+            padding: 15px 20px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .faq-category-btn:hover,
+        .faq-category-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+
+        .faq-section {
+            margin-bottom: 40px;
+        }
+
+        .faq-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .faq-item {
+            background: white;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            user-select: none;
+        }
+
+        .faq-question i {
+            color: #667eea;
+            font-size: 1.3rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 25px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 25px 20px;
+        }
+
+        .faq-answer p {
+            margin-bottom: 10px;
+        }
+
+        .faq-answer ul {
+            margin: 10px 0 10px 20px;
+        }
+
+        .faq-answer li {
+            margin-bottom: 8px;
+        }
+
+        .faq-answer a {
+            color: #667eea;
+            text-decoration: underline;
+        }
+
+        .faq-cta {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            margin: 50px 0;
+        }
+
+        .faq-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: white;
+            border: none;
+        }
+
+        .faq-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .faq-hero h1 {
+                font-size: 2rem;
+            }
+
+            .faq-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX', {
+            'page_title': document.title,
+            'page_path': window.location.pathname,
+            'send_page_view': true,
+            'anonymize_ip': true,
+            'cookie_flags': 'SameSite=None;Secure'
+        });
+    </script>
+
+    <!-- FAQ Schema (Rich Snippets for Google) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Resume Builder really free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Resume Builder is 100% free to use. You can create, customize, and download unlimited resumes without any charges, hidden fees, or subscriptions. No credit card required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No account required! You can start creating your resume immediately without signing up. Your resume data is saved locally in your browser for privacy and convenience."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the resumes ATS-friendly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! All our 560+ templates are designed to be compatible with Applicant Tracking Systems (ATS) used by employers. They use proper formatting, standard fonts, and clean structure that ATS can read easily."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many templates are available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer 560+ professional resume templates across 56+ job categories. Each category has 10 unique template designs, all pre-filled with industry-specific examples."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I download my resume as PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! You can download your completed resume as a high-quality PDF file with one click. The PDF format ensures your resume looks professional on any device and can be easily sent to employers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I save my resume?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your resume is automatically saved in your browser's local storage as you work. For permanent backup, download your resume as PDF and save it to your device or cloud storage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use Resume Builder on mobile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! Resume Builder works perfectly on smartphones, tablets, and desktop computers. The interface is fully responsive and optimized for all screen sizes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your data is completely secure. Your resume information is stored locally on your device, not on our servers. We never access, store, or share your personal information."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to create a resume?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can create a professional resume in just 2 minutes! Our templates come with pre-filled examples, so you only need to replace the dummy content with your information."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I customize the templates?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! All templates are fully customizable. You can edit every section including personal details, work experience, education, skills, and more. The real-time preview shows changes instantly."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Resume Builder",
+      "alternateName": "Resume Builder Pro",
+      "url": "https://yoursite.com",
+      "logo": "https://yoursite.com/assets/images/logo.png",
+      "description": "Free online resume builder with 560+ ATS-friendly templates across 56+ job categories. Create professional resumes in 2 minutes.",
+      "foundingDate": "2025",
+      "sameAs": [
+        "https://facebook.com/resumebuilder",
+        "https://twitter.com/resumebuilder",
+        "https://linkedin.com/company/resumebuilder",
+        "https://instagram.com/resumebuilder"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-XXXXXXXXXX",
+        "contactType": "Customer Service",
+        "email": "support@yoursite.com",
+        "availableLanguage": ["English", "Hindi"],
+        "areaServed": "IN"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+<body>
+    <!-- Header -->
+    <header class="sticky-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="./index.html" class="logo">
+                    <i class="fas fa-file-alt"></i>
+                    <div class="logo-text">
+                        <span class="logo-title">Resume Builder</span>
+                        <span class="logo-badge">Pro</span>
+                    </div>
+                </a>
+
+                <nav class="desktop-nav">
+                    <a href="./index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="./index.html#templates"><i class="fas fa-th-large"></i> Templates</a>
+                    <a href="./categories/index.html"><i class="fas fa-folder-open"></i> Categories</a>
+                    <a href="./about.html"><i class="fas fa-info-circle"></i> About</a>
+                    <a href="./faq.html" class="active"><i class="fas fa-question-circle"></i> FAQ</a>
+                </nav>
+
+                <div class="header-cta">
+                    <a href="./index.html#templates" class="btn btn-primary">
+                        <i class="fas fa-plus-circle"></i> Create Resume
+                    </a>
+                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-menu" id="mobileMenu">
+        <div class="mobile-nav-header">
+            <span class="mobile-nav-title">Menu</span>
+            <button class="mobile-nav-close" onclick="toggleMobileMenu()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav-links">
+            <a href="./index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="./index.html#templates"><i class="fas fa-th-large"></i> Templates</a>
+            <a href="./categories/index.html"><i class="fas fa-folder-open"></i> Browse Categories</a>
+            <a href="./about.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="./faq.html" class="active"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="./contact.html"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="./privacy-policy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="faq-page">
+        <!-- Hero Section -->
+        <div class="faq-hero">
+            <h1><i class="fas fa-question-circle"></i> Frequently Asked Questions</h1>
+            <p>Find answers to common questions about Resume Builder. Still have questions? <a href="./contact.html" style="color: #fff; text-decoration: underline;">Contact us</a></p>
+        </div>
+
+        <!-- Search Box -->
+        <div class="faq-search">
+            <input type="text" id="faqSearch" placeholder="Search for answers..." onkeyup="searchFAQ()">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="faq-categories">
+            <button class="faq-category-btn active" onclick="filterCategory('all')">All Questions</button>
+            <button class="faq-category-btn" onclick="filterCategory('general')">General</button>
+            <button class="faq-category-btn" onclick="filterCategory('features')">Features</button>
+            <button class="faq-category-btn" onclick="filterCategory('technical')">Technical</button>
+            <button class="faq-category-btn" onclick="filterCategory('account')">Account & Data</button>
+        </div>
+
+        <!-- General Questions -->
+        <div class="faq-section" data-category="general">
+            <h2><i class="fas fa-info-circle"></i> General Questions</h2>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    Is Resume Builder really free?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, Resume Builder is <strong>100% free to use</strong>. You can:</p>
+                    <ul>
+                        <li>Create unlimited resumes</li>
+                        <li>Access all 560+ templates</li>
+                        <li>Customize every section</li>
+                        <li>Download as PDF</li>
+                        <li>Use all features without restrictions</li>
+                    </ul>
+                    <p>No credit card required, no hidden fees, no subscriptions.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    Do I need to create an account?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>No account required!</strong> You can start creating your resume immediately without signing up. Your resume data is saved locally in your browser for privacy and convenience.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    How many templates are available?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer <strong>560+ professional resume templates</strong> across 56+ job categories:</p>
+                    <ul>
+                        <li>10 unique designs per category</li>
+                        <li>Pre-filled with industry-specific examples</li>
+                        <li>ATS-friendly formatting</li>
+                        <li>Modern and classic styles</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    How long does it take to create a resume?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>You can create a professional resume in just <strong>2 minutes</strong>! Our templates come with pre-filled examples, so you only need to:</p>
+                    <ol>
+                        <li>Choose your category (30 seconds)</li>
+                        <li>Select a template (15 seconds)</li>
+                        <li>Replace dummy content with your information (1-2 minutes)</li>
+                        <li>Download as PDF (5 seconds)</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="faq-section" data-category="features">
+            <h2><i class="fas fa-star"></i> Features & Functionality</h2>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    Are the resumes ATS-friendly?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Yes!</strong> All our templates are designed to be compatible with Applicant Tracking Systems (ATS). They feature:</p>
+                    <ul>
+                        <li>Standard fonts (Arial, Calibri, Times New Roman)</li>
+                        <li>Clean, simple formatting</li>
+                        <li>Proper section headings</li>
+                        <li>No images or graphics in main content</li>
+                        <li>Text-based design (not image-based)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    Can I customize the templates?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Yes!</strong> All templates are fully customizable. You can edit:</p>
+                    <ul>
+                        <li>Personal details (name, contact, summary)</li>
+                        <li>Work experience (company, role, responsibilities)</li>
+                        <li>Education (degree, university, year)</li>
+                        <li>Skills (add/remove skills)</li>
+                        <li>Additional sections (certifications, projects, languages)</li>
+                    </ul>
+                    <p>Changes appear in real-time preview.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    Can I download my resume as PDF?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Yes!</strong> You can download your completed resume as a high-quality PDF file with one click. The PDF format:</p>
+                    <ul>
+                        <li>Looks professional on any device</li>
+                        <li>Maintains formatting</li>
+                        <li>Can be easily emailed to employers</li>
+                        <li>Prints perfectly</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    Can I use Resume Builder on mobile?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Absolutely!</strong> Resume Builder works perfectly on:</p>
+                    <ul>
+                        <li>Smartphones (iOS, Android)</li>
+                        <li>Tablets (iPad, Android tablets)</li>
+                        <li>Desktop computers</li>
+                        <li>Laptops</li>
+                    </ul>
+                    <p>The interface is fully responsive and optimized for all screen sizes.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Questions -->
+        <div class="faq-section" data-category="technical">
+            <h2><i class="fas fa-cogs"></i> Technical Questions</h2>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    How do I save my resume?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Your resume is <strong>automatically saved</strong> in your browser's local storage as you work. For permanent backup:</p>
+                    <ol>
+                        <li>Download your resume as PDF</li>
+                        <li>Save the PDF to your device</li>
+                        <li>Consider backing up to cloud storage (Google Drive, Dropbox)</li>
+                    </ol>
+                    <p><strong>Note:</strong> Clearing browser data will delete saved resumes, so always download a PDF copy.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    What browsers are supported?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Resume Builder works on all modern browsers:</p>
+                    <ul>
+                        <li>Google Chrome (recommended)</li>
+                        <li>Mozilla Firefox</li>
+                        <li>Safari</li>
+                        <li>Microsoft Edge</li>
+                        <li>Opera</li>
+                    </ul>
+                    <p>We recommend using the latest browser version for best performance.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    Why isn't my resume saving?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>If your resume isn't saving, try these solutions:</p>
+                    <ul>
+                        <li>Check if cookies/local storage is enabled in your browser</li>
+                        <li>Make sure you're not in incognito/private mode</li>
+                        <li>Clear browser cache and try again</li>
+                        <li>Try a different browser</li>
+                        <li>Download as PDF to save manually</li>
+                    </ul>
+                    <p>If the issue persists, <a href="./contact.html">contact us</a>.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    Can I print my resume?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Yes!</strong> You can print your resume in two ways:</p>
+                    <ol>
+                        <li><strong>Download as PDF first</strong> (recommended) - Download the PDF and print from your PDF viewer for best results</li>
+                        <li><strong>Print directly from browser</strong> - Use browser's print function (Ctrl+P)</li>
+                    </ol>
+                    <p>We recommend printing the downloaded PDF for consistent formatting.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account & Data -->
+        <div class="faq-section" data-category="account">
+            <h2><i class="fas fa-user-shield"></i> Account & Data Privacy</h2>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    Is my data secure?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Yes, your data is completely secure.</strong> Here's why:</p>
+                    <ul>
+                        <li>Your resume is stored locally on your device</li>
+                        <li>We never access, store, or share your personal information</li>
+                        <li>No data is sent to our servers</li>
+                        <li>You have full control over your data</li>
+                    </ul>
+                    <p>Read our <a href="./privacy-policy.html">Privacy Policy</a> for details.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    Can I delete my data?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Yes!</strong> Since your data is stored locally on your device, you can delete it anytime by:</p>
+                    <ul>
+                        <li>Clearing your browser's local storage</li>
+                        <li>Clearing browser cache and cookies</li>
+                        <li>Using browser's "Clear browsing data" feature</li>
+                    </ul>
+                    <p>Your data will be permanently deleted from your device.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    Will you sell my information?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>No, never!</strong> We:</p>
+                    <ul>
+                        <li>Don't store your resume data on our servers</li>
+                        <li>Don't sell any personal information</li>
+                        <li>Don't share your data with third parties</li>
+                        <li>Only collect anonymous usage statistics (Google Analytics)</li>
+                    </ul>
+                    <p>Your privacy is our top priority.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    Can I access my resume from different devices?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Since your resume is stored locally in your browser:</p>
+                    <ul>
+                        <li><strong>Same device, same browser:</strong> Yes, your resume will be available</li>
+                        <li><strong>Different device or browser:</strong> No, you'll need to create it again or upload your PDF</li>
+                    </ul>
+                    <p><strong>Solution:</strong> Download your resume as PDF and keep it in cloud storage (Google Drive, Dropbox) to access from any device.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Still Have Questions -->
+        <div class="faq-cta">
+            <h2>Still Have Questions?</h2>
+            <p>Can't find the answer you're looking for? We're here to help!</p>
+            <a href="./contact.html" class="btn btn-primary btn-lg" style="background: white; color: #667eea;">
+                <i class="fas fa-envelope"></i> Contact Us
+            </a>
+        </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="global-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-heading">
+                        <i class="fas fa-file-alt"></i> Resume Builder
+                    </h3>
+                    <p class="footer-description">
+                        Create professional, ATS-friendly resumes in minutes. Choose from 560+ templates across 56+ categories.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="./index.html#templates"><i class="fas fa-th-large"></i> Templates</a></li>
+                        <li><a href="./categories/index.html"><i class="fas fa-folder-open"></i> Categories</a></li>
+                        <li><a href="./faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                        <li><a href="./about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Popular Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="./categories/software-engineer.html">Software Engineer</a></li>
+                        <li><a href="./categories/data-scientist.html">Data Scientist</a></li>
+                        <li><a href="./categories/teacher.html">Teacher</a></li>
+                        <li><a href="./categories/fresher.html">Fresher</a></li>
+                        <li><a href="./categories/doctor.html">Doctor</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Legal & Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="./privacy-policy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                        <li><a href="./terms-of-service.html"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+                        <li><a href="./contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                        <li><a href="./about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2025 Resume Builder. All rights reserved.
+                </p>
+                <div class="footer-trust-badges">
+                    <span class="trust-badge"><i class="fas fa-lock"></i> Secure</span>
+                    <span class="trust-badge"><i class="fas fa-shield-alt"></i> Private</span>
+                    <span class="trust-badge"><i class="fas fa-download"></i> Free</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./js/analytics.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const body = document.body;
+            menu.classList.toggle('active');
+            body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            if (menu.classList.contains('active') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            element.classList.toggle('active');
+        }
+
+        // FAQ Search
+        function searchFAQ() {
+            const searchTerm = document.getElementById('faqSearch').value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    if (searchTerm.length > 2) {
+                        item.classList.add('active');
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Category Filter
+        function filterCategory(category) {
+            const sections = document.querySelectorAll('.faq-section');
+            const buttons = document.querySelectorAll('.faq-category-btn');
+
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Show/hide sections
+            if (category === 'all') {
+                sections.forEach(section => section.style.display = 'block');
+            } else {
+                sections.forEach(section => {
+                    if (section.dataset.category === category) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        // Track page view
+        if (typeof trackPageView === 'function') {
+            trackPageView('FAQ', '/faq.html');
+        }
+    </script>
+</body>
+</html>
