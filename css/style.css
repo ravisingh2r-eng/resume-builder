@@ -2455,6 +2455,226 @@ input[type="range"] {
 }
 
 /* ============================================
+   VISUAL INLINE EDITOR
+   ============================================ */
+
+/* Visual Edit Mode Indicator */
+.visual-edit-mode {
+    position: relative;
+}
+
+.visual-edit-mode::before {
+    content: 'Visual Editing Mode Active - Click on text to edit';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 10;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Active Toggle Button */
+.btn-icon.active {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    box-shadow: 0 2px 10px rgba(52, 152, 219, 0.4);
+}
+
+/* Editable Elements Hover */
+[data-editable] {
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.visual-edit-mode [data-editable]:hover {
+    background: rgba(52, 152, 219, 0.1);
+    outline: 2px dashed rgba(52, 152, 219, 0.5);
+    outline-offset: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.editable-hover {
+    background: rgba(52, 152, 219, 0.1);
+    outline: 2px dashed rgba(52, 152, 219, 0.5);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Currently Editing Element */
+.editing-active {
+    background: rgba(52, 152, 219, 0.15) !important;
+    outline: 2px solid var(--primary-color) !important;
+    outline-offset: 2px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1) !important;
+}
+
+/* Inline Editor Overlay */
+.inline-editor {
+    position: absolute;
+    z-index: 1000;
+    background: white;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+    animation: popIn 0.2s ease-out;
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.inline-editor-input {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.6;
+    resize: vertical;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.inline-editor-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.inline-editor-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.btn-small {
+    padding: 6px 14px;
+    font-size: 13px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: white;
+    color: #555;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-small:hover {
+    background: #f5f5f5;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-small.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    border: none;
+}
+
+.btn-small.btn-primary:hover {
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* Visual Editor Notification */
+.visual-editor-notification {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 10000;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    animation: slideInRight 0.3s ease-out;
+    max-width: 400px;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.visual-editor-notification.success {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+    color: white;
+}
+
+.visual-editor-notification.info {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+}
+
+.visual-editor-notification.error {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .inline-editor {
+        left: 10px !important;
+        right: 10px !important;
+        width: calc(100% - 20px) !important;
+        max-width: none !important;
+    }
+
+    .visual-edit-mode::before {
+        font-size: 11px;
+        padding: 6px 12px;
+        top: -25px;
+    }
+
+    .visual-editor-notification {
+        top: 60px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}
+
+/* ============================================
    PRINT STYLES
    ============================================ */
 @media print {

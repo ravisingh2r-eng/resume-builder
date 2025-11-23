@@ -1654,4 +1654,232 @@ function escapeHtml(text) {
     return text.replace(/[&<>"']/g, m => map[m]);
 }
 
+// ============================================
+// VISUAL INLINE EDITOR
+// ============================================
+const VISUAL_EDITOR_STATE = {
+    isActive: false,
+    currentElement: null,
+    currentField: null,
+    currentIndex: null
+};
+
+function initializeVisualEditor() {
+    const toggleBtn = document.getElementById('visualEditToggle');
+    const saveBtn = document.getElementById('inlineEditorSave');
+    const cancelBtn = document.getElementById('inlineEditorCancel');
+
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', toggleVisualEditMode);
+    }
+
+    if (saveBtn) {
+        saveBtn.addEventListener('click', saveInlineEdit);
+    }
+
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', cancelInlineEdit);
+    }
+}
+
+function toggleVisualEditMode() {
+    VISUAL_EDITOR_STATE.isActive = !VISUAL_EDITOR_STATE.isActive;
+    const preview = document.getElementById('resumePreview');
+    const toggleBtn = document.getElementById('visualEditToggle');
+
+    if (VISUAL_EDITOR_STATE.isActive) {
+        preview.classList.add('visual-edit-mode');
+        toggleBtn.classList.add('active');
+        toggleBtn.title = 'Disable Visual Editing';
+        enableVisualEditing();
+
+        // Show helpful tooltip
+        showNotification('Visual Editing Mode: Click on any text to edit directly!', 'info');
+    } else {
+        preview.classList.remove('visual-edit-mode');
+        toggleBtn.classList.remove('active');
+        toggleBtn.title = 'Enable Visual Editing';
+        disableVisualEditing();
+        hideInlineEditor();
+    }
+}
+
+function enableVisualEditing() {
+    const preview = document.getElementById('resumePreview');
+    if (!preview) return;
+
+    // Add click handlers to all editable elements
+    const editableElements = preview.querySelectorAll('[data-editable]');
+    editableElements.forEach(element => {
+        element.style.cursor = 'pointer';
+        element.addEventListener('click', handleEditableClick);
+
+        // Add hover effect
+        element.addEventListener('mouseenter', (e) => {
+            if (VISUAL_EDITOR_STATE.isActive) {
+                e.target.classList.add('editable-hover');
+            }
+        });
+
+        element.addEventListener('mouseleave', (e) => {
+            e.target.classList.remove('editable-hover');
+        });
+    });
+}
+
+function disableVisualEditing() {
+    const preview = document.getElementById('resumePreview');
+    if (!preview) return;
+
+    const editableElements = preview.querySelectorAll('[data-editable]');
+    editableElements.forEach(element => {
+        element.style.cursor = 'default';
+        element.removeEventListener('click', handleEditableClick);
+        element.classList.remove('editable-hover');
+    });
+}
+
+function handleEditableClick(e) {
+    if (!VISUAL_EDITOR_STATE.isActive) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    const element = e.currentTarget;
+    const field = element.dataset.field;
+    const index = element.dataset.index;
+    const section = element.dataset.section;
+
+    VISUAL_EDITOR_STATE.currentElement = element;
+    VISUAL_EDITOR_STATE.currentField = field;
+    VISUAL_EDITOR_STATE.currentIndex = index;
+    VISUAL_EDITOR_STATE.currentSection = section;
+
+    showInlineEditor(element);
+}
+
+function showInlineEditor(element) {
+    const editor = document.getElementById('inlineEditor');
+    const input = document.getElementById('inlineEditorInput');
+
+    if (!editor || !input) return;
+
+    // Get current value
+    let currentValue = element.textContent.trim();
+
+    // Position the editor near the clicked element
+    const rect = element.getBoundingClientRect();
+    const previewContent = document.getElementById('previewContent');
+    const previewRect = previewContent.getBoundingClientRect();
+
+    editor.style.display = 'block';
+    editor.style.left = `${rect.left - previewRect.left}px`;
+    editor.style.top = `${rect.top - previewRect.top + previewContent.scrollTop}px`;
+    editor.style.width = `${Math.max(rect.width, 300)}px`;
+
+    // Set value and focus
+    input.value = currentValue;
+    input.focus();
+    input.select();
+
+    // Highlight the editing element
+    element.classList.add('editing-active');
+}
+
+function hideInlineEditor() {
+    const editor = document.getElementById('inlineEditor');
+    if (editor) {
+        editor.style.display = 'none';
+    }
+
+    // Remove highlight from any editing element
+    const editingElement = document.querySelector('.editing-active');
+    if (editingElement) {
+        editingElement.classList.remove('editing-active');
+    }
+}
+
+function saveInlineEdit() {
+    const input = document.getElementById('inlineEditorInput');
+    const newValue = input.value.trim();
+
+    if (!VISUAL_EDITOR_STATE.currentElement || !VISUAL_EDITOR_STATE.currentField) {
+        hideInlineEditor();
+        return;
+    }
+
+    const field = VISUAL_EDITOR_STATE.currentField;
+    const index = VISUAL_EDITOR_STATE.currentIndex;
+    const section = VISUAL_EDITOR_STATE.currentSection;
+
+    // Update the data model
+    if (section && index !== null && index !== undefined) {
+        // Array field (experience, education, etc.)
+        const idx = parseInt(index);
+        if (APP_STATE.resumeData[section] && APP_STATE.resumeData[section][idx]) {
+            APP_STATE.resumeData[section][idx][field] = newValue;
+        }
+    } else if (section) {
+        // Section field
+        if (APP_STATE.resumeData[section]) {
+            APP_STATE.resumeData[section][field] = newValue;
+        }
+    } else if (field === 'summary' || field === 'interests') {
+        // Direct field
+        APP_STATE.resumeData[field] = newValue;
+    } else if (field.startsWith('personal.')) {
+        // Personal field
+        const personalField = field.replace('personal.', '');
+        APP_STATE.resumeData.personal[personalField] = newValue;
+    }
+
+    // Save to localStorage
+    saveToLocalStorage();
+
+    // Re-render preview
+    renderResumePreview();
+
+    // Re-enable visual editing mode
+    setTimeout(() => {
+        enableVisualEditing();
+    }, 100);
+
+    // Hide editor
+    hideInlineEditor();
+
+    // Show success notification
+    showNotification('Changes saved!', 'success');
+}
+
+function cancelInlineEdit() {
+    hideInlineEditor();
+}
+
+function showNotification(message, type = 'info') {
+    // Create notification element if it doesn't exist
+    let notification = document.getElementById('visualEditorNotification');
+    if (!notification) {
+        notification = document.createElement('div');
+        notification.id = 'visualEditorNotification';
+        notification.className = 'visual-editor-notification';
+        document.body.appendChild(notification);
+    }
+
+    notification.textContent = message;
+    notification.className = `visual-editor-notification ${type}`;
+    notification.style.display = 'block';
+
+    // Auto-hide after 3 seconds
+    setTimeout(() => {
+        notification.style.display = 'none';
+    }, 3000);
+}
+
+// Add to initialization
+const originalInitializeApp = initializeApp;
+function initializeApp() {
+    originalInitializeApp();
+    initializeVisualEditor();
+}
+
 console.log('Resume Builder App Loaded Successfully');
