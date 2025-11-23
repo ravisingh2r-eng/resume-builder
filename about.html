@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>About Us - Resume Builder | Our Mission & Story</title>
+    <meta name="description" content="Learn about Resume Builder. Our mission is to help job seekers create professional, ATS-friendly resumes quickly and easily. Free resume building tools for everyone.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yoursite.com/about.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/global-components.css">
+
+    <style>
+        .about-page {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .about-hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 50px;
+        }
+
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .about-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .about-section {
+            margin: 50px 0;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .about-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .about-section h2 i {
+            color: #3498db;
+        }
+
+        .about-section p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 12px;
+        }
+
+        .stat-card i {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-top: 10px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .team-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .value-card {
+            padding: 20px;
+            text-align: center;
+            background: white;
+            border: 2px solid #ecf0f1;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .value-card:hover {
+            border-color: #3498db;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+        }
+
+        .value-card i {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+
+        .value-card h4 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            margin: 50px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+    </style>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX', {
+            'page_title': document.title,
+            'page_path': window.location.pathname,
+            'send_page_view': true,
+            'anonymize_ip': true,
+            'cookie_flags': 'SameSite=None;Secure'
+        });
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="sticky-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="./index.html" class="logo">
+                    <i class="fas fa-file-alt"></i>
+                    <div class="logo-text">
+                        <span class="logo-title">Resume Builder</span>
+                        <span class="logo-badge">Pro</span>
+                    </div>
+                </a>
+
+                <nav class="desktop-nav">
+                    <a href="./index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="./index.html#templates"><i class="fas fa-th-large"></i> Templates</a>
+                    <a href="./categories/index.html"><i class="fas fa-folder-open"></i> Categories</a>
+                    <a href="./about.html" class="active"><i class="fas fa-info-circle"></i> About</a>
+                    <a href="./contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                </nav>
+
+                <div class="header-cta">
+                    <a href="./index.html#templates" class="btn btn-primary">
+                        <i class="fas fa-plus-circle"></i> Create Resume
+                    </a>
+                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-menu" id="mobileMenu">
+        <div class="mobile-nav-header">
+            <span class="mobile-nav-title">Menu</span>
+            <button class="mobile-nav-close" onclick="toggleMobileMenu()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav-links">
+            <a href="./index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="./index.html#templates"><i class="fas fa-th-large"></i> Templates</a>
+            <a href="./categories/index.html"><i class="fas fa-folder-open"></i> Browse Categories</a>
+            <a href="./about.html" class="active"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="./contact.html"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="./privacy-policy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+            <a href="./terms-of-service.html"><i class="fas fa-file-contract"></i> Terms of Service</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="about-page">
+        <!-- Hero Section -->
+        <div class="about-hero">
+            <h1><i class="fas fa-users"></i> About Resume Builder</h1>
+            <p>Empowering job seekers to create professional, ATS-friendly resumes in minutes. Your career success is our mission.</p>
+        </div>
+
+        <!-- Our Mission -->
+        <section class="about-section">
+            <h2><i class="fas fa-bullseye"></i> Our Mission</h2>
+            <p>At <strong>Resume Builder</strong>, we believe that everyone deserves a professional resume, regardless of their background or budget. Our mission is to democratize resume creation by providing free, high-quality tools that help job seekers stand out in competitive markets.</p>
+            <p>We understand that creating a resume can be overwhelming, especially for freshers, career changers, or those re-entering the workforce. That's why we've created an intuitive platform with 560+ templates across 56+ job categories, pre-filled with industry-specific examples to get you started in just 2 minutes.</p>
+        </section>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-file-alt"></i>
+                <span class="stat-number">560+</span>
+                <p class="stat-label">Resume Templates</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-folder-open"></i>
+                <span class="stat-number">56+</span>
+                <p class="stat-label">Job Categories</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <span class="stat-number">10,000+</span>
+                <p class="stat-label">Users Helped</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-star"></i>
+                <span class="stat-number">100%</span>
+                <p class="stat-label">Free to Use</p>
+            </div>
+        </div>
+
+        <!-- What We Offer -->
+        <section class="about-section">
+            <h2><i class="fas fa-gift"></i> What We Offer</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-th-large"></i>
+                    <h3>560+ Templates</h3>
+                    <p>Professional, ATS-friendly resume templates covering every industry and job level.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-magic"></i>
+                    <h3>Pre-filled Examples</h3>
+                    <p>Category-specific dummy content to help you get started quickly and understand best practices.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-edit"></i>
+                    <h3>Easy Customization</h3>
+                    <p>Intuitive editor to customize every section, from personal details to work experience.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Friendly</h3>
+                    <p>Create and edit resumes on any device - desktop, tablet, or smartphone.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-download"></i>
+                    <h3>Instant PDF Download</h3>
+                    <p>Download your completed resume as a high-quality PDF with one click.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-lock"></i>
+                    <h3>Privacy First</h3>
+                    <p>Your resume data is stored locally on your device - we never access your personal information.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story -->
+        <section class="about-section">
+            <h2><i class="fas fa-book"></i> Our Story</h2>
+            <p>Resume Builder was born out of a simple observation: creating a professional resume shouldn't be difficult or expensive. We noticed that many job seekers struggle with:</p>
+            <ul style="line-height: 2; color: #555; margin: 20px 0 20px 30px;">
+                <li>Finding the right template for their industry</li>
+                <li>Knowing what to include in each section</li>
+                <li>Formatting their resume properly for ATS systems</li>
+                <li>Paying high prices for resume services</li>
+            </ul>
+            <p>We decided to solve these problems by creating a completely free platform that combines beautiful templates with practical guidance. Our team spent months researching ATS requirements, interviewing hiring managers, and analyzing successful resumes to create templates that actually work.</p>
+            <p>Today, Resume Builder serves thousands of job seekers across India and beyond, helping them land their dream jobs.</p>
+        </section>
+
+        <!-- Our Values -->
+        <section class="about-section">
+            <h2><i class="fas fa-heart"></i> Our Values</h2>
+            <div class="team-values">
+                <div class="value-card">
+                    <i class="fas fa-universal-access"></i>
+                    <h4>Accessibility</h4>
+                    <p>Free tools for everyone, everywhere.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-award"></i>
+                    <h4>Quality</h4>
+                    <p>Professional templates that meet industry standards.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Privacy</h4>
+                    <p>Your data stays on your device, always.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-rocket"></i>
+                    <h4>Innovation</h4>
+                    <p>Constantly improving and adding new features.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-users"></i>
+                    <h4>Community</h4>
+                    <p>Supporting job seekers on their career journey.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="about-section">
+            <h2><i class="fas fa-check-circle"></i> Why Choose Resume Builder?</h2>
+            <ul style="line-height: 2.2; color: #555; margin: 20px 0 20px 30px; font-size: 1.05rem;">
+                <li><strong>100% Free:</strong> No hidden costs, no premium tiers, no credit card required</li>
+                <li><strong>ATS-Optimized:</strong> All templates are designed to pass Applicant Tracking Systems</li>
+                <li><strong>Industry-Specific:</strong> 56+ categories with tailored templates and examples</li>
+                <li><strong>Quick Setup:</strong> Get started with pre-filled examples in 2 minutes</li>
+                <li><strong>Privacy Focused:</strong> Local storage means your data never leaves your device</li>
+                <li><strong>No Registration:</strong> Start creating immediately without signing up</li>
+                <li><strong>Responsive Design:</strong> Works perfectly on all devices</li>
+                <li><strong>Regular Updates:</strong> New templates and features added frequently</li>
+            </ul>
+        </section>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2><i class="fas fa-rocket"></i> Ready to Build Your Resume?</h2>
+            <p>Join thousands of job seekers who have created their professional resumes with Resume Builder.</p>
+            <a href="./index.html#templates" class="btn btn-primary btn-lg" style="background: white; color: #667eea; font-size: 1.2rem; padding: 15px 40px;">
+                <i class="fas fa-plus-circle"></i> Create Resume Now
+            </a>
+        </div>
+
+        <!-- Contact Info -->
+        <section class="about-section">
+            <h2><i class="fas fa-envelope"></i> Get in Touch</h2>
+            <p>Have questions, feedback, or suggestions? We'd love to hear from you!</p>
+            <p style="margin-top: 20px;">
+                <a href="./contact.html" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Contact Us
+                </a>
+            </p>
+        </section>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="global-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-heading">
+                        <i class="fas fa-file-alt"></i> Resume Builder
+                    </h3>
+                    <p class="footer-description">
+                        Create professional, ATS-friendly resumes in minutes. Choose from 560+ templates across 56+ categories.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="./index.html#templates"><i class="fas fa-th-large"></i> Templates</a></li>
+                        <li><a href="./categories/index.html"><i class="fas fa-folder-open"></i> Categories</a></li>
+                        <li><a href="./index.html#features"><i class="fas fa-star"></i> Features</a></li>
+                        <li><a href="./about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Popular Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="./categories/software-engineer.html">Software Engineer</a></li>
+                        <li><a href="./categories/data-scientist.html">Data Scientist</a></li>
+                        <li><a href="./categories/teacher.html">Teacher</a></li>
+                        <li><a href="./categories/fresher.html">Fresher</a></li>
+                        <li><a href="./categories/doctor.html">Doctor</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Legal & Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="./privacy-policy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                        <li><a href="./terms-of-service.html"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+                        <li><a href="./contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                        <li><a href="./about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2025 Resume Builder. All rights reserved.
+                </p>
+                <div class="footer-trust-badges">
+                    <span class="trust-badge"><i class="fas fa-lock"></i> Secure</span>
+                    <span class="trust-badge"><i class="fas fa-shield-alt"></i> Private</span>
+                    <span class="trust-badge"><i class="fas fa-download"></i> Free</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./js/analytics.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const body = document.body;
+            menu.classList.toggle('active');
+            body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            if (menu.classList.contains('active') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+
+        // Track page view
+        if (typeof trackPageView === 'function') {
+            trackPageView('About Us', '/about.html');
+        }
+    </script>
+</body>
+</html>
