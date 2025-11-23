@@ -356,9 +356,11 @@ function createTemplateCard(template) {
     card.setAttribute('data-category', template.category);
     card.onclick = () => selectTemplate(template.id);
 
+    const thumbnailHTML = getTemplateThumbnail(template.id, template.colors);
+
     card.innerHTML = `
         <div class="template-preview">
-            <i class="fas fa-file-alt"></i>
+            <div class="template-thumbnail">${thumbnailHTML}</div>
             <span class="template-badge">${template.badge}</span>
         </div>
         <div class="template-info">
@@ -371,6 +373,138 @@ function createTemplateCard(template) {
     `;
 
     return card;
+}
+
+function getTemplateThumbnail(templateId, colors) {
+    const thumbnails = {
+        'modern': `
+            <div class="thumb-layout thumb-modern">
+                <div class="thumb-sidebar" style="background: ${colors[0]}"></div>
+                <div class="thumb-content">
+                    <div class="thumb-line" style="width: 70%"></div>
+                    <div class="thumb-line" style="width: 50%"></div>
+                    <div class="thumb-line" style="width: 90%"></div>
+                    <div class="thumb-line" style="width: 80%"></div>
+                </div>
+            </div>
+        `,
+        'ats': `
+            <div class="thumb-layout thumb-ats">
+                <div class="thumb-header" style="border-bottom: 2px solid ${colors[0]}">
+                    <div class="thumb-line" style="width: 60%; margin: 0 auto"></div>
+                </div>
+                <div class="thumb-content">
+                    <div class="thumb-line" style="width: 100%"></div>
+                    <div class="thumb-line" style="width: 90%"></div>
+                    <div class="thumb-line" style="width: 85%"></div>
+                </div>
+            </div>
+        `,
+        'creative': `
+            <div class="thumb-layout thumb-creative">
+                <div class="thumb-header" style="background: linear-gradient(135deg, ${colors[0]}, ${colors[1]})">
+                    <div class="thumb-circle"></div>
+                </div>
+                <div class="thumb-content">
+                    <div class="thumb-line" style="width: 80%"></div>
+                    <div class="thumb-line" style="width: 90%"></div>
+                    <div class="thumb-line" style="width: 70%"></div>
+                </div>
+            </div>
+        `,
+        'professional': `
+            <div class="thumb-layout thumb-professional">
+                <div class="thumb-header" style="border-bottom: 3px double ${colors[0]}">
+                    <div class="thumb-line" style="width: 50%; margin: 0 auto"></div>
+                </div>
+                <div class="thumb-content">
+                    <div class="thumb-line" style="width: 100%"></div>
+                    <div class="thumb-line" style="width: 95%"></div>
+                    <div class="thumb-line" style="width: 88%"></div>
+                </div>
+            </div>
+        `,
+        'tech': `
+            <div class="thumb-layout thumb-tech" style="background: ${colors[0]}">
+                <div class="thumb-header" style="border-left: 3px solid ${colors[1]}">
+                    <div class="thumb-line light" style="width: 60%"></div>
+                </div>
+                <div class="thumb-content">
+                    <div class="thumb-line light" style="width: 85%"></div>
+                    <div class="thumb-line light" style="width: 75%"></div>
+                    <div class="thumb-line light" style="width: 90%"></div>
+                </div>
+            </div>
+        `,
+        'student': `
+            <div class="thumb-layout thumb-student">
+                <div class="thumb-header" style="background: linear-gradient(to right, ${colors[0]}, transparent)">
+                    <div class="thumb-circle" style="border-color: white"></div>
+                </div>
+                <div class="thumb-content">
+                    <div class="thumb-line" style="width: 85%"></div>
+                    <div class="thumb-line" style="width: 90%"></div>
+                    <div class="thumb-line" style="width: 70%"></div>
+                </div>
+            </div>
+        `,
+        'executive': `
+            <div class="thumb-layout thumb-executive">
+                <div class="thumb-header" style="background: linear-gradient(135deg, ${colors[0]}, ${colors[1]})">
+                    <div class="thumb-line light" style="width: 50%; margin: 0 auto"></div>
+                </div>
+                <div class="thumb-content thumb-two-col">
+                    <div class="thumb-col">
+                        <div class="thumb-line" style="width: 90%"></div>
+                        <div class="thumb-line" style="width: 80%"></div>
+                    </div>
+                    <div class="thumb-col">
+                        <div class="thumb-line" style="width: 70%"></div>
+                        <div class="thumb-line" style="width: 60%"></div>
+                    </div>
+                </div>
+            </div>
+        `,
+        'minimalist': `
+            <div class="thumb-layout thumb-minimalist">
+                <div class="thumb-header" style="border-bottom: 1px solid ${colors[2]}">
+                    <div class="thumb-line" style="width: 40%"></div>
+                </div>
+                <div class="thumb-content" style="padding-top: 10px">
+                    <div class="thumb-line" style="width: 100%; height: 2px; margin-bottom: 8px"></div>
+                    <div class="thumb-line" style="width: 95%"></div>
+                    <div class="thumb-line" style="width: 88%"></div>
+                </div>
+            </div>
+        `,
+        'bold': `
+            <div class="thumb-layout thumb-bold">
+                <div class="thumb-header" style="background: ${colors[0]}">
+                    <div class="thumb-line light bold" style="width: 60%"></div>
+                    <div class="thumb-accent" style="background: ${colors[1]}; width: 30px; height: 3px; margin-top: 3px"></div>
+                </div>
+                <div class="thumb-content">
+                    <div class="thumb-line" style="width: 85%"></div>
+                    <div class="thumb-line" style="width: 90%"></div>
+                </div>
+            </div>
+        `,
+        'timeline': `
+            <div class="thumb-layout thumb-timeline">
+                <div class="thumb-header" style="border-bottom: 2px solid ${colors[2]}">
+                    <div class="thumb-circle" style="border-color: ${colors[0]}"></div>
+                    <div class="thumb-line" style="width: 60%"></div>
+                </div>
+                <div class="thumb-content" style="position: relative; padding-left: 8px">
+                    <div class="thumb-timeline" style="background: ${colors[0]}"></div>
+                    <div class="thumb-line" style="width: 80%"></div>
+                    <div class="thumb-line" style="width: 85%"></div>
+                </div>
+            </div>
+        `
+    };
+
+    return thumbnails[templateId] || thumbnails['modern'];
 }
 
 function populateTemplateSelectorThumbs(templates) {
