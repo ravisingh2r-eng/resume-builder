@@ -1880,6 +1880,84 @@ const originalInitializeApp = initializeApp;
 function initializeApp() {
     originalInitializeApp();
     initializeVisualEditor();
+    initializeFullscreenMode();
+}
+
+// ============================================
+// FULLSCREEN PREVIEW MODE
+// ============================================
+let isFullscreenMode = false;
+
+function initializeFullscreenMode() {
+    const fullscreenBtn = document.getElementById('fullscreenToggle');
+
+    if (fullscreenBtn) {
+        fullscreenBtn.addEventListener('click', toggleFullscreenMode);
+    }
+
+    // ESC key to exit fullscreen
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isFullscreenMode) {
+            exitFullscreenMode();
+        }
+    });
+}
+
+function toggleFullscreenMode() {
+    if (isFullscreenMode) {
+        exitFullscreenMode();
+    } else {
+        enterFullscreenMode();
+    }
+}
+
+function enterFullscreenMode() {
+    const editorPreview = document.querySelector('.editor-preview');
+    const fullscreenBtn = document.getElementById('fullscreenToggle');
+    const icon = fullscreenBtn.querySelector('i');
+
+    if (!editorPreview) return;
+
+    // Add fullscreen class
+    editorPreview.classList.add('fullscreen-mode');
+    document.body.classList.add('fullscreen-active');
+
+    // Update button
+    fullscreenBtn.classList.add('active');
+    icon.classList.remove('fa-expand');
+    icon.classList.add('fa-compress');
+    fullscreenBtn.title = 'Exit Fullscreen (ESC)';
+
+    isFullscreenMode = true;
+
+    // Track event
+    trackEvent('fullscreen_entered');
+
+    // Show notification
+    showNotification('Press ESC to exit fullscreen', 'info');
+}
+
+function exitFullscreenMode() {
+    const editorPreview = document.querySelector('.editor-preview');
+    const fullscreenBtn = document.getElementById('fullscreenToggle');
+    const icon = fullscreenBtn.querySelector('i');
+
+    if (!editorPreview) return;
+
+    // Remove fullscreen class
+    editorPreview.classList.remove('fullscreen-mode');
+    document.body.classList.remove('fullscreen-active');
+
+    // Update button
+    fullscreenBtn.classList.remove('active');
+    icon.classList.remove('fa-compress');
+    icon.classList.add('fa-expand');
+    fullscreenBtn.title = 'Fullscreen Preview';
+
+    isFullscreenMode = false;
+
+    // Track event
+    trackEvent('fullscreen_exited');
 }
 
 console.log('Resume Builder App Loaded Successfully');
