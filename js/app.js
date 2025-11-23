@@ -217,6 +217,12 @@ function navigateToPage(page) {
 
     APP_STATE.currentPage = page;
 
+    // Show/hide floating download button based on page
+    const floatingBtn = document.getElementById('floatingDownloadBtn');
+    if (floatingBtn) {
+        floatingBtn.style.display = (page === 'editor') ? 'flex' : 'none';
+    }
+
     // Track page view
     trackEvent('page_view', { page });
 

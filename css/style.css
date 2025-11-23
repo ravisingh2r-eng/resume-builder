@@ -2167,6 +2167,65 @@ input[type="range"] {
 }
 
 /* ============================================
+   FLOATING DOWNLOAD BUTTON (MOBILE)
+   ============================================ */
+.floating-download-btn {
+    display: none; /* Hidden by default, shown on mobile */
+}
+
+@media (max-width: 768px) {
+    .floating-download-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 999;
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 4px 20px rgba(52, 152, 219, 0.4);
+        font-weight: 600;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    .floating-download-btn i {
+        font-size: 1.2rem;
+    }
+
+    .floating-download-btn:hover,
+    .floating-download-btn:active {
+        transform: scale(1.05);
+        box-shadow: 0 6px 25px rgba(52, 152, 219, 0.5);
+    }
+
+    .floating-download-btn:active {
+        transform: scale(0.95);
+    }
+
+    /* Only show on editor page */
+    #editorPage:not(.active) ~ .floating-download-btn {
+        display: none;
+    }
+
+    /* Pulse animation for attention */
+    @keyframes pulse {
+        0%, 100% {
+            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.4);
+        }
+        50% {
+            box-shadow: 0 4px 25px rgba(52, 152, 219, 0.6);
+        }
+    }
+}
+
+/* ============================================
    PRINT STYLES
    ============================================ */
 @media print {
