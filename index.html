@@ -1070,10 +1070,135 @@
                                 </label>
                             </div>
                         </div>
+
+                        <!-- Template Customization -->
+                        <div class="custom-section">
+                            <h4><i class="fas fa-sliders-h"></i> Template Customization</h4>
+
+                            <!-- Color Schemes -->
+                            <div class="customization-subsection">
+                                <label>Color Schemes</label>
+                                <div class="color-schemes">
+                                    <button class="scheme-btn" data-scheme="blue" title="Professional Blue">
+                                        <div class="scheme-preview">
+                                            <span style="background: #3498db"></span>
+                                            <span style="background: #2c3e50"></span>
+                                        </div>
+                                        <span>Blue</span>
+                                    </button>
+                                    <button class="scheme-btn" data-scheme="green" title="Fresh Green">
+                                        <div class="scheme-preview">
+                                            <span style="background: #2ecc71"></span>
+                                            <span style="background: #27ae60"></span>
+                                        </div>
+                                        <span>Green</span>
+                                    </button>
+                                    <button class="scheme-btn" data-scheme="purple" title="Creative Purple">
+                                        <div class="scheme-preview">
+                                            <span style="background: #9b59b6"></span>
+                                            <span style="background: #8e44ad"></span>
+                                        </div>
+                                        <span>Purple</span>
+                                    </button>
+                                    <button class="scheme-btn" data-scheme="orange" title="Energetic Orange">
+                                        <div class="scheme-preview">
+                                            <span style="background: #e67e22"></span>
+                                            <span style="background: #d35400"></span>
+                                        </div>
+                                        <span>Orange</span>
+                                    </button>
+                                    <button class="scheme-btn" data-scheme="teal" title="Modern Teal">
+                                        <div class="scheme-preview">
+                                            <span style="background: #1abc9c"></span>
+                                            <span style="background: #16a085"></span>
+                                        </div>
+                                        <span>Teal</span>
+                                    </button>
+                                    <button class="scheme-btn" data-scheme="red" title="Bold Red">
+                                        <div class="scheme-preview">
+                                            <span style="background: #e74c3c"></span>
+                                            <span style="background: #c0392b"></span>
+                                        </div>
+                                        <span>Red</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Section Spacing -->
+                            <div class="customization-subsection">
+                                <label>Section Spacing</label>
+                                <input type="range" id="sectionSpacing" min="10" max="40" value="20" step="5">
+                                <span id="sectionSpacingValue">20px</span>
+                            </div>
+
+                            <!-- Section Reorder -->
+                            <div class="customization-subsection">
+                                <label>Reorder Sections</label>
+                                <button class="btn-secondary" id="reorderSectionsBtn">
+                                    <i class="fas fa-sort"></i> Reorder Sections
+                                </button>
+                            </div>
+
+                            <!-- Custom Section -->
+                            <div class="customization-subsection">
+                                <label>Custom Section</label>
+                                <button class="btn-secondary" id="addCustomSectionBtn">
+                                    <i class="fas fa-plus"></i> Add Custom Section
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </aside>
             </div>
         </section>
+
+        <!-- Section Reorder Modal -->
+        <div id="reorderModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-sort"></i> Reorder Resume Sections</h3>
+                    <button class="btn-icon" onclick="closeReorderModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-description">Drag and drop to reorder sections</p>
+                    <div id="sectionList" class="section-reorder-list">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-secondary" onclick="closeReorderModal()">Cancel</button>
+                    <button class="btn-primary" onclick="saveSectionOrder()">Save Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Section Modal -->
+        <div id="customSectionModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-plus"></i> Add Custom Section</h3>
+                    <button class="btn-icon" onclick="closeCustomSectionModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Section Title</label>
+                        <input type="text" id="customSectionTitle" placeholder="e.g., Volunteer Work, Publications">
+                    </div>
+                    <div class="form-group">
+                        <label>Section Content</label>
+                        <textarea id="customSectionContent" rows="6" placeholder="Enter your content here..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-secondary" onclick="closeCustomSectionModal()">Cancel</button>
+                    <button class="btn-primary" onclick="addCustomSection()">Add Section</button>
+                </div>
+            </div>
+        </div>
 
         <!-- Floating Download Button (Mobile Only) -->
         <button class="floating-download-btn mobile-only" id="floatingDownloadBtn" onclick="openDownloadModal()" title="Download Resume">

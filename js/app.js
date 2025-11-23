@@ -1960,4 +1960,232 @@ function exitFullscreenMode() {
     trackEvent('fullscreen_exited');
 }
 
+// ============================================
+// TEMPLATE CUSTOMIZATION
+// ============================================
+
+// Initialize Template Customization
+function initializeTemplateCustomization() {
+    // Color Schemes
+    document.querySelectorAll('.scheme-btn').forEach(btn => {
+        btn.addEventListener('click', applyColorScheme);
+    });
+
+    // Section Spacing
+    const spacingInput = document.getElementById('sectionSpacing');
+    if (spacingInput) {
+        spacingInput.addEventListener('input', updateSectionSpacing);
+    }
+
+    // Reorder Sections
+    const reorderBtn = document.getElementById('reorderSectionsBtn');
+    if (reorderBtn) {
+        reorderBtn.addEventListener('click', openReorderModal);
+    }
+
+    // Custom Section
+    const customSectionBtn = document.getElementById('addCustomSectionBtn');
+    if (customSectionBtn) {
+        customSectionBtn.addEventListener('click', openCustomSectionModal);
+    }
+}
+
+// Color Schemes
+const COLOR_SCHEMES = {
+    blue: { primary: '#3498db', secondary: '#2c3e50' },
+    green: { primary: '#2ecc71', secondary: '#27ae60' },
+    purple: { primary: '#9b59b6', secondary: '#8e44ad' },
+    orange: { primary: '#e67e22', secondary: '#d35400' },
+    teal: { primary: '#1abc9c', secondary: '#16a085' },
+    red: { primary: '#e74c3c', secondary: '#c0392b' }
+};
+
+function applyColorScheme(e) {
+    const scheme = e.currentTarget.dataset.scheme;
+    const colors = COLOR_SCHEMES[scheme];
+
+    if (colors) {
+        APP_STATE.accentColor = colors.primary;
+        document.getElementById('accentColor').value = colors.primary;
+        renderResumePreview();
+        saveToLocalStorage();
+
+        // Visual feedback
+        document.querySelectorAll('.scheme-btn').forEach(btn => btn.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+
+        showNotification(`${scheme.charAt(0).toUpperCase() + scheme.slice(1)} color scheme applied!`, 'success');
+    }
+}
+
+// Section Spacing
+function updateSectionSpacing(e) {
+    const spacing = e.target.value;
+    document.getElementById('sectionSpacingValue').textContent = `${spacing}px`;
+
+    const preview = document.getElementById('resumePreview');
+    if (preview) {
+        preview.style.setProperty('--section-spacing', `${spacing}px`);
+    }
+
+    // Save to state
+    if (!APP_STATE.customization) {
+        APP_STATE.customization = {};
+    }
+    APP_STATE.customization.sectionSpacing = spacing;
+    saveToLocalStorage();
+}
+
+// Section Reordering
+let sectionOrder = ['summary', 'experience', 'education', 'skills', 'projects', 'certifications', 'languages', 'interests'];
+
+function openReorderModal() {
+    const modal = document.getElementById('reorderModal');
+    const sectionList = document.getElementById('sectionList');
+
+    if (!modal || !sectionList) return;
+
+    // Create section items
+    sectionList.innerHTML = sectionOrder.map((section, index) => `
+        <div class="section-item" draggable="true" data-section="${section}" data-index="${index}">
+            <i class="fas fa-grip-vertical drag-handle"></i>
+            <span class="section-name">${formatSectionName(section)}</span>
+        </div>
+    `).join('');
+
+    // Add drag and drop handlers
+    const items = sectionList.querySelectorAll('.section-item');
+    items.forEach(item => {
+        item.addEventListener('dragstart', handleDragStart);
+        item.addEventListener('dragover', handleDragOver);
+        item.addEventListener('drop', handleDrop);
+        item.addEventListener('dragend', handleDragEnd);
+    });
+
+    modal.style.display = 'flex';
+}
+
+function closeReorderModal() {
+    const modal = document.getElementById('reorderModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+let draggedElement = null;
+
+function handleDragStart(e) {
+    draggedElement = e.target;
+    e.target.classList.add('dragging');
+}
+
+function handleDragOver(e) {
+    e.preventDefault();
+    const afterElement = getDragAfterElement(e.currentTarget.parentNode, e.clientY);
+    const draggable = draggedElement;
+
+    if (afterElement == null) {
+        e.currentTarget.parentNode.appendChild(draggable);
+    } else {
+        e.currentTarget.parentNode.insertBefore(draggable, afterElement);
+    }
+}
+
+function handleDrop(e) {
+    e.preventDefault();
+}
+
+function handleDragEnd(e) {
+    e.target.classList.remove('dragging');
+}
+
+function getDragAfterElement(container, y) {
+    const draggableElements = [...container.querySelectorAll('.section-item:not(.dragging)')];
+
+    return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child };
+        } else {
+            return closest;
+        }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
+
+function saveSectionOrder() {
+    const items = document.querySelectorAll('#sectionList .section-item');
+    sectionOrder = Array.from(items).map(item => item.dataset.section);
+
+    // Save to state
+    if (!APP_STATE.customization) {
+        APP_STATE.customization = {};
+    }
+    APP_STATE.customization.sectionOrder = sectionOrder;
+    saveToLocalStorage();
+
+    showNotification('Section order saved! (Note: Reordering will be applied in future update)', 'success');
+    closeReorderModal();
+}
+
+function formatSectionName(section) {
+    const names = {
+        summary: 'Professional Summary',
+        experience: 'Work Experience',
+        education: 'Education',
+        skills: 'Skills',
+        projects: 'Projects',
+        certifications: 'Certifications',
+        languages: 'Languages',
+        interests: 'Interests'
+    };
+    return names[section] || section;
+}
+
+// Custom Sections
+function openCustomSectionModal() {
+    const modal = document.getElementById('customSectionModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.getElementById('customSectionTitle').value = '';
+        document.getElementById('customSectionContent').value = '';
+    }
+}
+
+function closeCustomSectionModal() {
+    const modal = document.getElementById('customSectionModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+function addCustomSection() {
+    const title = document.getElementById('customSectionTitle').value.trim();
+    const content = document.getElementById('customSectionContent').value.trim();
+
+    if (!title || !content) {
+        showNotification('Please fill in both title and content', 'error');
+        return;
+    }
+
+    // Save custom section to state
+    if (!APP_STATE.customSections) {
+        APP_STATE.customSections = [];
+    }
+
+    APP_STATE.customSections.push({ title, content });
+    saveToLocalStorage();
+
+    showNotification(`Custom section "${title}" added! (Note: Custom sections will be rendered in future update)`, 'success');
+    closeCustomSectionModal();
+}
+
+// Add to initialization
+const originalInitializeApp2 = initializeApp;
+function initializeApp() {
+    originalInitializeApp2();
+    initializeTemplateCustomization();
+}
+
 console.log('Resume Builder App Loaded Successfully');
