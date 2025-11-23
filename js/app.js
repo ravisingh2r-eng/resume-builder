@@ -300,6 +300,38 @@ function initializeTemplates() {
             description: 'Education-focused layout',
             badge: 'For Students',
             colors: ['#3498db', '#2ecc71', '#e74c3c', '#f39c12']
+        },
+        {
+            id: 'executive',
+            name: 'Executive',
+            category: 'professional',
+            description: 'Two-column layout with elegant gradient header',
+            badge: 'Premium',
+            colors: ['#1a1a2e', '#2d3561', '#16213e', '#0f3460']
+        },
+        {
+            id: 'minimalist',
+            name: 'Minimalist',
+            category: 'modern',
+            description: 'Ultra-clean, single column with maximum whitespace',
+            badge: 'Minimal',
+            colors: ['#1a1a1a', '#666666', '#e0e0e0', '#f5f5f5']
+        },
+        {
+            id: 'bold',
+            name: 'Bold',
+            category: 'creative',
+            description: 'Strong visual hierarchy with bold typography',
+            badge: 'Impact',
+            colors: ['#1a1a1a', '#ffd700', '#f8f8f8', '#333333']
+        },
+        {
+            id: 'timeline',
+            name: 'Timeline',
+            category: 'modern',
+            description: 'Chronological layout with visual timeline',
+            badge: 'Unique',
+            colors: ['#3498db', '#2c3e50', '#e0e0e0', '#f8f9fa']
         }
     ];
 
@@ -372,7 +404,7 @@ function selectTemplate(templateId) {
 }
 
 function getTemplateIndex(templateId) {
-    const templates = ['modern', 'ats', 'creative', 'professional', 'tech', 'student'];
+    const templates = ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'];
     return templates.indexOf(templateId);
 }
 

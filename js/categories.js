@@ -1,6 +1,7 @@
 /* ============================================
    RESUME CATEGORIES & INDUSTRY TEMPLATES
-   40+ High-Demand Categories with 5 Templates Each
+   57 High-Demand Categories with 10 Templates Each
+   Total: 570 Professional Resume Templates
    ============================================ */
 
 // ============================================
@@ -16,7 +17,7 @@ const RESUME_CATEGORIES = {
         category: 'Technology',
         icon: 'fa-code',
         demand: 'Very High',
-        templates: ['modern', 'tech', 'ats', 'professional', 'creative'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['JavaScript', 'Python', 'Java', 'React', 'Node.js', 'SQL', 'Git', 'AWS'],
         avgSalary: '₹8-25 LPA',
         description: 'Full-stack, Backend, Frontend developers'
@@ -27,7 +28,7 @@ const RESUME_CATEGORIES = {
         category: 'Technology',
         icon: 'fa-globe',
         demand: 'Very High',
-        templates: ['modern', 'tech', 'creative', 'ats', 'professional'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Vue.js', 'Responsive Design', 'APIs'],
         avgSalary: '₹5-18 LPA',
         description: 'Frontend, Full-stack web development'
@@ -38,7 +39,7 @@ const RESUME_CATEGORIES = {
         category: 'Technology',
         icon: 'fa-mobile-alt',
         demand: 'High',
-        templates: ['tech', 'modern', 'ats', 'professional', 'creative'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'iOS', 'Android', 'Firebase'],
         avgSalary: '₹6-22 LPA',
         description: 'iOS, Android, Cross-platform development'
@@ -49,7 +50,7 @@ const RESUME_CATEGORIES = {
         category: 'Technology',
         icon: 'fa-chart-line',
         demand: 'Very High',
-        templates: ['professional', 'ats', 'modern', 'tech', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Python', 'R', 'Machine Learning', 'SQL', 'TensorFlow', 'Statistics', 'Pandas'],
         avgSalary: '₹10-30 LPA',
         description: 'ML, AI, Data Analysis, Analytics'
@@ -60,7 +61,7 @@ const RESUME_CATEGORIES = {
         category: 'Technology',
         icon: 'fa-server',
         demand: 'High',
-        templates: ['tech', 'professional', 'ats', 'modern', 'creative'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Docker', 'Kubernetes', 'AWS', 'CI/CD', 'Jenkins', 'Terraform', 'Linux'],
         avgSalary: '₹8-25 LPA',
         description: 'Cloud, Infrastructure, Automation'
@@ -71,7 +72,7 @@ const RESUME_CATEGORIES = {
         category: 'Technology',
         icon: 'fa-bug',
         demand: 'High',
-        templates: ['ats', 'professional', 'modern', 'tech', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Selenium', 'Automation Testing', 'Manual Testing', 'JIRA', 'API Testing'],
         avgSalary: '₹4-12 LPA',
         description: 'Quality Assurance, Testing'
@@ -82,7 +83,7 @@ const RESUME_CATEGORIES = {
         category: 'Technology',
         icon: 'fa-paint-brush',
         demand: 'High',
-        templates: ['creative', 'modern', 'professional', 'ats', 'tech'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Figma', 'Adobe XD', 'Sketch', 'Wireframing', 'Prototyping', 'User Research'],
         avgSalary: '₹5-18 LPA',
         description: 'Product Design, UX Research'
@@ -93,7 +94,7 @@ const RESUME_CATEGORIES = {
         category: 'Technology',
         icon: 'fa-shield-alt',
         demand: 'High',
-        templates: ['professional', 'tech', 'ats', 'modern', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Penetration Testing', 'Network Security', 'SIEM', 'Firewall', 'Ethical Hacking'],
         avgSalary: '₹7-22 LPA',
         description: 'Information Security, Ethical Hacking'
@@ -104,7 +105,7 @@ const RESUME_CATEGORIES = {
         category: 'Technology',
         icon: 'fa-cloud',
         demand: 'Very High',
-        templates: ['professional', 'tech', 'ats', 'modern', 'creative'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['AWS', 'Azure', 'GCP', 'Microservices', 'Serverless', 'Cloud Security'],
         avgSalary: '₹12-35 LPA',
         description: 'Cloud Solutions, Architecture'
@@ -115,7 +116,7 @@ const RESUME_CATEGORIES = {
         category: 'Technology',
         icon: 'fa-database',
         demand: 'Medium',
-        templates: ['professional', 'ats', 'tech', 'modern', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Oracle', 'Database Design', 'Performance Tuning'],
         avgSalary: '₹6-18 LPA',
         description: 'DBA, Database Management'
@@ -130,7 +131,7 @@ const RESUME_CATEGORIES = {
         category: 'Healthcare',
         icon: 'fa-user-md',
         demand: 'Very High',
-        templates: ['professional', 'ats', 'modern', 'student', 'creative'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Patient Care', 'Diagnosis', 'Medical Records', 'EMR Systems', 'Clinical Skills'],
         avgSalary: '₹8-50 LPA',
         description: 'MD, MBBS, Specialist, General Practitioner'
@@ -141,7 +142,7 @@ const RESUME_CATEGORIES = {
         category: 'Healthcare',
         icon: 'fa-heartbeat',
         demand: 'High',
-        templates: ['professional', 'ats', 'modern', 'student', 'creative'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Patient Care', 'Medical Equipment', 'Emergency Response', 'Healthcare Software'],
         avgSalary: '₹3-10 LPA',
         description: 'RN, LPN, Critical Care Nurse'
@@ -152,7 +153,7 @@ const RESUME_CATEGORIES = {
         category: 'Healthcare',
         icon: 'fa-pills',
         demand: 'Medium',
-        templates: ['professional', 'ats', 'modern', 'student', 'tech'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Drug Dispensing', 'Patient Counseling', 'Inventory Management', 'Pharmacy Software'],
         avgSalary: '₹3-8 LPA',
         description: 'Clinical Pharmacist, Retail Pharmacist'
@@ -163,7 +164,7 @@ const RESUME_CATEGORIES = {
         category: 'Healthcare',
         icon: 'fa-flask',
         demand: 'Medium',
-        templates: ['professional', 'ats', 'modern', 'student', 'tech'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Lab Testing', 'Equipment Operation', 'Sample Analysis', 'Quality Control'],
         avgSalary: '₹2-6 LPA',
         description: 'Lab Tech, Pathology Assistant'
@@ -174,7 +175,7 @@ const RESUME_CATEGORIES = {
         category: 'Healthcare',
         icon: 'fa-hands-helping',
         demand: 'Medium',
-        templates: ['professional', 'modern', 'ats', 'student', 'creative'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Physical Therapy', 'Rehabilitation', 'Patient Assessment', 'Treatment Planning'],
         avgSalary: '₹3-10 LPA',
         description: 'Physical Therapy, Rehabilitation Specialist'
@@ -189,7 +190,7 @@ const RESUME_CATEGORIES = {
         category: 'Business',
         icon: 'fa-bullhorn',
         demand: 'Very High',
-        templates: ['creative', 'modern', 'professional', 'ats', 'tech'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['SEO', 'Google Ads', 'Social Media', 'Content Marketing', 'Analytics', 'Email Marketing'],
         avgSalary: '₹4-15 LPA',
         description: 'SEO, SEM, Social Media Marketing'
@@ -200,7 +201,7 @@ const RESUME_CATEGORIES = {
         category: 'Business',
         icon: 'fa-handshake',
         demand: 'High',
-        templates: ['professional', 'modern', 'ats', 'creative', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Sales Strategy', 'Client Relations', 'CRM', 'Negotiation', 'Lead Generation'],
         avgSalary: '₹3-12 LPA',
         description: 'B2B, B2C Sales, Account Executive'
@@ -211,7 +212,7 @@ const RESUME_CATEGORIES = {
         category: 'Business',
         icon: 'fa-chart-bar',
         demand: 'Very High',
-        templates: ['professional', 'ats', 'modern', 'tech', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Data Analysis', 'SQL', 'Excel', 'Requirements Gathering', 'Process Improvement'],
         avgSalary: '₹6-20 LPA',
         description: 'BA, Systems Analyst, Data Analyst'
@@ -222,7 +223,7 @@ const RESUME_CATEGORIES = {
         category: 'Business',
         icon: 'fa-users',
         demand: 'High',
-        templates: ['professional', 'modern', 'ats', 'creative', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Recruitment', 'Employee Relations', 'HRIS', 'Performance Management', 'Payroll'],
         avgSalary: '₹5-18 LPA',
         description: 'Human Resources, Talent Acquisition'
@@ -233,7 +234,7 @@ const RESUME_CATEGORIES = {
         category: 'Business',
         icon: 'fa-tasks',
         demand: 'High',
-        templates: ['professional', 'ats', 'modern', 'tech', 'creative'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Project Planning', 'Agile', 'Scrum', 'Risk Management', 'Stakeholder Management'],
         avgSalary: '₹8-25 LPA',
         description: 'PMP, Scrum Master, Program Manager'
@@ -244,7 +245,7 @@ const RESUME_CATEGORIES = {
         category: 'Business',
         icon: 'fa-box',
         demand: 'Very High',
-        templates: ['modern', 'professional', 'tech', 'ats', 'creative'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Product Strategy', 'Roadmap Planning', 'User Stories', 'Analytics', 'Market Research'],
         avgSalary: '₹10-35 LPA',
         description: 'Product Owner, Product Lead'
@@ -255,7 +256,7 @@ const RESUME_CATEGORIES = {
         category: 'Business',
         icon: 'fa-cogs',
         demand: 'High',
-        templates: ['professional', 'ats', 'modern', 'tech', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Process Optimization', 'Supply Chain', 'Inventory Management', 'Lean Six Sigma'],
         avgSalary: '₹6-20 LPA',
         description: 'Operations, Supply Chain, Logistics'
@@ -266,7 +267,7 @@ const RESUME_CATEGORIES = {
         category: 'Business',
         icon: 'fa-smile',
         demand: 'High',
-        templates: ['modern', 'professional', 'ats', 'creative', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Customer Relations', 'CRM', 'Problem Solving', 'Communication', 'Retention'],
         avgSalary: '₹4-15 LPA',
         description: 'Customer Support, Client Relations'
@@ -281,7 +282,7 @@ const RESUME_CATEGORIES = {
         category: 'Creative',
         icon: 'fa-palette',
         demand: 'High',
-        templates: ['creative', 'modern', 'professional', 'ats', 'tech'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Adobe Photoshop', 'Illustrator', 'InDesign', 'Branding', 'Typography', 'Logo Design'],
         avgSalary: '₹3-12 LPA',
         description: 'Visual Design, Brand Identity'
@@ -292,7 +293,7 @@ const RESUME_CATEGORIES = {
         category: 'Creative',
         icon: 'fa-pen',
         demand: 'High',
-        templates: ['creative', 'modern', 'professional', 'ats', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Copywriting', 'SEO Writing', 'Content Strategy', 'Research', 'Editing'],
         avgSalary: '₹3-10 LPA',
         description: 'Copywriter, Technical Writer, Blogger'
@@ -303,7 +304,7 @@ const RESUME_CATEGORIES = {
         category: 'Creative',
         icon: 'fa-video',
         demand: 'Medium',
-        templates: ['creative', 'modern', 'tech', 'professional', 'ats'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Adobe Premiere', 'After Effects', 'Final Cut Pro', 'Color Grading', 'Motion Graphics'],
         avgSalary: '₹3-12 LPA',
         description: 'Video Production, Motion Graphics'
@@ -314,7 +315,7 @@ const RESUME_CATEGORIES = {
         category: 'Creative',
         icon: 'fa-camera',
         demand: 'Medium',
-        templates: ['creative', 'modern', 'professional', 'ats', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Photography', 'Lightroom', 'Photoshop', 'Studio Lighting', 'Photo Editing'],
         avgSalary: '₹2-15 LPA',
         description: 'Commercial, Portrait, Wedding Photography'
@@ -325,7 +326,7 @@ const RESUME_CATEGORIES = {
         category: 'Creative',
         icon: 'fa-film',
         demand: 'Medium',
-        templates: ['creative', 'tech', 'modern', 'professional', 'ats'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Maya', 'Blender', '3D Modeling', 'After Effects', 'Animation', 'Rigging'],
         avgSalary: '₹4-15 LPA',
         description: '3D Animation, VFX, Motion Design'
@@ -340,7 +341,7 @@ const RESUME_CATEGORIES = {
         category: 'Education',
         icon: 'fa-chalkboard-teacher',
         demand: 'High',
-        templates: ['professional', 'modern', 'ats', 'student', 'creative'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Curriculum Development', 'Classroom Management', 'Lesson Planning', 'Student Assessment'],
         avgSalary: '₹3-10 LPA',
         description: 'School Teacher, Subject Teacher'
@@ -351,7 +352,7 @@ const RESUME_CATEGORIES = {
         category: 'Education',
         icon: 'fa-university',
         demand: 'Medium',
-        templates: ['professional', 'ats', 'modern', 'student', 'tech'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Research', 'Academic Writing', 'Curriculum Design', 'Student Mentoring', 'Publishing'],
         avgSalary: '₹5-20 LPA',
         description: 'College Professor, Assistant Professor'
@@ -362,7 +363,7 @@ const RESUME_CATEGORIES = {
         category: 'Education',
         icon: 'fa-user-graduate',
         demand: 'Medium',
-        templates: ['professional', 'modern', 'ats', 'student', 'creative'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Career Guidance', 'Student Assessment', 'University Applications', 'Counseling'],
         avgSalary: '₹3-8 LPA',
         description: 'Career Counselor, Academic Advisor'
@@ -373,7 +374,7 @@ const RESUME_CATEGORIES = {
         category: 'Education',
         icon: 'fa-presentation',
         demand: 'Medium',
-        templates: ['professional', 'modern', 'ats', 'creative', 'tech'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Training Delivery', 'Instructional Design', 'LMS', 'Public Speaking', 'E-learning'],
         avgSalary: '₹4-12 LPA',
         description: 'Soft Skills, Technical Training'
@@ -388,7 +389,7 @@ const RESUME_CATEGORIES = {
         category: 'Engineering',
         icon: 'fa-cog',
         demand: 'High',
-        templates: ['professional', 'ats', 'modern', 'tech', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['CAD', 'SolidWorks', 'AutoCAD', 'Manufacturing', 'Thermodynamics', 'Design'],
         avgSalary: '₹4-15 LPA',
         description: 'Design, Manufacturing, R&D'
@@ -399,7 +400,7 @@ const RESUME_CATEGORIES = {
         category: 'Engineering',
         icon: 'fa-building',
         demand: 'High',
-        templates: ['professional', 'ats', 'modern', 'student', 'tech'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['AutoCAD', 'Structural Design', 'Project Management', 'Construction', 'Site Planning'],
         avgSalary: '₹3-12 LPA',
         description: 'Construction, Structural Engineering'
@@ -410,7 +411,7 @@ const RESUME_CATEGORIES = {
         category: 'Engineering',
         icon: 'fa-bolt',
         demand: 'High',
-        templates: ['professional', 'ats', 'tech', 'modern', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Circuit Design', 'Power Systems', 'PLC', 'Electrical Design', 'MATLAB', 'AutoCAD'],
         avgSalary: '₹4-15 LPA',
         description: 'Power Systems, Electronics'
@@ -421,7 +422,7 @@ const RESUME_CATEGORIES = {
         category: 'Engineering',
         icon: 'fa-flask',
         demand: 'Medium',
-        templates: ['professional', 'ats', 'modern', 'tech', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Process Design', 'Chemical Safety', 'Quality Control', 'Plant Operations'],
         avgSalary: '₹4-12 LPA',
         description: 'Process Engineering, Plant Operations'
@@ -432,7 +433,7 @@ const RESUME_CATEGORIES = {
         category: 'Engineering',
         icon: 'fa-heartbeat',
         demand: 'Medium',
-        templates: ['professional', 'ats', 'modern', 'tech', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Medical Devices', 'Biotech', 'CAD', 'Clinical Engineering', 'FDA Regulations'],
         avgSalary: '₹4-14 LPA',
         description: 'Medical Devices, Healthcare Technology'
@@ -447,7 +448,7 @@ const RESUME_CATEGORIES = {
         category: 'Finance',
         icon: 'fa-calculator',
         demand: 'High',
-        templates: ['professional', 'ats', 'modern', 'student', 'tech'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Tally', 'QuickBooks', 'GST', 'Financial Reporting', 'Tax Filing', 'Excel'],
         avgSalary: '₹3-10 LPA',
         description: 'CA, Accounts Manager, Bookkeeper'
@@ -458,7 +459,7 @@ const RESUME_CATEGORIES = {
         category: 'Finance',
         icon: 'fa-chart-pie',
         demand: 'High',
-        templates: ['professional', 'ats', 'modern', 'tech', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Financial Modeling', 'Excel', 'Bloomberg', 'Investment Analysis', 'Valuation'],
         avgSalary: '₹6-20 LPA',
         description: 'Investment Banking, Equity Research'
@@ -469,7 +470,7 @@ const RESUME_CATEGORIES = {
         category: 'Finance',
         icon: 'fa-balance-scale',
         demand: 'Very High',
-        templates: ['professional', 'ats', 'modern', 'student', 'tech'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Audit', 'Taxation', 'Financial Reporting', 'IFRS', 'Company Law', 'GST'],
         avgSalary: '₹8-30 LPA',
         description: 'CA, Audit, Taxation, Corporate Finance'
@@ -480,7 +481,7 @@ const RESUME_CATEGORIES = {
         category: 'Finance',
         icon: 'fa-briefcase',
         demand: 'High',
-        templates: ['professional', 'ats', 'modern', 'tech', 'creative'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['M&A', 'Valuation', 'Financial Modeling', 'Due Diligence', 'Deal Structuring'],
         avgSalary: '₹10-50 LPA',
         description: 'M&A, Corporate Finance, IPO'
@@ -495,7 +496,7 @@ const RESUME_CATEGORIES = {
         category: 'Hospitality',
         icon: 'fa-hotel',
         demand: 'Medium',
-        templates: ['professional', 'modern', 'ats', 'creative', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Hotel Management', 'Customer Service', 'Operations', 'PMS Software', 'Revenue Management'],
         avgSalary: '₹4-15 LPA',
         description: 'Hospitality Management, Front Office'
@@ -506,7 +507,7 @@ const RESUME_CATEGORIES = {
         category: 'Hospitality',
         icon: 'fa-utensils',
         demand: 'Medium',
-        templates: ['creative', 'professional', 'modern', 'ats', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Culinary Arts', 'Menu Planning', 'Food Safety', 'Kitchen Management', 'Cooking'],
         avgSalary: '₹3-12 LPA',
         description: 'Executive Chef, Sous Chef, Cook'
@@ -517,7 +518,7 @@ const RESUME_CATEGORIES = {
         category: 'Hospitality',
         icon: 'fa-calendar-alt',
         demand: 'Medium',
-        templates: ['creative', 'modern', 'professional', 'ats', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Event Planning', 'Vendor Management', 'Budget Planning', 'Coordination', 'Marketing'],
         avgSalary: '₹3-10 LPA',
         description: 'Wedding Planner, Corporate Events'
@@ -528,7 +529,7 @@ const RESUME_CATEGORIES = {
         category: 'Hospitality',
         icon: 'fa-plane',
         demand: 'Medium',
-        templates: ['modern', 'professional', 'ats', 'creative', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Travel Planning', 'Customer Service', 'GDS Systems', 'Itinerary Planning', 'Booking'],
         avgSalary: '₹2-8 LPA',
         description: 'Travel Agent, Tour Operator'
@@ -543,7 +544,7 @@ const RESUME_CATEGORIES = {
         category: 'Legal',
         icon: 'fa-gavel',
         demand: 'High',
-        templates: ['professional', 'ats', 'modern', 'student', 'tech'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Legal Research', 'Court Proceedings', 'Contract Law', 'Legal Writing', 'Case Management'],
         avgSalary: '₹5-25 LPA',
         description: 'Corporate Lawyer, Litigation'
@@ -554,7 +555,7 @@ const RESUME_CATEGORIES = {
         category: 'Legal',
         icon: 'fa-handshake',
         demand: 'Medium',
-        templates: ['professional', 'ats', 'modern', 'tech', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Legal Compliance', 'Contract Review', 'Corporate Law', 'Legal Advisory', 'Negotiation'],
         avgSalary: '₹6-20 LPA',
         description: 'Corporate Legal, Compliance'
@@ -565,7 +566,7 @@ const RESUME_CATEGORIES = {
         category: 'Government',
         icon: 'fa-landmark',
         demand: 'Medium',
-        templates: ['professional', 'ats', 'modern', 'student', 'tech'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Public Administration', 'Policy Making', 'Governance', 'Project Management'],
         avgSalary: '₹4-15 LPA',
         description: 'IAS, IPS, Civil Services'
@@ -580,7 +581,7 @@ const RESUME_CATEGORIES = {
         category: 'Student',
         icon: 'fa-graduation-cap',
         demand: 'Very High',
-        templates: ['student', 'modern', 'ats', 'professional', 'creative'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Communication', 'MS Office', 'Teamwork', 'Problem Solving', 'Quick Learning'],
         avgSalary: '₹2-6 LPA',
         description: 'Recent Graduate, Entry Level'
@@ -591,7 +592,7 @@ const RESUME_CATEGORIES = {
         category: 'Student',
         icon: 'fa-user-tie',
         demand: 'High',
-        templates: ['student', 'modern', 'ats', 'professional', 'creative'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Learning', 'Adaptability', 'Team Collaboration', 'Basic Tools'],
         avgSalary: '₹10k-30k/month',
         description: 'Internship, Summer Trainee'
@@ -602,7 +603,7 @@ const RESUME_CATEGORIES = {
         category: 'Student',
         icon: 'fa-book',
         demand: 'Medium',
-        templates: ['student', 'modern', 'creative', 'ats', 'professional'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Projects', 'Extra-curricular', 'Academic Excellence', 'Leadership'],
         avgSalary: 'N/A',
         description: 'Student Resume for Internships'
@@ -617,7 +618,7 @@ const RESUME_CATEGORIES = {
         category: 'Engineering',
         icon: 'fa-drafting-compass',
         demand: 'Medium',
-        templates: ['creative', 'professional', 'ats', 'modern', 'tech'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['AutoCAD', 'SketchUp', '3D Modeling', 'Architectural Design', 'Building Codes'],
         avgSalary: '₹4-15 LPA',
         description: 'Architectural Design, Interior Design'
@@ -628,7 +629,7 @@ const RESUME_CATEGORIES = {
         category: 'Business',
         icon: 'fa-home',
         demand: 'Medium',
-        templates: ['professional', 'modern', 'ats', 'creative', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Sales', 'Property Management', 'Negotiation', 'Market Analysis', 'Customer Relations'],
         avgSalary: '₹3-15 LPA',
         description: 'Property Sales, Real Estate Broker'
@@ -639,7 +640,7 @@ const RESUME_CATEGORIES = {
         category: 'Creative',
         icon: 'fa-tshirt',
         demand: 'Medium',
-        templates: ['creative', 'modern', 'professional', 'ats', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Fashion Design', 'Sketching', 'Textiles', 'Pattern Making', 'Adobe Illustrator'],
         avgSalary: '₹3-12 LPA',
         description: 'Fashion Design, Styling, Apparel'
@@ -650,7 +651,7 @@ const RESUME_CATEGORIES = {
         category: 'Creative',
         icon: 'fa-newspaper',
         demand: 'Medium',
-        templates: ['creative', 'modern', 'professional', 'ats', 'student'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Reporting', 'Writing', 'Editing', 'Research', 'News Production', 'Interviewing'],
         avgSalary: '₹3-12 LPA',
         description: 'News Reporter, Editor, Anchor'
@@ -661,7 +662,7 @@ const RESUME_CATEGORIES = {
         category: 'Social',
         icon: 'fa-hands-helping',
         demand: 'Medium',
-        templates: ['professional', 'modern', 'ats', 'student', 'creative'],
+        templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
         skills: ['Community Development', 'Project Management', 'Fundraising', 'Advocacy'],
         avgSalary: '₹2-8 LPA',
         description: 'NGO, Community Development'
@@ -677,7 +678,7 @@ const BLANK_TEMPLATE = {
     category: 'General',
     icon: 'fa-file',
     demand: 'All Levels',
-    templates: ['modern', 'ats', 'professional', 'creative', 'tech', 'student'],
+    templates: ['modern', 'ats', 'creative', 'professional', 'tech', 'student', 'executive', 'minimalist', 'bold', 'timeline'],
     skills: [],
     avgSalary: 'N/A',
     description: 'Empty template - Build your own custom resume'

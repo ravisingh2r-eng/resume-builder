@@ -1114,6 +1114,830 @@
 }
 
 /* ============================================
+   TEMPLATE 7: EXECUTIVE
+   Two-column layout with gradient header
+   ============================================ */
+.template-executive {
+    padding: 0;
+    font-family: Georgia, serif;
+}
+
+.template-executive .resume-header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d3561 100%);
+    color: white;
+    padding: 50px 40px;
+}
+
+.template-executive .header-content {
+    max-width: 100%;
+}
+
+.template-executive .resume-name {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.template-executive .resume-title {
+    font-size: 20px;
+    font-weight: 400;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.template-executive .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    font-size: 13px;
+}
+
+.template-executive .contact-info span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.template-executive .resume-body {
+    padding: 40px;
+}
+
+.template-executive .two-column-layout {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    gap: 40px;
+}
+
+.template-executive .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #1a1a2e;
+}
+
+.template-executive .section-title:first-child {
+    margin-top: 0;
+}
+
+.template-executive .summary-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #444;
+}
+
+.template-executive .experience-item,
+.template-executive .education-item,
+.template-executive .project-item {
+    margin-bottom: 25px;
+}
+
+.template-executive .item-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+}
+
+.template-executive .item-subtitle {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+.template-executive .item-date {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.template-executive .item-description {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.template-executive .item-description ul {
+    margin: 8px 0;
+    padding-left: 20px;
+}
+
+.template-executive .item-description li {
+    margin-bottom: 6px;
+}
+
+.template-executive .skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.template-executive .skill-tag {
+    background: #f0f0f0;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 12px;
+    color: #1a1a2e;
+    border: 1px solid #ddd;
+}
+
+.template-executive .right-column .section-title {
+    font-size: 16px;
+}
+
+.template-executive .certification-item {
+    margin-bottom: 15px;
+}
+
+.template-executive .certification-item strong {
+    font-size: 13px;
+    color: #1a1a2e;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.template-executive .certification-item p {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+}
+
+.template-executive .language-item {
+    font-size: 13px;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.template-executive .language-item span {
+    color: #777;
+}
+
+/* ============================================
+   TEMPLATE 8: MINIMALIST
+   Ultra-clean, single column layout
+   ============================================ */
+.template-minimalist {
+    padding: 50px 60px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.template-minimalist .resume-header {
+    text-align: left;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.template-minimalist .resume-name {
+    font-size: 42px;
+    font-weight: 300;
+    margin-bottom: 5px;
+    color: #1a1a1a;
+    letter-spacing: -1px;
+}
+
+.template-minimalist .resume-title {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.template-minimalist .contact-info {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.8;
+}
+
+.template-minimalist .summary-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 40px;
+}
+
+.template-minimalist .section-title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+    margin-top: 40px;
+}
+
+.template-minimalist .section-title:first-of-type {
+    margin-top: 0;
+}
+
+.template-minimalist .experience-item,
+.template-minimalist .education-item,
+.template-minimalist .project-item {
+    margin-bottom: 30px;
+}
+
+.template-minimalist .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+}
+
+.template-minimalist .item-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+}
+
+.template-minimalist .item-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.template-minimalist .item-date {
+    font-size: 13px;
+    color: #888;
+    white-space: nowrap;
+}
+
+.template-minimalist .item-description {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.template-minimalist .item-description ul {
+    margin: 10px 0;
+    padding-left: 25px;
+}
+
+.template-minimalist .item-description li {
+    margin-bottom: 8px;
+}
+
+.template-minimalist .skills-text {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.8;
+}
+
+.template-minimalist .certification-item {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.template-minimalist .languages-text {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* ============================================
+   TEMPLATE 9: BOLD
+   Strong visual hierarchy with bold typography
+   ============================================ */
+.template-bold {
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.template-bold .resume-header {
+    background: #1a1a1a;
+    color: white;
+    padding: 45px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.template-bold .header-main {
+    flex: 1;
+}
+
+.template-bold .resume-name {
+    font-size: 44px;
+    font-weight: 800;
+    margin-bottom: 5px;
+    letter-spacing: -1px;
+}
+
+.template-bold .resume-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffd700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.template-bold .header-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12px;
+    text-align: right;
+}
+
+.template-bold .header-contact div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.template-bold .header-contact i {
+    color: #ffd700;
+}
+
+.template-bold .summary-section {
+    background: #f8f8f8;
+    padding: 30px 40px;
+}
+
+.template-bold .summary-section .section-title {
+    margin-top: 0;
+}
+
+.template-bold .summary-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #444;
+}
+
+.template-bold section:not(.summary-section):not(.skills-section) {
+    padding: 30px 40px;
+}
+
+.template-bold .section-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+    margin-top: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.template-bold .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: #ffd700;
+}
+
+.template-bold .experience-item,
+.template-bold .education-item,
+.template-bold .project-item {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.template-bold .experience-item:last-child,
+.template-bold .education-item:last-child,
+.template-bold .project-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.template-bold .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+}
+
+.template-bold .item-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.template-bold .item-date {
+    font-size: 13px;
+    color: #666;
+    font-weight: 600;
+}
+
+.template-bold .item-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.template-bold .item-description {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.template-bold .item-description ul {
+    margin: 10px 0;
+    padding-left: 25px;
+}
+
+.template-bold .item-description li {
+    margin-bottom: 8px;
+}
+
+.template-bold .skills-section {
+    background: #1a1a1a;
+    padding: 30px 40px;
+}
+
+.template-bold .skills-section .section-title {
+    color: white;
+}
+
+.template-bold .skills-section .section-title::after {
+    background: #ffd700;
+}
+
+.template-bold .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.template-bold .skill-badge {
+    background: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.template-bold .certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.template-bold .certification-badge {
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #ffd700;
+}
+
+.template-bold .certification-badge strong {
+    font-size: 14px;
+    color: #1a1a1a;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.template-bold .certification-badge span {
+    font-size: 12px;
+    color: #666;
+}
+
+.template-bold .languages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.template-bold .language-badge {
+    background: #f8f8f8;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+.template-bold .language-badge span {
+    font-size: 11px;
+    color: #666;
+    font-weight: 400;
+    display: block;
+    margin-top: 4px;
+}
+
+.template-bold .interests-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.template-bold .interest-badge {
+    background: #ffd700;
+    color: #1a1a1a;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ============================================
+   TEMPLATE 10: TIMELINE
+   Chronological layout with visual timeline
+   ============================================ */
+.template-timeline {
+    padding: 40px 50px;
+}
+
+.template-timeline .resume-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 35px;
+}
+
+.template-timeline .profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent-color, #3498db);
+    flex-shrink: 0;
+}
+
+.template-timeline .header-info {
+    flex: 1;
+}
+
+.template-timeline .resume-name {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.template-timeline .resume-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--accent-color, #3498db);
+    margin-bottom: 15px;
+}
+
+.template-timeline .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #666;
+}
+
+.template-timeline .contact-info span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.template-timeline .summary-section {
+    margin-bottom: 40px;
+}
+
+.template-timeline .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    margin-top: 35px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.template-timeline .section-title:first-child {
+    margin-top: 0;
+}
+
+.template-timeline .section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    background: var(--accent-color, #3498db);
+    border-radius: 50%;
+}
+
+.template-timeline .summary-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.template-timeline .skills-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.template-timeline .skill-item {
+    margin-bottom: 15px;
+}
+
+.template-timeline .skill-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.template-timeline .skill-bar {
+    width: 100%;
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.template-timeline .skill-fill {
+    height: 100%;
+    background: var(--accent-color, #3498db);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.template-timeline .timeline {
+    position: relative;
+    padding-left: 40px;
+}
+
+.template-timeline .timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--accent-color, #3498db), #e0e0e0);
+}
+
+.template-timeline .timeline-item {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.template-timeline .timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.template-timeline .timeline-marker {
+    position: absolute;
+    left: -33px;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border: 4px solid var(--accent-color, #3498db);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.template-timeline .timeline-content {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-color, #3498db);
+}
+
+.template-timeline .item-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 6px;
+}
+
+.template-timeline .item-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 6px;
+}
+
+.template-timeline .item-date {
+    font-size: 12px;
+    color: var(--accent-color, #3498db);
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.template-timeline .item-description {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.template-timeline .item-description ul {
+    margin: 8px 0;
+    padding-left: 20px;
+}
+
+.template-timeline .item-description li {
+    margin-bottom: 6px;
+}
+
+.template-timeline .project-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--accent-color, #3498db);
+}
+
+.template-timeline .project-item .item-title {
+    font-size: 16px;
+}
+
+.template-timeline .certifications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.template-timeline .certification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.template-timeline .certification-item i {
+    color: var(--accent-color, #3498db);
+    font-size: 18px;
+    margin-top: 3px;
+}
+
+.template-timeline .certification-item strong {
+    font-size: 14px;
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.template-timeline .certification-item p {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+}
+
+.template-timeline .languages-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.template-timeline .language-item {
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.template-timeline .language-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.template-timeline .language-level {
+    font-size: 11px;
+    color: #666;
+}
+
+.template-timeline .interests-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.template-timeline .interest-tag {
+    background: var(--accent-color, #3498db);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* ============================================
    COMMON UTILITIES FOR ALL TEMPLATES
    ============================================ */
 .resume-section {
