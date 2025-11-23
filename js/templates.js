@@ -156,14 +156,14 @@ function renderTemplate_ats() {
         <div class="resume-template template-ats">
             <!-- Header -->
             <header class="resume-header">
-                <h1 class="resume-name">${data.personal.fullName || 'Your Name'}</h1>
-                <p class="resume-title">${data.personal.jobTitle || 'Your Job Title'}</p>
+                <h1 class="resume-name" data-editable data-field="personal.fullName">${data.personal.fullName || 'Your Name'}</h1>
+                <p class="resume-title" data-editable data-field="personal.jobTitle">${data.personal.jobTitle || 'Your Job Title'}</p>
                 <div class="contact-info">
-                    ${data.personal.email ? `<div class="contact-item"><i class="fas fa-envelope"></i>${data.personal.email}</div>` : ''}
-                    ${data.personal.phone ? `<div class="contact-item"><i class="fas fa-phone"></i>${data.personal.phone}</div>` : ''}
-                    ${data.personal.location ? `<div class="contact-item"><i class="fas fa-map-marker-alt"></i>${data.personal.location}</div>` : ''}
-                    ${data.personal.linkedin ? `<div class="contact-item"><i class="fab fa-linkedin"></i>LinkedIn</div>` : ''}
-                    ${data.personal.github ? `<div class="contact-item"><i class="fab fa-github"></i>GitHub</div>` : ''}
+                    ${data.personal.email ? `<div class="contact-item"><i class="fas fa-envelope"></i><span data-editable data-field="personal.email">${data.personal.email}</span></div>` : ''}
+                    ${data.personal.phone ? `<div class="contact-item"><i class="fas fa-phone"></i><span data-editable data-field="personal.phone">${data.personal.phone}</span></div>` : ''}
+                    ${data.personal.location ? `<div class="contact-item"><i class="fas fa-map-marker-alt"></i><span data-editable data-field="personal.location">${data.personal.location}</span></div>` : ''}
+                    ${data.personal.linkedin ? `<div class="contact-item"><i class="fab fa-linkedin"></i><span data-editable data-field="personal.linkedin">LinkedIn</span></div>` : ''}
+                    ${data.personal.github ? `<div class="contact-item"><i class="fab fa-github"></i><span data-editable data-field="personal.github">GitHub</span></div>` : ''}
                 </div>
             </header>
 
@@ -171,7 +171,7 @@ function renderTemplate_ats() {
             ${visible.summary && data.summary ? `
             <section>
                 <h2 class="section-title">Professional Summary</h2>
-                <p class="summary-text">${data.summary}</p>
+                <p class="summary-text" data-editable data-field="summary">${data.summary}</p>
             </section>
             ` : ''}
 
@@ -179,14 +179,14 @@ function renderTemplate_ats() {
             ${visible.experience && data.experience.length > 0 ? `
             <section>
                 <h2 class="section-title">Professional Experience</h2>
-                ${data.experience.map(exp => `
+                ${data.experience.map((exp, index) => `
                     <div class="experience-item">
                         <div class="item-header">
-                            <h3 class="item-title">${exp.title}</h3>
+                            <h3 class="item-title" data-editable data-field="title" data-section="experience" data-index="${index}">${exp.title}</h3>
                             <span class="item-date">${formatDate(exp.startDate)} - ${exp.current ? 'Present' : formatDate(exp.endDate)}</span>
                         </div>
-                        <p class="item-subtitle">${exp.company}${exp.location ? `, ${exp.location}` : ''}</p>
-                        ${exp.description ? `<div class="item-description">${formatDescription(exp.description)}</div>` : ''}
+                        <p class="item-subtitle" data-editable data-field="company" data-section="experience" data-index="${index}">${exp.company}${exp.location ? `, ${exp.location}` : ''}</p>
+                        ${exp.description ? `<div class="item-description" data-editable data-field="description" data-section="experience" data-index="${index}">${formatDescription(exp.description)}</div>` : ''}
                     </div>
                 `).join('')}
             </section>
@@ -287,13 +287,13 @@ function renderTemplate_creative() {
             <!-- Header -->
             <header class="resume-header">
                 ${data.personal.photo ? `<img src="${data.personal.photo}" class="profile-photo" alt="Profile">` : ''}
-                <h1 class="resume-name">${data.personal.fullName || 'Your Name'}</h1>
-                <p class="resume-title">${data.personal.jobTitle || 'Your Job Title'}</p>
+                <h1 class="resume-name" data-editable data-field="personal.fullName">${data.personal.fullName || 'Your Name'}</h1>
+                <p class="resume-title" data-editable data-field="personal.jobTitle">${data.personal.jobTitle || 'Your Job Title'}</p>
                 <div class="contact-info">
-                    ${data.personal.email ? `<div class="contact-item"><i class="fas fa-envelope"></i>${data.personal.email}</div>` : ''}
-                    ${data.personal.phone ? `<div class="contact-item"><i class="fas fa-phone"></i>${data.personal.phone}</div>` : ''}
-                    ${data.personal.location ? `<div class="contact-item"><i class="fas fa-map-marker-alt"></i>${data.personal.location}</div>` : ''}
-                    ${data.personal.website ? `<div class="contact-item"><i class="fas fa-globe"></i>${data.personal.website}</div>` : ''}
+                    ${data.personal.email ? `<div class="contact-item"><i class="fas fa-envelope"></i><span data-editable data-field="personal.email">${data.personal.email}</span></div>` : ''}
+                    ${data.personal.phone ? `<div class="contact-item"><i class="fas fa-phone"></i><span data-editable data-field="personal.phone">${data.personal.phone}</span></div>` : ''}
+                    ${data.personal.location ? `<div class="contact-item"><i class="fas fa-map-marker-alt"></i><span data-editable data-field="personal.location">${data.personal.location}</span></div>` : ''}
+                    ${data.personal.website ? `<div class="contact-item"><i class="fas fa-globe"></i><span data-editable data-field="personal.website">${data.personal.website}</span></div>` : ''}
                 </div>
             </header>
 
@@ -302,7 +302,7 @@ function renderTemplate_creative() {
                 ${visible.summary && data.summary ? `
                 <section>
                     <h2 class="section-title">About Me</h2>
-                    <p class="summary-text">${data.summary}</p>
+                    <p class="summary-text" data-editable data-field="summary">${data.summary}</p>
                 </section>
                 ` : ''}
 
@@ -310,12 +310,12 @@ function renderTemplate_creative() {
                 ${visible.experience && data.experience.length > 0 ? `
                 <section>
                     <h2 class="section-title">Experience</h2>
-                    ${data.experience.map(exp => `
+                    ${data.experience.map((exp, index) => `
                         <div class="experience-item">
-                            <h3 class="item-title">${exp.title}</h3>
-                            <p class="item-subtitle">${exp.company}</p>
+                            <h3 class="item-title" data-editable data-field="title" data-section="experience" data-index="${index}">${exp.title}</h3>
+                            <p class="item-subtitle" data-editable data-field="company" data-section="experience" data-index="${index}">${exp.company}</p>
                             <span class="item-date">${formatDate(exp.startDate)} - ${exp.current ? 'Present' : formatDate(exp.endDate)}</span>
-                            ${exp.description ? `<div class="item-description">${formatDescription(exp.description)}</div>` : ''}
+                            ${exp.description ? `<div class="item-description" data-editable data-field="description" data-section="experience" data-index="${index}">${formatDescription(exp.description)}</div>` : ''}
                         </div>
                     `).join('')}
                 </section>
@@ -394,13 +394,13 @@ function renderTemplate_professional() {
         <div class="resume-template template-professional">
             <!-- Header -->
             <header class="resume-header">
-                <h1 class="resume-name">${data.personal.fullName || 'Your Name'}</h1>
-                <p class="resume-title">${data.personal.jobTitle || 'Your Job Title'}</p>
+                <h1 class="resume-name" data-editable data-field="personal.fullName">${data.personal.fullName || 'Your Name'}</h1>
+                <p class="resume-title" data-editable data-field="personal.jobTitle">${data.personal.jobTitle || 'Your Job Title'}</p>
                 <div class="contact-info">
-                    ${data.personal.email ? `<div class="contact-item"><i class="fas fa-envelope"></i>${data.personal.email}</div>` : ''}
-                    ${data.personal.phone ? `<div class="contact-item"><i class="fas fa-phone"></i>${data.personal.phone}</div>` : ''}
-                    ${data.personal.location ? `<div class="contact-item"><i class="fas fa-map-marker-alt"></i>${data.personal.location}</div>` : ''}
-                    ${data.personal.linkedin ? `<div class="contact-item"><i class="fab fa-linkedin"></i>LinkedIn Profile</div>` : ''}
+                    ${data.personal.email ? `<div class="contact-item"><i class="fas fa-envelope"></i><span data-editable data-field="personal.email">${data.personal.email}</span></div>` : ''}
+                    ${data.personal.phone ? `<div class="contact-item"><i class="fas fa-phone"></i><span data-editable data-field="personal.phone">${data.personal.phone}</span></div>` : ''}
+                    ${data.personal.location ? `<div class="contact-item"><i class="fas fa-map-marker-alt"></i><span data-editable data-field="personal.location">${data.personal.location}</span></div>` : ''}
+                    ${data.personal.linkedin ? `<div class="contact-item"><i class="fab fa-linkedin"></i><span data-editable data-field="personal.linkedin">LinkedIn Profile</span></div>` : ''}
                 </div>
             </header>
 
@@ -408,7 +408,7 @@ function renderTemplate_professional() {
             ${visible.summary && data.summary ? `
             <section>
                 <h2 class="section-title">Professional Summary</h2>
-                <p class="summary-text">${data.summary}</p>
+                <p class="summary-text" data-editable data-field="summary">${data.summary}</p>
             </section>
             ` : ''}
 
@@ -416,14 +416,14 @@ function renderTemplate_professional() {
             ${visible.experience && data.experience.length > 0 ? `
             <section>
                 <h2 class="section-title">Professional Experience</h2>
-                ${data.experience.map(exp => `
+                ${data.experience.map((exp, index) => `
                     <div class="experience-item">
                         <div class="item-header">
-                            <h3 class="item-title">${exp.title}</h3>
+                            <h3 class="item-title" data-editable data-field="title" data-section="experience" data-index="${index}">${exp.title}</h3>
                             <span class="item-date">${formatDate(exp.startDate)} – ${exp.current ? 'Present' : formatDate(exp.endDate)}</span>
                         </div>
-                        <p class="item-subtitle">${exp.company}${exp.location ? ` | ${exp.location}` : ''}</p>
-                        ${exp.description ? `<div class="item-description">${formatDescription(exp.description)}</div>` : ''}
+                        <p class="item-subtitle" data-editable data-field="company" data-section="experience" data-index="${index}">${exp.company}${exp.location ? ` | ${exp.location}` : ''}</p>
+                        ${exp.description ? `<div class="item-description" data-editable data-field="description" data-section="experience" data-index="${index}">${formatDescription(exp.description)}</div>` : ''}
                     </div>
                 `).join('')}
             </section>
@@ -508,13 +508,13 @@ function renderTemplate_tech() {
         <div class="resume-template template-tech">
             <!-- Header -->
             <header class="resume-header">
-                <h1 class="resume-name">${data.personal.fullName || 'Your Name'}</h1>
-                <p class="resume-title">${data.personal.jobTitle || 'Your Job Title'}</p>
+                <h1 class="resume-name" data-editable data-field="personal.fullName">${data.personal.fullName || 'Your Name'}</h1>
+                <p class="resume-title" data-editable data-field="personal.jobTitle">${data.personal.jobTitle || 'Your Job Title'}</p>
                 <div class="contact-info">
-                    ${data.personal.email ? `<div class="contact-item"><i class="fas fa-envelope"></i>${data.personal.email}</div>` : ''}
-                    ${data.personal.github ? `<div class="contact-item"><i class="fab fa-github"></i>${data.personal.github}</div>` : ''}
-                    ${data.personal.linkedin ? `<div class="contact-item"><i class="fab fa-linkedin"></i>LinkedIn</div>` : ''}
-                    ${data.personal.website ? `<div class="contact-item"><i class="fas fa-globe"></i>${data.personal.website}</div>` : ''}
+                    ${data.personal.email ? `<div class="contact-item"><i class="fas fa-envelope"></i><span data-editable data-field="personal.email">${data.personal.email}</span></div>` : ''}
+                    ${data.personal.github ? `<div class="contact-item"><i class="fab fa-github"></i><span data-editable data-field="personal.github">${data.personal.github}</span></div>` : ''}
+                    ${data.personal.linkedin ? `<div class="contact-item"><i class="fab fa-linkedin"></i><span data-editable data-field="personal.linkedin">LinkedIn</span></div>` : ''}
+                    ${data.personal.website ? `<div class="contact-item"><i class="fas fa-globe"></i><span data-editable data-field="personal.website">${data.personal.website}</span></div>` : ''}
                 </div>
             </header>
 
@@ -523,7 +523,7 @@ function renderTemplate_tech() {
                 ${visible.summary && data.summary ? `
                 <section>
                     <h2 class="section-title">Summary</h2>
-                    <p class="summary-text">${data.summary}</p>
+                    <p class="summary-text" data-editable data-field="summary">${data.summary}</p>
                 </section>
                 ` : ''}
 
@@ -543,12 +543,12 @@ function renderTemplate_tech() {
                 ${visible.experience && data.experience.length > 0 ? `
                 <section>
                     <h2 class="section-title">Work Experience</h2>
-                    ${data.experience.map(exp => `
+                    ${data.experience.map((exp, index) => `
                         <div class="experience-item">
-                            <h3 class="item-title">${exp.title}</h3>
-                            <p class="item-subtitle">${exp.company}</p>
+                            <h3 class="item-title" data-editable data-field="title" data-section="experience" data-index="${index}">${exp.title}</h3>
+                            <p class="item-subtitle" data-editable data-field="company" data-section="experience" data-index="${index}">${exp.company}</p>
                             <p class="item-date">${formatDate(exp.startDate)} - ${exp.current ? 'Present' : formatDate(exp.endDate)}</p>
-                            ${exp.description ? `<div class="item-description">${formatDescription(exp.description)}</div>` : ''}
+                            ${exp.description ? `<div class="item-description" data-editable data-field="description" data-section="experience" data-index="${index}">${formatDescription(exp.description)}</div>` : ''}
                         </div>
                     `).join('')}
                 </section>
@@ -635,13 +635,13 @@ function renderTemplate_student() {
             <!-- Header -->
             <header class="resume-header">
                 ${data.personal.photo ? `<img src="${data.personal.photo}" class="profile-photo" alt="Profile">` : ''}
-                <h1 class="resume-name">${data.personal.fullName || 'Your Name'}</h1>
-                <p class="resume-title">${data.personal.jobTitle || 'Your Job Title'}</p>
+                <h1 class="resume-name" data-editable data-field="personal.fullName">${data.personal.fullName || 'Your Name'}</h1>
+                <p class="resume-title" data-editable data-field="personal.jobTitle">${data.personal.jobTitle || 'Your Job Title'}</p>
                 <div class="contact-info">
-                    ${data.personal.email ? `<div class="contact-item"><i class="fas fa-envelope"></i>${data.personal.email}</div>` : ''}
-                    ${data.personal.phone ? `<div class="contact-item"><i class="fas fa-phone"></i>${data.personal.phone}</div>` : ''}
-                    ${data.personal.location ? `<div class="contact-item"><i class="fas fa-map-marker-alt"></i>${data.personal.location}</div>` : ''}
-                    ${data.personal.linkedin ? `<div class="contact-item"><i class="fab fa-linkedin"></i>LinkedIn</div>` : ''}
+                    ${data.personal.email ? `<div class="contact-item"><i class="fas fa-envelope"></i><span data-editable data-field="personal.email">${data.personal.email}</span></div>` : ''}
+                    ${data.personal.phone ? `<div class="contact-item"><i class="fas fa-phone"></i><span data-editable data-field="personal.phone">${data.personal.phone}</span></div>` : ''}
+                    ${data.personal.location ? `<div class="contact-item"><i class="fas fa-map-marker-alt"></i><span data-editable data-field="personal.location">${data.personal.location}</span></div>` : ''}
+                    ${data.personal.linkedin ? `<div class="contact-item"><i class="fab fa-linkedin"></i><span data-editable data-field="personal.linkedin">LinkedIn</span></div>` : ''}
                 </div>
             </header>
 
@@ -649,7 +649,7 @@ function renderTemplate_student() {
             ${visible.summary && data.summary ? `
             <section>
                 <h2 class="section-title">Objective</h2>
-                <p class="summary-text">${data.summary}</p>
+                <p class="summary-text" data-editable data-field="summary">${data.summary}</p>
             </section>
             ` : ''}
 
@@ -687,12 +687,12 @@ function renderTemplate_student() {
             ${visible.experience && data.experience.length > 0 ? `
             <section>
                 <h2 class="section-title">Experience</h2>
-                ${data.experience.map(exp => `
+                ${data.experience.map((exp, index) => `
                     <div class="experience-item">
-                        <h3 class="item-title">${exp.title}</h3>
-                        <p class="item-subtitle">${exp.company}${exp.location ? `, ${exp.location}` : ''}</p>
+                        <h3 class="item-title" data-editable data-field="title" data-section="experience" data-index="${index}">${exp.title}</h3>
+                        <p class="item-subtitle" data-editable data-field="company" data-section="experience" data-index="${index}">${exp.company}${exp.location ? `, ${exp.location}` : ''}</p>
                         <span class="item-date">${formatDate(exp.startDate)} - ${exp.current ? 'Present' : formatDate(exp.endDate)}</span>
-                        ${exp.description ? `<div class="item-description">${formatDescription(exp.description)}</div>` : ''}
+                        ${exp.description ? `<div class="item-description" data-editable data-field="description" data-section="experience" data-index="${index}">${formatDescription(exp.description)}</div>` : ''}
                     </div>
                 `).join('')}
             </section>
@@ -769,13 +769,13 @@ function renderTemplate_executive() {
             <!-- Executive Header -->
             <header class="resume-header">
                 <div class="header-content">
-                    <h1 class="resume-name">${data.personal.fullName || 'Your Name'}</h1>
-                    <p class="resume-title">${data.personal.jobTitle || 'Your Job Title'}</p>
+                    <h1 class="resume-name" data-editable data-field="personal.fullName">${data.personal.fullName || 'Your Name'}</h1>
+                    <p class="resume-title" data-editable data-field="personal.jobTitle">${data.personal.jobTitle || 'Your Job Title'}</p>
                     <div class="contact-info">
-                        ${data.personal.email ? `<span><i class="fas fa-envelope"></i>${data.personal.email}</span>` : ''}
-                        ${data.personal.phone ? `<span><i class="fas fa-phone"></i>${data.personal.phone}</span>` : ''}
-                        ${data.personal.location ? `<span><i class="fas fa-map-marker-alt"></i>${data.personal.location}</span>` : ''}
-                        ${data.personal.linkedin ? `<span><i class="fab fa-linkedin"></i>LinkedIn</span>` : ''}
+                        ${data.personal.email ? `<span><i class="fas fa-envelope"></i><span data-editable data-field="personal.email">${data.personal.email}</span></span>` : ''}
+                        ${data.personal.phone ? `<span><i class="fas fa-phone"></i><span data-editable data-field="personal.phone">${data.personal.phone}</span></span>` : ''}
+                        ${data.personal.location ? `<span><i class="fas fa-map-marker-alt"></i><span data-editable data-field="personal.location">${data.personal.location}</span></span>` : ''}
+                        ${data.personal.linkedin ? `<span><i class="fab fa-linkedin"></i><span data-editable data-field="personal.linkedin">LinkedIn</span></span>` : ''}
                     </div>
                 </div>
             </header>
@@ -788,7 +788,7 @@ function renderTemplate_executive() {
                         ${visible.summary && data.summary ? `
                         <section>
                             <h2 class="section-title">Executive Summary</h2>
-                            <p class="summary-text">${data.summary}</p>
+                            <p class="summary-text" data-editable data-field="summary">${data.summary}</p>
                         </section>
                         ` : ''}
 
@@ -796,12 +796,12 @@ function renderTemplate_executive() {
                         ${visible.experience && data.experience.length > 0 ? `
                         <section>
                             <h2 class="section-title">Professional Experience</h2>
-                            ${data.experience.map(exp => `
+                            ${data.experience.map((exp, index) => `
                                 <div class="experience-item">
-                                    <h3 class="item-title">${exp.title}</h3>
-                                    <p class="item-subtitle">${exp.company}${exp.location ? ` • ${exp.location}` : ''}</p>
+                                    <h3 class="item-title" data-editable data-field="title" data-section="experience" data-index="${index}">${exp.title}</h3>
+                                    <p class="item-subtitle" data-editable data-field="company" data-section="experience" data-index="${index}">${exp.company}${exp.location ? ` • ${exp.location}` : ''}</p>
                                     <p class="item-date">${formatDate(exp.startDate)} – ${exp.current ? 'Present' : formatDate(exp.endDate)}</p>
-                                    ${exp.description ? `<div class="item-description">${formatDescription(exp.description)}</div>` : ''}
+                                    ${exp.description ? `<div class="item-description" data-editable data-field="description" data-section="experience" data-index="${index}">${formatDescription(exp.description)}</div>` : ''}
                                 </div>
                             `).join('')}
                         </section>
@@ -891,17 +891,17 @@ function renderTemplate_minimalist() {
         <div class="resume-template template-minimalist">
             <!-- Minimal Header -->
             <header class="resume-header">
-                <h1 class="resume-name">${data.personal.fullName || 'Your Name'}</h1>
-                <p class="resume-title">${data.personal.jobTitle || 'Your Job Title'}</p>
+                <h1 class="resume-name" data-editable data-field="personal.fullName">${data.personal.fullName || 'Your Name'}</h1>
+                <p class="resume-title" data-editable data-field="personal.jobTitle">${data.personal.jobTitle || 'Your Job Title'}</p>
                 <div class="contact-info">
-                    ${data.personal.email || ''}${data.personal.email && data.personal.phone ? ' • ' : ''}${data.personal.phone || ''}${(data.personal.email || data.personal.phone) && data.personal.location ? ' • ' : ''}${data.personal.location || ''}
+                    ${data.personal.email ? `<span data-editable data-field="personal.email">${data.personal.email}</span>` : ''}${data.personal.email && data.personal.phone ? ' • ' : ''}${data.personal.phone ? `<span data-editable data-field="personal.phone">${data.personal.phone}</span>` : ''}${(data.personal.email || data.personal.phone) && data.personal.location ? ' • ' : ''}${data.personal.location ? `<span data-editable data-field="personal.location">${data.personal.location}</span>` : ''}
                 </div>
             </header>
 
             <!-- Summary -->
             ${visible.summary && data.summary ? `
             <section>
-                <p class="summary-text">${data.summary}</p>
+                <p class="summary-text" data-editable data-field="summary">${data.summary}</p>
             </section>
             ` : ''}
 
@@ -909,16 +909,16 @@ function renderTemplate_minimalist() {
             ${visible.experience && data.experience.length > 0 ? `
             <section>
                 <h2 class="section-title">Experience</h2>
-                ${data.experience.map(exp => `
+                ${data.experience.map((exp, index) => `
                     <div class="experience-item">
                         <div class="item-header">
                             <div>
-                                <h3 class="item-title">${exp.title}</h3>
-                                <p class="item-subtitle">${exp.company}</p>
+                                <h3 class="item-title" data-editable data-field="title" data-section="experience" data-index="${index}">${exp.title}</h3>
+                                <p class="item-subtitle" data-editable data-field="company" data-section="experience" data-index="${index}">${exp.company}</p>
                             </div>
                             <span class="item-date">${formatDate(exp.startDate)} – ${exp.current ? 'Present' : formatDate(exp.endDate)}</span>
                         </div>
-                        ${exp.description ? `<div class="item-description">${formatDescription(exp.description)}</div>` : ''}
+                        ${exp.description ? `<div class="item-description" data-editable data-field="description" data-section="experience" data-index="${index}">${formatDescription(exp.description)}</div>` : ''}
                     </div>
                 `).join('')}
             </section>
@@ -997,14 +997,14 @@ function renderTemplate_bold() {
             <!-- Bold Header -->
             <header class="resume-header">
                 <div class="header-main">
-                    <h1 class="resume-name">${data.personal.fullName || 'Your Name'}</h1>
-                    <p class="resume-title">${data.personal.jobTitle || 'Your Job Title'}</p>
+                    <h1 class="resume-name" data-editable data-field="personal.fullName">${data.personal.fullName || 'Your Name'}</h1>
+                    <p class="resume-title" data-editable data-field="personal.jobTitle">${data.personal.jobTitle || 'Your Job Title'}</p>
                 </div>
                 <div class="header-contact">
-                    ${data.personal.email ? `<div><i class="fas fa-envelope"></i>${data.personal.email}</div>` : ''}
-                    ${data.personal.phone ? `<div><i class="fas fa-phone"></i>${data.personal.phone}</div>` : ''}
-                    ${data.personal.location ? `<div><i class="fas fa-map-marker-alt"></i>${data.personal.location}</div>` : ''}
-                    ${data.personal.linkedin ? `<div><i class="fab fa-linkedin"></i>LinkedIn</div>` : ''}
+                    ${data.personal.email ? `<div><i class="fas fa-envelope"></i><span data-editable data-field="personal.email">${data.personal.email}</span></div>` : ''}
+                    ${data.personal.phone ? `<div><i class="fas fa-phone"></i><span data-editable data-field="personal.phone">${data.personal.phone}</span></div>` : ''}
+                    ${data.personal.location ? `<div><i class="fas fa-map-marker-alt"></i><span data-editable data-field="personal.location">${data.personal.location}</span></div>` : ''}
+                    ${data.personal.linkedin ? `<div><i class="fab fa-linkedin"></i><span data-editable data-field="personal.linkedin">LinkedIn</span></div>` : ''}
                 </div>
             </header>
 
@@ -1012,7 +1012,7 @@ function renderTemplate_bold() {
             ${visible.summary && data.summary ? `
             <section class="summary-section">
                 <h2 class="section-title">Profile</h2>
-                <p class="summary-text">${data.summary}</p>
+                <p class="summary-text" data-editable data-field="summary">${data.summary}</p>
             </section>
             ` : ''}
 
@@ -1020,14 +1020,14 @@ function renderTemplate_bold() {
             ${visible.experience && data.experience.length > 0 ? `
             <section>
                 <h2 class="section-title">Experience</h2>
-                ${data.experience.map(exp => `
+                ${data.experience.map((exp, index) => `
                     <div class="experience-item">
                         <div class="item-header">
-                            <h3 class="item-title">${exp.title}</h3>
+                            <h3 class="item-title" data-editable data-field="title" data-section="experience" data-index="${index}">${exp.title}</h3>
                             <span class="item-date">${formatDate(exp.startDate)} – ${exp.current ? 'Present' : formatDate(exp.endDate)}</span>
                         </div>
-                        <p class="item-subtitle">${exp.company}${exp.location ? ` • ${exp.location}` : ''}</p>
-                        ${exp.description ? `<div class="item-description">${formatDescription(exp.description)}</div>` : ''}
+                        <p class="item-subtitle" data-editable data-field="company" data-section="experience" data-index="${index}">${exp.company}${exp.location ? ` • ${exp.location}` : ''}</p>
+                        ${exp.description ? `<div class="item-description" data-editable data-field="description" data-section="experience" data-index="${index}">${formatDescription(exp.description)}</div>` : ''}
                     </div>
                 `).join('')}
             </section>
@@ -1131,12 +1131,12 @@ function renderTemplate_timeline() {
             <header class="resume-header">
                 ${data.personal.photo ? `<img src="${data.personal.photo}" class="profile-photo" alt="Profile">` : ''}
                 <div class="header-info">
-                    <h1 class="resume-name">${data.personal.fullName || 'Your Name'}</h1>
-                    <p class="resume-title">${data.personal.jobTitle || 'Your Job Title'}</p>
+                    <h1 class="resume-name" data-editable data-field="personal.fullName">${data.personal.fullName || 'Your Name'}</h1>
+                    <p class="resume-title" data-editable data-field="personal.jobTitle">${data.personal.jobTitle || 'Your Job Title'}</p>
                     <div class="contact-info">
-                        ${data.personal.email ? `<span><i class="fas fa-envelope"></i>${data.personal.email}</span>` : ''}
-                        ${data.personal.phone ? `<span><i class="fas fa-phone"></i>${data.personal.phone}</span>` : ''}
-                        ${data.personal.location ? `<span><i class="fas fa-map-marker-alt"></i>${data.personal.location}</span>` : ''}
+                        ${data.personal.email ? `<span><i class="fas fa-envelope"></i><span data-editable data-field="personal.email">${data.personal.email}</span></span>` : ''}
+                        ${data.personal.phone ? `<span><i class="fas fa-phone"></i><span data-editable data-field="personal.phone">${data.personal.phone}</span></span>` : ''}
+                        ${data.personal.location ? `<span><i class="fas fa-map-marker-alt"></i><span data-editable data-field="personal.location">${data.personal.location}</span></span>` : ''}
                     </div>
                 </div>
             </header>
@@ -1145,7 +1145,7 @@ function renderTemplate_timeline() {
             ${visible.summary && data.summary ? `
             <section class="summary-section">
                 <h2 class="section-title">About</h2>
-                <p class="summary-text">${data.summary}</p>
+                <p class="summary-text" data-editable data-field="summary">${data.summary}</p>
             </section>
             ` : ''}
 
@@ -1175,10 +1175,10 @@ function renderTemplate_timeline() {
                         <div class="timeline-item">
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
-                                <h3 class="item-title">${exp.title}</h3>
-                                <p class="item-subtitle">${exp.company}${exp.location ? `, ${exp.location}` : ''}</p>
+                                <h3 class="item-title" data-editable data-field="title" data-section="experience" data-index="${index}">${exp.title}</h3>
+                                <p class="item-subtitle" data-editable data-field="company" data-section="experience" data-index="${index}">${exp.company}${exp.location ? `, ${exp.location}` : ''}</p>
                                 <p class="item-date">${formatDate(exp.startDate)} – ${exp.current ? 'Present' : formatDate(exp.endDate)}</p>
-                                ${exp.description ? `<div class="item-description">${formatDescription(exp.description)}</div>` : ''}
+                                ${exp.description ? `<div class="item-description" data-editable data-field="description" data-section="experience" data-index="${index}">${formatDescription(exp.description)}</div>` : ''}
                             </div>
                         </div>
                     `).join('')}
