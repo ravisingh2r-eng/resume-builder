@@ -1,0 +1,901 @@
+/* ============================================
+   UX ENHANCEMENTS - Micro-interactions & Polish
+   Modern animations and smooth transitions
+   ============================================ */
+
+/* ============================================
+   SMOOTH SCROLL & PAGE TRANSITIONS
+   ============================================ */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   ENHANCED BUTTONS WITH MICRO-INTERACTIONS
+   ============================================ */
+.btn-primary,
+.btn-large.btn-primary,
+button.btn-primary {
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+}
+
+.btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+/* Secondary Button */
+.btn-secondary,
+.btn-large.btn-secondary {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.btn-secondary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.btn-secondary:hover {
+    color: white;
+}
+
+.btn-secondary:hover::after {
+    left: 0;
+}
+
+/* ============================================
+   FEATURE CARDS WITH HOVER EFFECTS
+   ============================================ */
+.feature-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(46, 204, 113, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-icon {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.feature-card:hover .feature-icon i {
+    animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ============================================
+   NAVIGATION LINKS WITH SMOOTH UNDERLINE
+   ============================================ */
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* ============================================
+   HERO STATS WITH PULSE ANIMATION
+   ============================================ */
+.hero-stats .stat {
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.hero-stats .stat:hover {
+    transform: scale(1.05);
+}
+
+.hero-stats .stat strong {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.hero-stats .stat:hover strong {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* ============================================
+   STEP NUMBERS WITH GRADIENT ANIMATION
+   ============================================ */
+.step {
+    transition: all 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+}
+
+.step-number {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    transition: all 0.3s ease;
+    animation: gradient 3s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.step:hover .step-number {
+    transform: scale(1.2) rotate(360deg);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+}
+
+.step-icon {
+    transition: all 0.3s ease;
+}
+
+.step:hover .step-icon {
+    transform: scale(1.15);
+    color: var(--primary-color);
+}
+
+/* ============================================
+   FAQ ITEMS WITH SMOOTH EXPANSION
+   ============================================ */
+.faq-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.faq-item:hover {
+    background: var(--bg-secondary);
+    transform: translateX(5px);
+    box-shadow: -4px 0 0 var(--primary-color);
+}
+
+.faq-item h3 {
+    transition: color 0.3s ease;
+}
+
+.faq-item:hover h3 {
+    color: var(--primary-color);
+}
+
+.faq-item i {
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover i {
+    transform: rotate(360deg) scale(1.2);
+}
+
+/* ============================================
+   LOADING STATES & SKELETONS
+   ============================================ */
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        left: 100%;
+    }
+}
+
+/* ============================================
+   THEME TOGGLE WITH SMOOTH TRANSITION
+   ============================================ */
+.theme-toggle {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: rotate(20deg) scale(1.1);
+    background: var(--bg-secondary);
+}
+
+.theme-toggle i {
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .theme-toggle i {
+    transform: rotate(180deg);
+}
+
+/* ============================================
+   MOBILE MENU WITH SLIDE ANIMATION
+   ============================================ */
+.mobile-nav-menu {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-nav-link {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-link::before {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-color);
+    transition: left 0.3s ease;
+}
+
+.mobile-nav-link:hover::before {
+    left: 0;
+}
+
+.mobile-nav-link:hover {
+    background: var(--bg-secondary);
+    padding-left: calc(var(--spacing-md) + 8px);
+}
+
+/* ============================================
+   FORM INPUTS WITH FOCUS ANIMATIONS
+   ============================================ */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    transform: translateY(-1px);
+    transition: all 0.3s ease;
+}
+
+/* ============================================
+   SMOOTH PAGE SCROLL INDICATOR
+   ============================================ */
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+/* ============================================
+   TOOLTIPS
+   ============================================ */
+[data-tooltip] {
+    position: relative;
+    cursor: help;
+}
+
+[data-tooltip]::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    padding: 8px 12px;
+    background: var(--dark);
+    color: white;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+[data-tooltip]::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--dark);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+[data-tooltip]:hover::before,
+[data-tooltip]:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-4px);
+}
+
+/* ============================================
+   CATEGORY PILLS WITH HOVER EFFECTS
+   ============================================ */
+.category-pills a,
+.filter-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.category-pills a::before,
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(52, 152, 219, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+}
+
+.category-pills a:hover::before,
+.filter-btn:hover::before {
+    width: 200%;
+    height: 200%;
+}
+
+.category-pills a:hover,
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   TESTIMONIAL CARDS
+   ============================================ */
+.testimonial-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 120px;
+    color: rgba(52, 152, 219, 0.1);
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   RESPONSIVE ANIMATIONS
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ============================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================ */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ============================================
+   TESTIMONIALS SECTION STYLES
+   ============================================ */
+.testimonials-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-secondary);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xl);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.testimonial-card {
+    background: var(--bg-primary);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 120px;
+    color: rgba(52, 152, 219, 0.05);
+    font-family: Georgia, serif;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.stars {
+    color: #f39c12;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1rem;
+}
+
+.stars i {
+    margin-right: 2px;
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--border-color);
+}
+
+.author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-info strong {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.author-info span {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* ============================================
+   TRUST BADGES
+   ============================================ */
+.trust-badges {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.trust-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-md);
+    transition: all 0.3s ease;
+    border-radius: var(--radius-md);
+}
+
+.trust-badge:hover {
+    background: var(--bg-secondary);
+    transform: scale(1.05);
+}
+
+.trust-badge i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    transition: all 0.3s ease;
+}
+
+.trust-badge:hover i {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.trust-badge strong {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.trust-badge span {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN FOR TESTIMONIALS
+   ============================================ */
+@media (max-width: 768px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .trust-badges {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+
+    .testimonial-card::before {
+        font-size: 80px;
+        top: -10px;
+    }
+}
+
+/* ============================================
+   ENHANCED RESUME PREVIEW MOCKUP
+   ============================================ */
+.resume-preview-mockup {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    overflow: hidden;
+    transform: perspective(1000px) rotateY(-5deg);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 400px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: perspective(1000px) rotateY(-5deg) translateY(0);
+    }
+    50% {
+        transform: perspective(1000px) rotateY(-5deg) translateY(-10px);
+    }
+}
+
+.resume-preview-mockup:hover {
+    transform: perspective(1000px) rotateY(0deg) scale(1.02);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+}
+
+.mockup-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 12px 16px;
+    display: flex;
+    gap: 8px;
+}
+
+.mockup-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.mockup-dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.mockup-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.mockup-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.mockup-content {
+    padding: var(--spacing-lg);
+    background: white;
+}
+
+.mockup-profile {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--gray-lighter);
+}
+
+.mockup-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.2), rgba(46, 204, 113, 0.2));
+    flex-shrink: 0;
+    animation: shimmer 2s infinite;
+}
+
+.mockup-lines {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mockup-line {
+    height: 8px;
+    background: linear-gradient(90deg, var(--gray-lighter) 0%, var(--gray-light) 50%, var(--gray-lighter) 100%);
+    background-size: 200% 100%;
+    border-radius: 4px;
+    animation: shimmer 1.5s infinite;
+}
+
+.mockup-line.small {
+    width: 60%;
+}
+
+.mockup-line.medium {
+    width: 40%;
+    height: 12px;
+    background: linear-gradient(90deg, rgba(52, 152, 219, 0.3) 0%, rgba(52, 152, 219, 0.1) 100%);
+    margin-bottom: var(--spacing-sm);
+}
+
+.mockup-line.large {
+    width: 80%;
+}
+
+.mockup-line.full {
+    width: 100%;
+}
+
+.mockup-section {
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mockup-skills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.mockup-skill {
+    width: 60px;
+    height: 24px;
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.2), rgba(46, 204, 113, 0.2));
+    border-radius: 12px;
+    animation: shimmer 2s infinite;
+}
+
+.mockup-skill:nth-child(1) {
+    width: 70px;
+    animation-delay: 0.1s;
+}
+
+.mockup-skill:nth-child(2) {
+    width: 50px;
+    animation-delay: 0.2s;
+}
+
+.mockup-skill:nth-child(3) {
+    width: 65px;
+    animation-delay: 0.3s;
+}
+
+.mockup-skill:nth-child(4) {
+    width: 55px;
+    animation-delay: 0.4s;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        background-position: 200% 0;
+        opacity: 0.8;
+    }
+}
+
+/* Responsive mockup */
+@media (max-width: 768px) {
+    .resume-preview-mockup {
+        transform: none;
+        max-width: 100%;
+        margin: var(--spacing-lg) auto;
+    }
+
+    .resume-preview-mockup:hover {
+        transform: scale(1.02);
+    }
+}
