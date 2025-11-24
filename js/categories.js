@@ -911,11 +911,131 @@ function initializeCategoryThumbnails() {
 // Auto-initialize when DOM is ready
 if (typeof document !== 'undefined') {
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initializeCategoryThumbnails);
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeCategoryThumbnails();
+            initializePreviewModal();
+        });
     } else {
         // DOM already loaded
-        setTimeout(initializeCategoryThumbnails, 100);
+        setTimeout(() => {
+            initializeCategoryThumbnails();
+            initializePreviewModal();
+        }, 100);
     }
+}
+
+// ============================================
+// PREVIEW MODAL SYSTEM
+// ============================================
+
+// Initialize preview modal
+function initializePreviewModal() {
+    // Create modal if it doesn't exist
+    if (!document.getElementById('templatePreviewModal')) {
+        const modalHTML = `
+            <div id="templatePreviewModal" class="preview-modal">
+                <div class="preview-modal-overlay" onclick="closePreviewModal()"></div>
+                <div class="preview-modal-content">
+                    <div class="preview-modal-header">
+                        <h3 id="previewModalTitle">Template Preview</h3>
+                        <button class="preview-modal-close" onclick="closePreviewModal()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="preview-modal-body">
+                        <div id="previewModalTemplate" class="preview-template-container"></div>
+                    </div>
+                    <div class="preview-modal-footer">
+                        <button class="btn btn-secondary" onclick="closePreviewModal()">
+                            <i class="fas fa-times"></i> Close
+                        </button>
+                        <button id="usePreviewTemplate" class="btn btn-primary">
+                            <i class="fas fa-edit"></i> Use This Template
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+    }
+}
+
+// Open preview modal with template
+function openPreviewModal(categoryId, templateId) {
+    const modal = document.getElementById('templatePreviewModal');
+    const container = document.getElementById('previewModalTemplate');
+    const titleElement = document.getElementById('previewModalTitle');
+    const useButton = document.getElementById('usePreviewTemplate');
+
+    if (!modal || !container) return;
+
+    // Get category data
+    const category = getCategoryById(categoryId);
+    const templateName = templateId.charAt(0).toUpperCase() + templateId.slice(1);
+
+    // Update modal title
+    if (titleElement) {
+        titleElement.textContent = `${templateName} Template - ${category.name}`;
+    }
+
+    // Get example data
+    let exampleData = null;
+    if (typeof getCategoryExampleData === 'function') {
+        exampleData = getCategoryExampleData(categoryId);
+    }
+
+    // Render template preview
+    if (exampleData && typeof window.renderTemplatePreview === 'function') {
+        // If renderTemplatePreview is available (from templates.js)
+        container.innerHTML = `
+            <div class="resume-preview-wrapper" data-template="${templateId}">
+                ${window.renderTemplatePreview(templateId, exampleData)}
+            </div>
+        `;
+    } else {
+        // Fallback: show a message
+        container.innerHTML = `
+            <div class="preview-placeholder">
+                <i class="fas fa-file-alt" style="font-size: 4rem; color: #94a3b8; margin-bottom: 1rem;"></i>
+                <h3>Template Preview</h3>
+                <p>Click "Use This Template" to see the full template with your data</p>
+            </div>
+        `;
+    }
+
+    // Set up use button
+    if (useButton) {
+        useButton.onclick = () => {
+            closePreviewModal();
+            if (typeof useTemplate === 'function') {
+                useTemplate(categoryId, templateId);
+            }
+        };
+    }
+
+    // Show modal
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Close preview modal
+function closePreviewModal() {
+    const modal = document.getElementById('templatePreviewModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Make functions globally available
+if (typeof window !== 'undefined') {
+    window.openPreviewModal = openPreviewModal;
+    window.closePreviewModal = closePreviewModal;
+
+    // Global previewTemplate function (overrides inline versions)
+    window.previewTemplate = function(categoryId, templateId) {
+        openPreviewModal(categoryId, templateId);
+    };
 }
 
 console.log(`Categories Loaded: ${getCategoryCount()} categories + Blank Template`);
