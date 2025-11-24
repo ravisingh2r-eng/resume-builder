@@ -1499,14 +1499,28 @@ function showInterstitialAd() {
     const adContainer = document.getElementById('downloadAdContainer');
     const optionsContainer = document.getElementById('downloadOptions');
 
+    // Reset display states
+    adContainer.style.display = 'block';
+    optionsContainer.style.display = 'none';
+    timerElement.textContent = countdown;
+
     const timer = setInterval(() => {
         countdown--;
         timerElement.textContent = countdown;
 
         if (countdown <= 0) {
             clearInterval(timer);
+
+            // Hide ad container
             adContainer.style.display = 'none';
-            optionsContainer.style.display = 'block';
+
+            // Close modal
+            closeDownloadModal();
+
+            // Automatically trigger PDF download after 300ms
+            setTimeout(() => {
+                downloadPDF();
+            }, 300);
         }
     }, 1000);
 }
