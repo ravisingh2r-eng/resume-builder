@@ -122,6 +122,9 @@ function setupEventListeners() {
 
     // Personal Information Inputs
     document.getElementById('fullName')?.addEventListener('input', (e) => updateResumeData('personal', 'fullName', e.target.value));
+
+    // Profile Photo Upload
+    document.getElementById('profilePhoto')?.addEventListener('change', handlePhotoUpload);
     document.getElementById('jobTitle')?.addEventListener('input', (e) => updateResumeData('personal', 'jobTitle', e.target.value));
     document.getElementById('email')?.addEventListener('input', (e) => updateResumeData('personal', 'email', e.target.value));
     document.getElementById('phone')?.addEventListener('input', (e) => updateResumeData('personal', 'phone', e.target.value));
@@ -2208,6 +2211,117 @@ const originalInitializeApp2 = initializeApp;
 function initializeApp() {
     originalInitializeApp2();
     initializeTemplateCustomization();
+}
+
+// ============================================
+// PHOTO UPLOAD
+// ============================================
+function handlePhotoUpload(e) {
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    // Check file size (max 2MB)
+    if (file.size > 2 * 1024 * 1024) {
+        showNotification('Photo size must be less than 2MB', 'error');
+        e.target.value = '';
+        return;
+    }
+
+    // Check file type
+    if (!file.type.startsWith('image/')) {
+        showNotification('Please upload an image file', 'error');
+        e.target.value = '';
+        return;
+    }
+
+    // Read file and create preview
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
+        const photoData = event.target.result;
+
+        // Update preview
+        const preview = document.getElementById('photoPreview');
+        if (preview) {
+            preview.innerHTML = `<img src="${photoData}" alt="Profile Photo">`;
+        }
+
+        // Show remove button
+        const removeBtn = document.getElementById('removePhotoBtn');
+        if (removeBtn) {
+            removeBtn.style.display = 'inline-flex';
+        }
+
+        // Update app state
+        APP_STATE.resumeData.personal.photo = photoData;
+        saveToLocalStorage();
+        renderResumePreview();
+
+        showNotification('Photo uploaded successfully!', 'success');
+        trackEvent('photo_uploaded');
+    };
+
+    reader.onerror = function() {
+        showNotification('Error reading photo file', 'error');
+    };
+
+    reader.readAsDataURL(file);
+}
+
+function removePhoto() {
+    // Clear preview
+    const preview = document.getElementById('photoPreview');
+    if (preview) {
+        preview.innerHTML = `
+            <i class="fas fa-user-circle"></i>
+            <span>No photo uploaded</span>
+        `;
+    }
+
+    // Hide remove button
+    const removeBtn = document.getElementById('removePhotoBtn');
+    if (removeBtn) {
+        removeBtn.style.display = 'none';
+    }
+
+    // Clear file input
+    const fileInput = document.getElementById('profilePhoto');
+    if (fileInput) {
+        fileInput.value = '';
+    }
+
+    // Update app state
+    APP_STATE.resumeData.personal.photo = null;
+    saveToLocalStorage();
+    renderResumePreview();
+
+    showNotification('Photo removed', 'success');
+    trackEvent('photo_removed');
+}
+
+// Load saved photo on page load
+function loadSavedPhoto() {
+    if (APP_STATE.resumeData.personal.photo) {
+        const preview = document.getElementById('photoPreview');
+        if (preview) {
+            preview.innerHTML = `<img src="${APP_STATE.resumeData.personal.photo}" alt="Profile Photo">`;
+        }
+
+        const removeBtn = document.getElementById('removePhotoBtn');
+        if (removeBtn) {
+            removeBtn.style.display = 'inline-flex';
+        }
+    }
+}
+
+// Call this after loading data
+const originalLoadSavedData = loadSavedData;
+function loadSavedData() {
+    if (typeof originalLoadSavedData === 'function') {
+        originalLoadSavedData();
+    }
+    setTimeout(loadSavedPhoto, 100);
 }
 
 console.log('Resume Builder App Loaded Successfully');

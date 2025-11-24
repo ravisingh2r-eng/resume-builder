@@ -725,9 +725,23 @@
                                     <input type="url" id="github" placeholder="https://github.com/yourusername">
                                 </div>
                                 <div class="form-group">
-                                    <label for="profilePhoto">Profile Photo (optional)</label>
-                                    <input type="file" id="profilePhoto" accept="image/*">
-                                    <small>Recommended for creative resumes. Not recommended for ATS.</small>
+                                    <label>Profile Photo (optional)</label>
+                                    <div class="photo-upload-container">
+                                        <div class="photo-preview" id="photoPreview">
+                                            <i class="fas fa-user-circle"></i>
+                                            <span>No photo uploaded</span>
+                                        </div>
+                                        <div class="photo-upload-actions">
+                                            <input type="file" id="profilePhoto" accept="image/*" style="display: none;">
+                                            <button type="button" class="btn-secondary" onclick="document.getElementById('profilePhoto').click()">
+                                                <i class="fas fa-upload"></i> Choose Photo
+                                            </button>
+                                            <button type="button" class="btn-secondary" id="removePhotoBtn" onclick="removePhoto()" style="display: none;">
+                                                <i class="fas fa-trash"></i> Remove
+                                            </button>
+                                        </div>
+                                        <small>Recommended for creative resumes. Not recommended for ATS. Max 2MB.</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
