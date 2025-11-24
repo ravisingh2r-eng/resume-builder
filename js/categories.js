@@ -729,4 +729,193 @@ function getCategoryCount() {
     return Object.keys(RESUME_CATEGORIES).length;
 }
 
+// ============================================
+// TEMPLATE THUMBNAIL GENERATOR
+// ============================================
+
+// Generate template thumbnail preview
+function getTemplateThumbnail(templateId, colors = { primary: '#2563eb', accent: '#3b82f6' }) {
+    const thumbnails = {
+        'modern': `
+            <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg" class="template-thumbnail">
+                <rect width="100" height="140" fill="white"/>
+                <rect x="0" y="0" width="35" height="140" fill="${colors.primary}"/>
+                <circle cx="17.5" cy="15" r="8" fill="white" opacity="0.3"/>
+                <rect x="10" y="28" width="15" height="2" fill="white" opacity="0.7" rx="1"/>
+                <rect x="10" y="33" width="15" height="1.5" fill="white" opacity="0.5" rx="0.75"/>
+                <rect x="10" y="45" width="15" height="1.5" fill="white" opacity="0.7" rx="0.75"/>
+                <rect x="10" y="49" width="12" height="1" fill="white" opacity="0.5" rx="0.5"/>
+                <rect x="42" y="10" width="50" height="3" fill="${colors.primary}" opacity="0.9" rx="1.5"/>
+                <rect x="42" y="16" width="35" height="2" fill="${colors.accent}" opacity="0.6" rx="1"/>
+                <rect x="42" y="25" width="50" height="1.5" fill="#64748b" opacity="0.4" rx="0.75"/>
+                <rect x="42" y="29" width="45" height="1.5" fill="#64748b" opacity="0.4" rx="0.75"/>
+                <rect x="42" y="33" width="48" height="1.5" fill="#64748b" opacity="0.4" rx="0.75"/>
+                <rect x="42" y="42" width="40" height="2" fill="${colors.primary}" opacity="0.7" rx="1"/>
+                <rect x="42" y="47" width="50" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+                <rect x="42" y="50" width="48" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+            </svg>
+        `,
+        'ats': `
+            <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg" class="template-thumbnail">
+                <rect width="100" height="140" fill="white"/>
+                <rect x="10" y="10" width="80" height="4" fill="${colors.primary}" opacity="0.9" rx="2"/>
+                <rect x="10" y="18" width="50" height="2.5" fill="${colors.accent}" opacity="0.6" rx="1.25"/>
+                <rect x="10" y="28" width="35" height="2" fill="#64748b" opacity="0.5" rx="1"/>
+                <line x1="10" y1="35" x2="90" y2="35" stroke="#e2e8f0" stroke-width="0.5"/>
+                <rect x="10" y="40" width="30" height="2" fill="${colors.primary}" opacity="0.7" rx="1"/>
+                <rect x="10" y="45" width="80" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+                <rect x="10" y="48" width="75" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+                <rect x="10" y="51" width="78" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+                <line x1="10" y1="58" x2="90" y2="58" stroke="#e2e8f0" stroke-width="0.5"/>
+                <rect x="10" y="63" width="30" height="2" fill="${colors.primary}" opacity="0.7" rx="1"/>
+                <rect x="10" y="68" width="70" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+            </svg>
+        `,
+        'creative': `
+            <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg" class="template-thumbnail">
+                <rect width="100" height="140" fill="white"/>
+                <rect x="0" y="0" width="100" height="25" fill="${colors.primary}"/>
+                <circle cx="50" cy="12.5" r="7" fill="white" opacity="0.9"/>
+                <rect x="35" y="19" width="30" height="2" fill="white" opacity="0.9" rx="1"/>
+                <rect x="10" y="32" width="80" height="2.5" fill="${colors.accent}" opacity="0.7" rx="1.25"/>
+                <rect x="10" y="38" width="35" height="15" fill="${colors.primary}" opacity="0.1" rx="2"/>
+                <rect x="55" y="38" width="35" height="15" fill="${colors.accent}" opacity="0.1" rx="2"/>
+                <rect x="12" y="41" width="10" height="1.5" fill="${colors.primary}" opacity="0.6" rx="0.75"/>
+                <rect x="12" y="44" width="28" height="1" fill="#64748b" opacity="0.4" rx="0.5"/>
+                <rect x="10" y="60" width="80" height="1.5" fill="#64748b" opacity="0.3" rx="0.75"/>
+                <rect x="10" y="64" width="75" height="1.5" fill="#64748b" opacity="0.3" rx="0.75"/>
+            </svg>
+        `,
+        'professional': `
+            <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg" class="template-thumbnail">
+                <rect width="100" height="140" fill="white"/>
+                <rect x="10" y="10" width="80" height="5" fill="${colors.primary}" opacity="0.9" rx="1"/>
+                <rect x="10" y="18" width="50" height="2" fill="#64748b" opacity="0.5" rx="1"/>
+                <line x1="10" y1="26" x2="90" y2="26" stroke="${colors.primary}" stroke-width="1" opacity="0.3"/>
+                <rect x="10" y="32" width="25" height="2" fill="${colors.primary}" opacity="0.8" rx="1"/>
+                <rect x="10" y="38" width="80" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+                <rect x="10" y="41" width="78" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+                <rect x="10" y="44" width="75" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+                <rect x="10" y="52" width="25" height="2" fill="${colors.primary}" opacity="0.8" rx="1"/>
+                <rect x="10" y="58" width="70" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+                <rect x="10" y="61" width="75" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+            </svg>
+        `,
+        'tech': `
+            <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg" class="template-thumbnail">
+                <rect width="100" height="140" fill="#0f172a"/>
+                <rect x="0" y="0" width="100" height="8" fill="${colors.primary}"/>
+                <rect x="10" y="2" width="30" height="3" fill="white" opacity="0.9" rx="1.5"/>
+                <rect x="10" y="14" width="80" height="2" fill="${colors.accent}" opacity="0.8" rx="1"/>
+                <rect x="10" y="20" width="25" height="10" fill="${colors.primary}" opacity="0.2" rx="1"/>
+                <rect x="42" y="20" width="25" height="10" fill="${colors.primary}" opacity="0.2" rx="1"/>
+                <rect x="74" y="20" width="16" height="10" fill="${colors.primary}" opacity="0.2" rx="1"/>
+                <rect x="12" y="22" width="8" height="1.5" fill="${colors.accent}" opacity="0.7" rx="0.75"/>
+                <rect x="10" y="36" width="80" height="1.2" fill="white" opacity="0.3" rx="0.6"/>
+                <rect x="10" y="40" width="75" height="1.2" fill="white" opacity="0.3" rx="0.6"/>
+            </svg>
+        `,
+        'student': `
+            <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg" class="template-thumbnail">
+                <rect width="100" height="140" fill="white"/>
+                <rect x="10" y="10" width="80" height="4" fill="${colors.primary}" opacity="0.9" rx="2"/>
+                <rect x="10" y="18" width="45" height="2" fill="${colors.accent}" opacity="0.6" rx="1"/>
+                <rect x="10" y="28" width="28" height="2" fill="${colors.primary}" opacity="0.7" rx="1"/>
+                <rect x="10" y="33" width="80" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+                <rect x="10" y="36" width="75" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+                <rect x="10" y="44" width="28" height="2" fill="${colors.primary}" opacity="0.7" rx="1"/>
+                <rect x="10" y="49" width="70" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+                <rect x="10" y="52" width="65" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+                <rect x="10" y="60" width="28" height="2" fill="${colors.primary}" opacity="0.7" rx="1"/>
+                <rect x="12" y="65" width="15" height="8" fill="${colors.accent}" opacity="0.1" rx="1"/>
+            </svg>
+        `,
+        'executive': `
+            <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg" class="template-thumbnail">
+                <rect width="100" height="140" fill="white"/>
+                <rect x="0" y="0" width="100" height="20" fill="${colors.primary}" opacity="0.1"/>
+                <rect x="10" y="6" width="80" height="4" fill="${colors.primary}" opacity="0.9" rx="2"/>
+                <rect x="10" y="13" width="50" height="2" fill="${colors.accent}" opacity="0.7" rx="1"/>
+                <line x1="10" y1="25" x2="90" y2="25" stroke="${colors.primary}" stroke-width="0.5"/>
+                <rect x="10" y="30" width="35" height="2.5" fill="${colors.primary}" opacity="0.8" rx="1.25"/>
+                <rect x="10" y="36" width="80" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+                <rect x="10" y="39" width="78" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+                <rect x="10" y="42" width="75" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+                <rect x="10" y="50" width="35" height="2.5" fill="${colors.primary}" opacity="0.8" rx="1.25"/>
+            </svg>
+        `,
+        'minimalist': `
+            <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg" class="template-thumbnail">
+                <rect width="100" height="140" fill="white"/>
+                <rect x="10" y="15" width="80" height="3" fill="${colors.primary}" rx="1.5"/>
+                <rect x="10" y="22" width="40" height="1.5" fill="#64748b" opacity="0.4" rx="0.75"/>
+                <line x1="10" y1="32" x2="90" y2="32" stroke="#e2e8f0" stroke-width="0.3"/>
+                <rect x="10" y="38" width="20" height="1.5" fill="${colors.primary}" opacity="0.6" rx="0.75"/>
+                <rect x="10" y="43" width="80" height="1" fill="#64748b" opacity="0.25" rx="0.5"/>
+                <rect x="10" y="46" width="75" height="1" fill="#64748b" opacity="0.25" rx="0.5"/>
+                <rect x="10" y="54" width="20" height="1.5" fill="${colors.primary}" opacity="0.6" rx="0.75"/>
+                <rect x="10" y="59" width="70" height="1" fill="#64748b" opacity="0.25" rx="0.5"/>
+                <rect x="10" y="62" width="68" height="1" fill="#64748b" opacity="0.25" rx="0.5"/>
+            </svg>
+        `,
+        'bold': `
+            <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg" class="template-thumbnail">
+                <rect width="100" height="140" fill="white"/>
+                <rect x="0" y="0" width="15" height="140" fill="${colors.primary}"/>
+                <rect x="20" y="10" width="70" height="6" fill="${colors.primary}" rx="2"/>
+                <rect x="20" y="20" width="45" height="3" fill="${colors.accent}" opacity="0.7" rx="1.5"/>
+                <rect x="20" y="30" width="70" height="2.5" fill="${colors.primary}" opacity="0.7" rx="1.25"/>
+                <rect x="20" y="36" width="68" height="1.5" fill="#64748b" opacity="0.4" rx="0.75"/>
+                <rect x="20" y="40" width="65" height="1.5" fill="#64748b" opacity="0.4" rx="0.75"/>
+                <rect x="20" y="50" width="70" height="2.5" fill="${colors.primary}" opacity="0.7" rx="1.25"/>
+                <rect x="20" y="56" width="60" height="1.5" fill="#64748b" opacity="0.4" rx="0.75"/>
+            </svg>
+        `,
+        'timeline': `
+            <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg" class="template-thumbnail">
+                <rect width="100" height="140" fill="white"/>
+                <rect x="10" y="10" width="80" height="4" fill="${colors.primary}" rx="2"/>
+                <rect x="10" y="18" width="45" height="2" fill="${colors.accent}" opacity="0.6" rx="1"/>
+                <line x1="15" y1="30" x2="15" y2="110" stroke="${colors.primary}" stroke-width="1" opacity="0.3"/>
+                <circle cx="15" cy="30" r="3" fill="${colors.primary}"/>
+                <rect x="22" y="28" width="25" height="2" fill="${colors.primary}" opacity="0.7" rx="1"/>
+                <rect x="22" y="32" width="65" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+                <circle cx="15" cy="50" r="3" fill="${colors.accent}"/>
+                <rect x="22" y="48" width="25" height="2" fill="${colors.primary}" opacity="0.7" rx="1"/>
+                <rect x="22" y="52" width="60" height="1.2" fill="#64748b" opacity="0.3" rx="0.6"/>
+                <circle cx="15" cy="70" r="3" fill="${colors.primary}" opacity="0.5"/>
+            </svg>
+        `
+    };
+
+    return thumbnails[templateId] || thumbnails['modern'];
+}
+
+// Initialize thumbnails on category pages
+function initializeCategoryThumbnails() {
+    const templateCards = document.querySelectorAll('.category-template-card');
+
+    templateCards.forEach(card => {
+        const templateId = card.getAttribute('data-template');
+        const visualContainer = card.querySelector('.template-visual');
+
+        if (visualContainer && templateId) {
+            // Generate thumbnail with default colors
+            const thumbnail = getTemplateThumbnail(templateId);
+            visualContainer.innerHTML = thumbnail;
+            visualContainer.classList.add('has-thumbnail');
+        }
+    });
+}
+
+// Auto-initialize when DOM is ready
+if (typeof document !== 'undefined') {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeCategoryThumbnails);
+    } else {
+        // DOM already loaded
+        setTimeout(initializeCategoryThumbnails, 100);
+    }
+}
+
 console.log(`Categories Loaded: ${getCategoryCount()} categories + Blank Template`);

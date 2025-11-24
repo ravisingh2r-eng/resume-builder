@@ -244,11 +244,34 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 1rem;
 }
 
 .template-visual i {
     font-size: 5rem;
     color: var(--gray-light);
+}
+
+/* Template Thumbnail Styles */
+.template-visual.has-thumbnail {
+    padding: 0.5rem;
+}
+
+.template-thumbnail {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-fast);
+}
+
+.category-template-card:hover .template-thumbnail {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02);
 }
 
 .template-number {
