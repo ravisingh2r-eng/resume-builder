@@ -48,6 +48,8 @@ const APP_STATE = {
         languages: true,
         interests: true
     },
+    sectionOrder: ['summary', 'experience', 'education', 'skills', 'projects', 'certifications', 'languages', 'interests'],
+    customSections: [],
     achievements: {
         firstResume: false,
         firstDownload: false,
@@ -1077,6 +1079,24 @@ window.removeLanguage = function(id) {
     updateProgress();
     saveToLocalStorage();
 };
+
+// ============================================
+// SECTION ORDERING HELPERS
+// ============================================
+// Get sections in custom order
+function getSectionOrder() {
+    if (APP_STATE.customization && APP_STATE.customization.sectionOrder) {
+        return APP_STATE.customization.sectionOrder;
+    }
+    return ['summary', 'experience', 'education', 'skills', 'projects', 'certifications', 'languages', 'interests'];
+}
+
+// Render section based on type
+function renderSection(sectionType, data, visible, templateType) {
+    // This will be called by templates to render sections in order
+    // Each template will provide its own section HTML
+    return '';  // Templates will override this
+}
 
 // ============================================
 // RESUME PREVIEW RENDERING
@@ -2125,7 +2145,8 @@ function saveSectionOrder() {
     APP_STATE.customization.sectionOrder = sectionOrder;
     saveToLocalStorage();
 
-    showNotification('Section order saved! (Note: Reordering will be applied in future update)', 'success');
+    showNotification('Section order saved! Refreshing preview...', 'success');
+    renderResumePreview();  // Add this line to re-render with new order
     closeReorderModal();
 }
 
@@ -2177,7 +2198,8 @@ function addCustomSection() {
     APP_STATE.customSections.push({ title, content });
     saveToLocalStorage();
 
-    showNotification(`Custom section "${title}" added! (Note: Custom sections will be rendered in future update)`, 'success');
+    showNotification(`Custom section "${title}" added!`, 'success');
+    renderResumePreview();  // Add this line
     closeCustomSectionModal();
 }
 

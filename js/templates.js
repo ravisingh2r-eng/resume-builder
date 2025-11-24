@@ -35,9 +35,9 @@ function renderTemplate_modern() {
                 ${visible.skills && data.skills.length > 0 ? `
                 <div class="skills-section">
                     <h3 class="section-title">Skills</h3>
-                    ${data.skills.map(skill => `
+                    ${data.skills.map((skill, index) => `
                         <div class="skill-item">
-                            <div class="skill-name">${skill.name}<span>${skill.level}%</span></div>
+                            <div class="skill-name"><span data-editable data-field="name" data-section="skills" data-index="${index}">${skill.name}</span><span>${skill.level}%</span></div>
                             <div class="skill-bar">
                                 <div class="skill-fill" style="width: ${skill.level}%"></div>
                             </div>
@@ -101,11 +101,11 @@ function renderTemplate_modern() {
                 ${visible.projects && data.projects.length > 0 ? `
                 <section class="resume-section">
                     <h2 class="section-title">Projects</h2>
-                    ${data.projects.map(project => `
+                    ${data.projects.map((project, index) => `
                         <div class="project-item">
-                            <h4 class="item-title">${project.title}</h4>
-                            ${project.technologies ? `<p class="item-subtitle">${project.technologies}</p>` : ''}
-                            ${project.description ? `<div class="item-description">${formatDescription(project.description)}</div>` : ''}
+                            <h4 class="item-title" data-editable data-field="title" data-section="projects" data-index="${index}">${project.title}</h4>
+                            ${project.technologies ? `<p class="item-subtitle" data-editable data-field="technologies" data-section="projects" data-index="${index}">${project.technologies}</p>` : ''}
+                            ${project.description ? `<div class="item-description" data-editable data-field="description" data-section="projects" data-index="${index}">${formatDescription(project.description)}</div>` : ''}
                             ${project.link ? `<p class="item-description"><i class="fas fa-link"></i> ${project.link}</p>` : ''}
                         </div>
                     `).join('')}
@@ -116,13 +116,13 @@ function renderTemplate_modern() {
                 ${visible.education && data.education.length > 0 ? `
                 <section class="resume-section">
                     <h2 class="section-title">Education</h2>
-                    ${data.education.map(edu => `
+                    ${data.education.map((edu, index) => `
                         <div class="education-item">
-                            <h4 class="item-title">${edu.degree}</h4>
-                            <p class="item-subtitle">${edu.institution}${edu.location ? `, ${edu.location}` : ''}</p>
+                            <h4 class="item-title" data-editable data-field="degree" data-section="education" data-index="${index}">${edu.degree}</h4>
+                            <p class="item-subtitle" data-editable data-field="institution" data-section="education" data-index="${index}">${edu.institution}${edu.location ? `, ${edu.location}` : ''}</p>
                             <p class="item-date">${formatDate(edu.startDate)} - ${formatDate(edu.endDate)}</p>
-                            ${edu.gpa ? `<p class="item-description">GPA: ${edu.gpa}</p>` : ''}
-                            ${edu.description ? `<div class="item-description">${formatDescription(edu.description)}</div>` : ''}
+                            ${edu.gpa ? `<p class="item-description"><span data-editable data-field="gpa" data-section="education" data-index="${index}">GPA: ${edu.gpa}</span></p>` : ''}
+                            ${edu.description ? `<div class="item-description" data-editable data-field="description" data-section="education" data-index="${index}">${formatDescription(edu.description)}</div>` : ''}
                         </div>
                     `).join('')}
                 </section>
@@ -140,6 +140,9 @@ function renderTemplate_modern() {
                     `).join('')}
                 </section>
                 ` : ''}
+
+                <!-- Custom Sections -->
+                ${renderCustomSections()}
             </div>
         </div>
     `;
@@ -196,15 +199,15 @@ function renderTemplate_ats() {
             ${visible.education && data.education.length > 0 ? `
             <section>
                 <h2 class="section-title">Education</h2>
-                ${data.education.map(edu => `
+                ${data.education.map((edu, index) => `
                     <div class="education-item">
                         <div class="item-header">
-                            <h3 class="item-title">${edu.degree}</h3>
+                            <h3 class="item-title" data-editable data-field="degree" data-section="education" data-index="${index}">${edu.degree}</h3>
                             <span class="item-date">${formatDate(edu.startDate)} - ${formatDate(edu.endDate)}</span>
                         </div>
-                        <p class="item-subtitle">${edu.institution}${edu.location ? `, ${edu.location}` : ''}</p>
-                        ${edu.gpa ? `<p class="item-description">GPA: ${edu.gpa}</p>` : ''}
-                        ${edu.description ? `<div class="item-description">${formatDescription(edu.description)}</div>` : ''}
+                        <p class="item-subtitle" data-editable data-field="institution" data-section="education" data-index="${index}">${edu.institution}${edu.location ? `, ${edu.location}` : ''}</p>
+                        ${edu.gpa ? `<p class="item-description"><span data-editable data-field="gpa" data-section="education" data-index="${index}">GPA: ${edu.gpa}</span></p>` : ''}
+                        ${edu.description ? `<div class="item-description" data-editable data-field="description" data-section="education" data-index="${index}">${formatDescription(edu.description)}</div>` : ''}
                     </div>
                 `).join('')}
             </section>
@@ -215,8 +218,8 @@ function renderTemplate_ats() {
             <section>
                 <h2 class="section-title">Skills</h2>
                 <div class="skills-grid">
-                    ${data.skills.map(skill => `
-                        <div class="skill-item">${skill.name}</div>
+                    ${data.skills.map((skill, index) => `
+                        <div class="skill-item"><span data-editable data-field="name" data-section="skills" data-index="${index}">${skill.name}</span></div>
                     `).join('')}
                 </div>
             </section>
@@ -226,11 +229,11 @@ function renderTemplate_ats() {
             ${visible.projects && data.projects.length > 0 ? `
             <section>
                 <h2 class="section-title">Projects</h2>
-                ${data.projects.map(project => `
+                ${data.projects.map((project, index) => `
                     <div class="project-item">
-                        <h3 class="item-title">${project.title}</h3>
-                        ${project.technologies ? `<p class="item-subtitle">Technologies: ${project.technologies}</p>` : ''}
-                        ${project.description ? `<div class="item-description">${formatDescription(project.description)}</div>` : ''}
+                        <h3 class="item-title" data-editable data-field="title" data-section="projects" data-index="${index}">${project.title}</h3>
+                        ${project.technologies ? `<p class="item-subtitle" data-editable data-field="technologies" data-section="projects" data-index="${index}">Technologies: ${project.technologies}</p>` : ''}
+                        ${project.description ? `<div class="item-description" data-editable data-field="description" data-section="projects" data-index="${index}">${formatDescription(project.description)}</div>` : ''}
                     </div>
                 `).join('')}
             </section>
@@ -271,6 +274,9 @@ function renderTemplate_ats() {
                 </div>
             </section>
             ` : ''}
+
+            <!-- Custom Sections -->
+            ${renderCustomSections()}
         </div>
     `;
 }
@@ -326,9 +332,9 @@ function renderTemplate_creative() {
                 <section>
                     <h2 class="section-title">Skills</h2>
                     <div class="skills-container">
-                        ${data.skills.map(skill => `
+                        ${data.skills.map((skill, index) => `
                             <div class="skill-item">
-                                <div class="skill-name">${skill.name}</div>
+                                <div class="skill-name"><span data-editable data-field="name" data-section="skills" data-index="${index}">${skill.name}</span></div>
                                 <div class="skill-bar">
                                     <div class="skill-fill" style="width: ${skill.level}%"></div>
                                 </div>
@@ -342,11 +348,11 @@ function renderTemplate_creative() {
                 ${visible.projects && data.projects.length > 0 ? `
                 <section>
                     <h2 class="section-title">Portfolio Projects</h2>
-                    ${data.projects.map(project => `
+                    ${data.projects.map((project, index) => `
                         <div class="project-item">
-                            <h3 class="item-title">${project.title}</h3>
-                            ${project.technologies ? `<p class="item-subtitle">${project.technologies}</p>` : ''}
-                            ${project.description ? `<div class="item-description">${formatDescription(project.description)}</div>` : ''}
+                            <h3 class="item-title" data-editable data-field="title" data-section="projects" data-index="${index}">${project.title}</h3>
+                            ${project.technologies ? `<p class="item-subtitle" data-editable data-field="technologies" data-section="projects" data-index="${index}">${project.technologies}</p>` : ''}
+                            ${project.description ? `<div class="item-description" data-editable data-field="description" data-section="projects" data-index="${index}">${formatDescription(project.description)}</div>` : ''}
                         </div>
                     `).join('')}
                 </section>
@@ -356,12 +362,12 @@ function renderTemplate_creative() {
                 ${visible.education && data.education.length > 0 ? `
                 <section>
                     <h2 class="section-title">Education</h2>
-                    ${data.education.map(edu => `
+                    ${data.education.map((edu, index) => `
                         <div class="education-item">
-                            <h3 class="item-title">${edu.degree}</h3>
-                            <p class="item-subtitle">${edu.institution}</p>
+                            <h3 class="item-title" data-editable data-field="degree" data-section="education" data-index="${index}">${edu.degree}</h3>
+                            <p class="item-subtitle" data-editable data-field="institution" data-section="education" data-index="${index}">${edu.institution}</p>
                             <span class="item-date">${formatDate(edu.endDate)}</span>
-                            ${edu.description ? `<div class="item-description">${formatDescription(edu.description)}</div>` : ''}
+                            ${edu.description ? `<div class="item-description" data-editable data-field="description" data-section="education" data-index="${index}">${formatDescription(edu.description)}</div>` : ''}
                         </div>
                     `).join('')}
                 </section>
@@ -378,6 +384,9 @@ function renderTemplate_creative() {
                     </div>
                 </section>
                 ` : ''}
+
+                <!-- Custom Sections -->
+                ${renderCustomSections()}
             </div>
         </div>
     `;
@@ -433,15 +442,15 @@ function renderTemplate_professional() {
             ${visible.education && data.education.length > 0 ? `
             <section>
                 <h2 class="section-title">Education</h2>
-                ${data.education.map(edu => `
+                ${data.education.map((edu, index) => `
                     <div class="education-item">
                         <div class="item-header">
-                            <h3 class="item-title">${edu.degree}</h3>
+                            <h3 class="item-title" data-editable data-field="degree" data-section="education" data-index="${index}">${edu.degree}</h3>
                             <span class="item-date">${formatDate(edu.endDate)}</span>
                         </div>
-                        <p class="item-subtitle">${edu.institution}${edu.location ? ` | ${edu.location}` : ''}</p>
-                        ${edu.gpa ? `<p class="item-description">Grade Point Average: ${edu.gpa}</p>` : ''}
-                        ${edu.description ? `<div class="item-description">${formatDescription(edu.description)}</div>` : ''}
+                        <p class="item-subtitle" data-editable data-field="institution" data-section="education" data-index="${index}">${edu.institution}${edu.location ? ` | ${edu.location}` : ''}</p>
+                        ${edu.gpa ? `<p class="item-description"><span data-editable data-field="gpa" data-section="education" data-index="${index}">Grade Point Average: ${edu.gpa}</span></p>` : ''}
+                        ${edu.description ? `<div class="item-description" data-editable data-field="description" data-section="education" data-index="${index}">${formatDescription(edu.description)}</div>` : ''}
                     </div>
                 `).join('')}
             </section>
@@ -452,8 +461,8 @@ function renderTemplate_professional() {
             <section>
                 <h2 class="section-title">Core Competencies</h2>
                 <div class="skills-grid">
-                    ${data.skills.map(skill => `
-                        <div class="skill-item">${skill.name}</div>
+                    ${data.skills.map((skill, index) => `
+                        <div class="skill-item"><span data-editable data-field="name" data-section="skills" data-index="${index}">${skill.name}</span></div>
                     `).join('')}
                 </div>
             </section>
@@ -493,6 +502,9 @@ function renderTemplate_professional() {
                 <p class="interests-list">${data.interests}</p>
             </section>
             ` : ''}
+
+            <!-- Custom Sections -->
+            ${renderCustomSections()}
         </div>
     `;
 }
@@ -532,8 +544,8 @@ function renderTemplate_tech() {
                 <section>
                     <h2 class="section-title">Technical Skills</h2>
                     <div class="skills-container">
-                        ${data.skills.map(skill => `
-                            <div class="skill-item">${skill.name}</div>
+                        ${data.skills.map((skill, index) => `
+                            <div class="skill-item"><span data-editable data-field="name" data-section="skills" data-index="${index}">${skill.name}</span></div>
                         `).join('')}
                     </div>
                 </section>
@@ -558,11 +570,11 @@ function renderTemplate_tech() {
                 ${visible.projects && data.projects.length > 0 ? `
                 <section>
                     <h2 class="section-title">Projects</h2>
-                    ${data.projects.map(project => `
+                    ${data.projects.map((project, index) => `
                         <div class="project-item">
-                            <h3 class="item-title">${project.title}</h3>
-                            ${project.technologies ? `<p class="item-subtitle">Stack: ${project.technologies}</p>` : ''}
-                            ${project.description ? `<div class="item-description">${formatDescription(project.description)}</div>` : ''}
+                            <h3 class="item-title" data-editable data-field="title" data-section="projects" data-index="${index}">${project.title}</h3>
+                            ${project.technologies ? `<p class="item-subtitle" data-editable data-field="technologies" data-section="projects" data-index="${index}">Stack: ${project.technologies}</p>` : ''}
+                            ${project.description ? `<div class="item-description" data-editable data-field="description" data-section="projects" data-index="${index}">${formatDescription(project.description)}</div>` : ''}
                             ${project.link ? `<p class="item-description">🔗 ${project.link}</p>` : ''}
                         </div>
                     `).join('')}
@@ -573,10 +585,10 @@ function renderTemplate_tech() {
                 ${visible.education && data.education.length > 0 ? `
                 <section>
                     <h2 class="section-title">Education</h2>
-                    ${data.education.map(edu => `
+                    ${data.education.map((edu, index) => `
                         <div class="education-item">
-                            <h3 class="item-title">${edu.degree}</h3>
-                            <p class="item-subtitle">${edu.institution}</p>
+                            <h3 class="item-title" data-editable data-field="degree" data-section="education" data-index="${index}">${edu.degree}</h3>
+                            <p class="item-subtitle" data-editable data-field="institution" data-section="education" data-index="${index}">${edu.institution}</p>
                             <p class="item-date">${formatDate(edu.endDate)}</p>
                         </div>
                     `).join('')}
@@ -618,6 +630,9 @@ function renderTemplate_tech() {
                     </div>
                 </section>
                 ` : ''}
+
+                <!-- Custom Sections -->
+                ${renderCustomSections()}
             </div>
         </div>
     `;
@@ -753,6 +768,9 @@ function renderTemplate_student() {
                 </div>
             </section>
             ` : ''}
+
+            <!-- Custom Sections -->
+            ${renderCustomSections()}
         </div>
     `;
 }
@@ -875,6 +893,9 @@ function renderTemplate_executive() {
                         ` : ''}
                     </div>
                 </div>
+
+                <!-- Custom Sections -->
+                ${renderCustomSections()}
             </div>
         </div>
     `;
@@ -981,6 +1002,9 @@ function renderTemplate_minimalist() {
                 <p class="languages-text">${data.languages.map(lang => `${lang.name} (${lang.proficiency})`).join(', ')}</p>
             </section>
             ` : ''}
+
+            <!-- Custom Sections -->
+            ${renderCustomSections()}
         </div>
     `;
 }
@@ -1114,6 +1138,9 @@ function renderTemplate_bold() {
                 </div>
             </section>
             ` : ''}
+
+            <!-- Custom Sections -->
+            ${renderCustomSections()}
         </div>
     `;
 }
@@ -1264,6 +1291,9 @@ function renderTemplate_timeline() {
                 </div>
             </section>
             ` : ''}
+
+            <!-- Custom Sections -->
+            ${renderCustomSections()}
         </div>
     `;
 }
@@ -1305,6 +1335,25 @@ function formatDescription(text) {
 
     // Otherwise, return as paragraph
     return `<p>${escapeHtml(text)}</p>`;
+}
+
+// ============================================
+// CUSTOM SECTIONS RENDERING
+// ============================================
+// Render custom sections
+function renderCustomSections() {
+    if (!APP_STATE.customSections || APP_STATE.customSections.length === 0) {
+        return '';
+    }
+
+    return APP_STATE.customSections.map(section => `
+        <section class="resume-section custom-section">
+            <h2 class="section-title" data-editable data-field="customSectionTitle">${section.title}</h2>
+            <div class="custom-section-content" data-editable data-field="customSectionContent">
+                ${section.content.split('\n').map(line => `<p>${line}</p>`).join('')}
+            </div>
+        </section>
+    `).join('');
 }
 
 console.log('Resume Templates Loaded Successfully');
