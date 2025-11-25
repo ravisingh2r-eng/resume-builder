@@ -91,6 +91,12 @@ function initializeApp() {
 
     // Initialize ad refresh timer
     setupAdRefresh();
+
+    // Hide floating download button on initial load (home page is default)
+    const floatingBtn = document.getElementById('floatingDownloadBtn');
+    if (floatingBtn) {
+        floatingBtn.style.display = 'none';
+    }
 }
 
 // ============================================
@@ -210,6 +216,9 @@ function handleNavigation(e) {
 }
 
 function navigateToPage(page) {
+    // Close any open modals when navigating
+    closeDownloadModal();
+
     // Update active nav link
     document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.toggle('active', link.getAttribute('data-page') === page);
