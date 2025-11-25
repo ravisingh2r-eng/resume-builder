@@ -960,6 +960,11 @@ function initializePreviewModal() {
     }
 }
 
+// Store current editing data
+let currentEditData = null;
+let currentCategoryId = null;
+let currentTemplateId = null;
+
 // Open preview modal with template
 function openPreviewModal(categoryId, templateId) {
     const modal = document.getElementById('templatePreviewModal');
@@ -975,7 +980,12 @@ function openPreviewModal(categoryId, templateId) {
 
     // Update modal title
     if (titleElement) {
-        titleElement.textContent = `${templateName} Template - ${category.name}`;
+        titleElement.innerHTML = `
+            ${templateName} Template - ${category.name}
+            <span class="edit-mode-badge">
+                <i class="fas fa-edit"></i> Click to Edit
+            </span>
+        `;
     }
 
     // Get example data
@@ -984,14 +994,22 @@ function openPreviewModal(categoryId, templateId) {
         exampleData = getCategoryExampleData(categoryId);
     }
 
+    // Store data for editing
+    currentEditData = exampleData ? JSON.parse(JSON.stringify(exampleData)) : null;
+    currentCategoryId = categoryId;
+    currentTemplateId = templateId;
+
     // Render template preview
     if (exampleData && typeof window.renderTemplatePreview === 'function') {
         // If renderTemplatePreview is available (from templates.js)
         container.innerHTML = `
-            <div class="resume-preview-wrapper" data-template="${templateId}">
+            <div class="resume-preview-wrapper editable-preview" data-template="${templateId}">
                 ${window.renderTemplatePreview(templateId, exampleData)}
             </div>
         `;
+
+        // Enable inline editing
+        setTimeout(() => enableInlineEditing(container), 100);
     } else {
         // Fallback: show a message
         container.innerHTML = `
@@ -1005,17 +1023,90 @@ function openPreviewModal(categoryId, templateId) {
 
     // Set up use button
     if (useButton) {
+        useButton.innerHTML = '<i class="fas fa-save"></i> Save & Use Template';
         useButton.onclick = () => {
-            closePreviewModal();
-            if (typeof useTemplate === 'function') {
-                useTemplate(categoryId, templateId);
-            }
+            saveAndUseTemplate();
         };
     }
 
     // Show modal
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+}
+
+// Enable inline editing on elements
+function enableInlineEditing(container) {
+    const editableElements = container.querySelectorAll('[data-editable]');
+
+    editableElements.forEach(element => {
+        element.classList.add('editable-field');
+        element.setAttribute('contenteditable', 'true');
+        element.setAttribute('spellcheck', 'false');
+
+        // Add focus styling
+        element.addEventListener('focus', function() {
+            this.classList.add('editing');
+        });
+
+        element.addEventListener('blur', function() {
+            this.classList.remove('editing');
+            updateEditData(this);
+        });
+
+        // Handle Enter key
+        element.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                this.blur();
+            }
+        });
+    });
+}
+
+// Update edit data when field changes
+function updateEditData(element) {
+    if (!currentEditData) return;
+
+    const field = element.getAttribute('data-field');
+    const section = element.getAttribute('data-section');
+    const index = element.getAttribute('data-index');
+    const newValue = element.textContent.trim();
+
+    if (section && index !== null) {
+        // Array item (like experience, education, etc.)
+        const idx = parseInt(index);
+        if (currentEditData[section] && currentEditData[section][idx]) {
+            currentEditData[section][idx][field] = newValue;
+        }
+    } else if (field) {
+        // Simple field (like personal.fullName)
+        const parts = field.split('.');
+        if (parts.length === 2) {
+            if (!currentEditData[parts[0]]) currentEditData[parts[0]] = {};
+            currentEditData[parts[0]][parts[1]] = newValue;
+        } else if (parts.length === 1) {
+            currentEditData[field] = newValue;
+        }
+    }
+}
+
+// Save edited data and use template
+function saveAndUseTemplate() {
+    if (currentEditData && window.localStorage) {
+        // Save edited data to localStorage
+        localStorage.setItem('resumeData', JSON.stringify(currentEditData));
+        localStorage.setItem('selectedTemplate', currentTemplateId);
+
+        // Close modal
+        closePreviewModal();
+
+        // Redirect to editor
+        window.location.href = '../index.html#editor';
+    } else if (typeof useTemplate === 'function') {
+        // Fallback to regular useTemplate
+        closePreviewModal();
+        useTemplate(currentCategoryId, currentTemplateId);
+    }
 }
 
 // Close preview modal
