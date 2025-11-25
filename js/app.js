@@ -1500,27 +1500,20 @@ function showInterstitialAd() {
     const optionsContainer = document.getElementById('downloadOptions');
 
     // Reset display states
-    adContainer.style.display = 'block';
-    optionsContainer.style.display = 'none';
-    timerElement.textContent = countdown;
+    if (adContainer) adContainer.style.display = 'block';
+    if (optionsContainer) optionsContainer.style.display = 'none';
+    if (timerElement) timerElement.textContent = countdown;
 
     const timer = setInterval(() => {
         countdown--;
-        timerElement.textContent = countdown;
+        if (timerElement) timerElement.textContent = countdown;
 
         if (countdown <= 0) {
             clearInterval(timer);
 
-            // Hide ad container
-            adContainer.style.display = 'none';
-
-            // Close modal
-            closeDownloadModal();
-
-            // Automatically trigger PDF download after 300ms
-            setTimeout(() => {
-                downloadPDF();
-            }, 300);
+            // Hide ad container and show download options
+            if (adContainer) adContainer.style.display = 'none';
+            if (optionsContainer) optionsContainer.style.display = 'block';
         }
     }, 1000);
 }
