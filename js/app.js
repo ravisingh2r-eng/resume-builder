@@ -123,8 +123,15 @@ function setupEventListeners() {
     // Settings/Customization
     document.getElementById('settingsBtn')?.addEventListener('click', toggleCustomization);
 
-    // Download
-    document.getElementById('downloadBtn')?.addEventListener('click', openDownloadModal);
+    // Download - Direct PDF download without modal
+    document.getElementById('downloadBtn')?.addEventListener('click', () => {
+        // Direct download at high quality
+        if (window.generatePDF) {
+            window.generatePDF();
+            incrementDownloadCount();
+            showAchievement('Downloaded!', 'Your resume has been downloaded successfully');
+        }
+    });
 
     // Personal Information Inputs
     document.getElementById('fullName')?.addEventListener('input', (e) => updateResumeData('personal', 'fullName', e.target.value));
