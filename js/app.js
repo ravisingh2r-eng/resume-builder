@@ -1489,31 +1489,68 @@ function openDownloadModal() {
     trackEvent('download_initiated');
 }
 
+// Store timer reference globally to prevent multiple timers
+let adCountdownTimer = null;
+
 function closeDownloadModal() {
+    // Clear any running timer
+    if (adCountdownTimer) {
+        clearInterval(adCountdownTimer);
+        adCountdownTimer = null;
+    }
     document.getElementById('downloadModal')?.classList.remove('active');
 }
 
 function showInterstitialAd() {
+    // Clear any existing timer first
+    if (adCountdownTimer) {
+        clearInterval(adCountdownTimer);
+    }
+
     let countdown = 5;
     const timerElement = document.getElementById('adTimer');
     const adContainer = document.getElementById('downloadAdContainer');
     const optionsContainer = document.getElementById('downloadOptions');
 
-    // Reset display states
-    if (adContainer) adContainer.style.display = 'block';
-    if (optionsContainer) optionsContainer.style.display = 'none';
-    if (timerElement) timerElement.textContent = countdown;
+    console.log('Starting ad countdown...', { timerElement, adContainer, optionsContainer });
 
-    const timer = setInterval(() => {
+    // Reset display states
+    if (adContainer) {
+        adContainer.style.display = 'block';
+        adContainer.style.visibility = 'visible';
+    }
+    if (optionsContainer) {
+        optionsContainer.style.display = 'none';
+    }
+    if (timerElement) {
+        timerElement.textContent = countdown;
+    }
+
+    adCountdownTimer = setInterval(() => {
         countdown--;
-        if (timerElement) timerElement.textContent = countdown;
+        console.log('Countdown:', countdown);
+
+        if (timerElement) {
+            timerElement.textContent = countdown;
+        }
 
         if (countdown <= 0) {
-            clearInterval(timer);
+            clearInterval(adCountdownTimer);
+            adCountdownTimer = null;
+            console.log('Countdown finished! Hiding ad and showing options...');
 
-            // Hide ad container and show download options
-            if (adContainer) adContainer.style.display = 'none';
-            if (optionsContainer) optionsContainer.style.display = 'block';
+            // Hide ad container
+            if (adContainer) {
+                adContainer.style.display = 'none';
+                adContainer.style.visibility = 'hidden';
+            }
+
+            // Show download options
+            if (optionsContainer) {
+                optionsContainer.style.display = 'block';
+            }
+
+            console.log('Ad hidden, options shown');
         }
     }, 1000);
 }
