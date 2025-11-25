@@ -1127,6 +1127,35 @@ if (typeof window !== 'undefined') {
     window.previewTemplate = function(categoryId, templateId) {
         openPreviewModal(categoryId, templateId);
     };
+
+    // Wrapper function to render templates
+    window.renderTemplatePreview = function(templateId, data) {
+        // Set APP_STATE data for rendering
+        if (typeof APP_STATE !== 'undefined') {
+            APP_STATE.resumeData = data;
+            APP_STATE.visibleSections = {
+                summary: true,
+                experience: true,
+                education: true,
+                skills: true,
+                projects: true,
+                certifications: true,
+                languages: true,
+                interests: true
+            };
+        }
+
+        // Call appropriate template render function
+        const functionName = `renderTemplate_${templateId}`;
+        if (typeof window[functionName] === 'function') {
+            return window[functionName]();
+        } else {
+            // Fallback to modern template
+            return typeof renderTemplate_modern === 'function'
+                ? renderTemplate_modern()
+                : '<div>Template not found</div>';
+        }
+    };
 }
 
 console.log(`Categories Loaded: ${getCategoryCount()} categories + Blank Template`);
