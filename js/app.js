@@ -97,15 +97,35 @@ function initializeApp() {
 // EVENT LISTENERS
 // ============================================
 function setupEventListeners() {
+    console.log('Setting up event listeners...');
+
     // Navigation
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', handleNavigation);
     });
 
     // CTA Buttons
-    document.getElementById('createResumeBtn')?.addEventListener('click', () => navigateToPage('editor'));
-    document.getElementById('heroCreateBtn')?.addEventListener('click', () => navigateToPage('editor'));
-    document.getElementById('heroTemplatesBtn')?.addEventListener('click', () => navigateToPage('templates'));
+    const createBtn = document.getElementById('createResumeBtn');
+    const heroCreateBtn = document.getElementById('heroCreateBtn');
+    const heroTemplatesBtn = document.getElementById('heroTemplatesBtn');
+
+    console.log('Hero buttons found:', { heroCreateBtn, heroTemplatesBtn });
+
+    if (heroCreateBtn) {
+        heroCreateBtn.addEventListener('click', () => {
+            console.log('Hero Create button clicked!');
+            navigateToPage('editor');
+        });
+    }
+
+    if (heroTemplatesBtn) {
+        heroTemplatesBtn.addEventListener('click', () => {
+            console.log('Hero Templates button clicked!');
+            navigateToPage('templates');
+        });
+    }
+
+    createBtn?.addEventListener('click', () => navigateToPage('editor'));
 
     // Theme Toggle
     document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
@@ -216,14 +236,23 @@ function handleNavigation(e) {
 }
 
 function navigateToPage(page) {
+    console.log('Navigating to page:', page);
+
     // Update active nav link
     document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.toggle('active', link.getAttribute('data-page') === page);
     });
 
     // Show appropriate page
+    const targetPageId = `${page}Page`;
+    console.log('Looking for page with ID:', targetPageId);
+
     document.querySelectorAll('.page').forEach(p => {
-        p.classList.toggle('active', p.id === `${page}Page`);
+        const isActive = p.id === targetPageId;
+        p.classList.toggle('active', isActive);
+        if (isActive) {
+            console.log('Activated page:', p.id);
+        }
     });
 
     APP_STATE.currentPage = page;
