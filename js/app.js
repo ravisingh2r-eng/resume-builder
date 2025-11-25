@@ -1492,8 +1492,16 @@ function openDownloadModal() {
     const modal = document.getElementById('downloadModal');
     modal.classList.add('active');
 
-    // Show interstitial ad and start countdown
-    showInterstitialAd();
+    // Hide ad container and show download options directly
+    const adContainer = document.getElementById('downloadAdContainer');
+    const optionsContainer = document.getElementById('downloadOptions');
+
+    if (adContainer) {
+        adContainer.style.display = 'none';
+    }
+    if (optionsContainer) {
+        optionsContainer.style.display = 'block';
+    }
 
     trackEvent('download_initiated');
 }
