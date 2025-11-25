@@ -186,8 +186,7 @@ function setupEventListeners() {
     window.shareOnFacebook = shareOnFacebook;
     window.shareOnLinkedIn = shareOnLinkedIn;
 
-    // Modal Close
-    window.closeDownloadModal = closeDownloadModal;
+    // Modal Close (download modal removed)
     window.closeCustomization = closeCustomization;
 
     // Download Functions
@@ -1487,7 +1486,6 @@ function downloadPDF() {
     if (window.generatePDF) {
         window.generatePDF();
         incrementDownloadCount();
-        closeDownloadModal();
         showAchievement('Downloaded!', 'Your resume has been downloaded successfully');
     }
 }
@@ -1496,7 +1494,6 @@ function downloadPNG() {
     if (window.generatePNG) {
         window.generatePNG();
         incrementDownloadCount();
-        closeDownloadModal();
     }
 }
 
@@ -1509,8 +1506,6 @@ function downloadJSON() {
     linkElement.setAttribute('href', dataUri);
     linkElement.setAttribute('download', exportFileDefaultName);
     linkElement.click();
-
-    closeDownloadModal();
 }
 
 function incrementDownloadCount() {
