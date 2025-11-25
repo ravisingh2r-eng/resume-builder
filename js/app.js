@@ -91,6 +91,12 @@ function initializeApp() {
 
     // Initialize ad refresh timer
     setupAdRefresh();
+
+    // Ensure download modal is closed on page load
+    const downloadModal = document.getElementById('downloadModal');
+    if (downloadModal) {
+        downloadModal.classList.remove('active');
+    }
 }
 
 // ============================================
