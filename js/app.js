@@ -91,12 +91,6 @@ function initializeApp() {
 
     // Initialize ad refresh timer
     setupAdRefresh();
-
-    // Ensure download modal is closed on page load
-    const downloadModal = document.getElementById('downloadModal');
-    if (downloadModal) {
-        downloadModal.classList.remove('active');
-    }
 }
 
 // ============================================
@@ -223,9 +217,6 @@ function handleNavigation(e) {
 }
 
 function navigateToPage(page) {
-    // Close any open modals when navigating
-    closeDownloadModal();
-
     // Update active nav link
     document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.toggle('active', link.getAttribute('data-page') === page);
@@ -1489,89 +1480,7 @@ function loadSampleData() {
 // ============================================
 // DOWNLOAD & EXPORT
 // ============================================
-function openDownloadModal() {
-    const modal = document.getElementById('downloadModal');
-    modal.classList.add('active');
-
-    // Hide ad container and show download options directly
-    const adContainer = document.getElementById('downloadAdContainer');
-    const optionsContainer = document.getElementById('downloadOptions');
-
-    if (adContainer) {
-        adContainer.style.display = 'none';
-    }
-    if (optionsContainer) {
-        optionsContainer.style.display = 'block';
-    }
-
-    trackEvent('download_initiated');
-}
-
-// Store timer reference globally to prevent multiple timers
-let adCountdownTimer = null;
-
-function closeDownloadModal() {
-    // Clear any running timer
-    if (adCountdownTimer) {
-        clearInterval(adCountdownTimer);
-        adCountdownTimer = null;
-    }
-    document.getElementById('downloadModal')?.classList.remove('active');
-}
-
-function showInterstitialAd() {
-    // Clear any existing timer first
-    if (adCountdownTimer) {
-        clearInterval(adCountdownTimer);
-    }
-
-    let countdown = 5;
-    const timerElement = document.getElementById('adTimer');
-    const adContainer = document.getElementById('downloadAdContainer');
-    const optionsContainer = document.getElementById('downloadOptions');
-
-    console.log('Starting ad countdown...', { timerElement, adContainer, optionsContainer });
-
-    // Reset display states
-    if (adContainer) {
-        adContainer.style.display = 'block';
-        adContainer.style.visibility = 'visible';
-    }
-    if (optionsContainer) {
-        optionsContainer.style.display = 'none';
-    }
-    if (timerElement) {
-        timerElement.textContent = countdown;
-    }
-
-    adCountdownTimer = setInterval(() => {
-        countdown--;
-        console.log('Countdown:', countdown);
-
-        if (timerElement) {
-            timerElement.textContent = countdown;
-        }
-
-        if (countdown <= 0) {
-            clearInterval(adCountdownTimer);
-            adCountdownTimer = null;
-            console.log('Countdown finished! Hiding ad and showing options...');
-
-            // Hide ad container
-            if (adContainer) {
-                adContainer.style.display = 'none';
-                adContainer.style.visibility = 'hidden';
-            }
-
-            // Show download options
-            if (optionsContainer) {
-                optionsContainer.style.display = 'block';
-            }
-
-            console.log('Ad hidden, options shown');
-        }
-    }, 1000);
-}
+// Download modal removed - direct download implemented
 
 // Placeholder functions (actual implementation in pdf-generator.js)
 function downloadPDF() {

@@ -1728,54 +1728,6 @@
         </section>
     </main>
 
-    <!-- Download Modal with Interstitial Ad -->
-    <div class="modal" id="downloadModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Download Resume</h3>
-                <button class="btn-icon" onclick="closeDownloadModal()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-
-            <!-- Interstitial Ad Container (Hidden - Ad removed) -->
-            <div class="ad-container ad-interstitial" id="downloadAdContainer" style="display: none;">
-                <div class="ad-label">Please wait... Ad will close in <span id="adTimer">5</span> seconds</div>
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                     data-ad-slot="8888888888"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-            </div>
-
-            <div class="modal-body" id="downloadOptions">
-                <div class="download-options">
-                    <button class="download-option" onclick="closeDownloadModal(); showQualitySelector('pdf')">
-                        <i class="fas fa-file-pdf"></i>
-                        <span>Download as PDF</span>
-                        <small>Recommended for job applications · Choose quality</small>
-                    </button>
-                    <button class="download-option" onclick="closeDownloadModal(); showQualitySelector('png')">
-                        <i class="fas fa-file-image"></i>
-                        <span>Download as PNG</span>
-                        <small>Image format for quick sharing · Choose quality</small>
-                    </button>
-                    <button class="download-option" onclick="downloadJSON()">
-                        <i class="fas fa-file-code"></i>
-                        <span>Save as JSON</span>
-                        <small>For editing later</small>
-                    </button>
-                    <button class="download-option" onclick="closeDownloadModal(); downloadAll()">
-                        <i class="fas fa-box-open"></i>
-                        <span>Download All Formats</span>
-                        <small>Get PDF, PNG, and JSON together</small>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Mobile Bottom Anchor Ad -->
     <div class="ad-container ad-mobile-anchor mobile-only">
         <button class="ad-close" onclick="this.parentElement.style.display='none'">
